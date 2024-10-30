@@ -1,0 +1,46 @@
+/* Navigation.css */
+
+.container {
+    max-width: 100%;
+    padding: 0px;
+}
+
+.header {
+    background-color: #8f0000; /* Dark red background */
+    width: 100%;
+    display: flex;
+    justify-content: center; /* Center navbar items */
+}
+
+.navbar {
+    width: 100%;
+}
+
+.navbar-nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%; /* Use the full width of the navbar */
+    list-style: none;/* Remove list styling */
+}
+
+.nav-item {
+    color: #fff; /* White text color */
+    font-weight: bold; /* Bold font for nav items */
+    margin-right: 20px; /* Space between nav items */
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+/* Responsive Styles */
+@media (max-width: 992px) {
+    .navbar-nav {
+        flex-direction: column; /* Stack items vertically on smaller screens */
+    }
+    .nav-item{
+        text-align: center; /* Center align the links */
+    }
+}
+
+

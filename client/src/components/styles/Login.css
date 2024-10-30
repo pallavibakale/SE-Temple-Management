@@ -1,0 +1,59 @@
+.login-section {
+  width: 100%;
+  margin: auto; /* Center the login section horizontally */
+  padding: 20px;
+  background: url('../../images/background.PNG') no-repeat center center;
+  background-size: cover;
+  color: #fff;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.login-form {
+  background-color: #d9d9d9;
+  border-radius: 5px;
+  padding: 33px 40px;
+  max-width: 593px;
+  width: 100%;
+  margin: 0 auto; /* Center the form horizontally */
+}
+
+.form-title {
+  color: #000;
+  font-family: Inter, sans-serif;
+  font-size: 32px;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.input-group {
+  display: flex;
+  align-items: center; /* Ensure labels and inputs are aligned at their vertical center */
+  margin-top: 20px;
+  justify-content: space-between; /* This will help ensure labels and inputs are spaced nicely */
+}
+
+.form-label {
+  margin-right: 10px; /* Adds some space between the label and the input */
+}
+
+.forgot-password {
+  margin-top: 5px;
+  font-size: 14px;
+}
+
+.login-actions {
+  margin-top: 20px;
+}
+
+.login-link {
+  margin-top: 20px;
+  font-size: 16px;
+  color: #000;
+}
+
+.submit-btn {
+  margin-top: 25px;
+  width: 40%; /* Ensure button takes full width */
+  height: 20px;;
+}

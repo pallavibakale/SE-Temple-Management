@@ -1,0 +1,63 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .about-us-card {
+    width: 80%;
+    margin: 20px;
+    padding: 20px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    align-self: center;
+  }
+  
+  .accordion-item {
+    margin: 10px 0;
+  }
+  
+  .accordion-title {
+    background: #d9d9d9;
+    border: none;
+    outline: none;
+    width: 100%;
+    padding: 15px 20px;
+    text-align: left;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .accordion-title:hover {
+    background-color: #8f0000;
+    color: white;
+  }
+  
+  .accordion-content {
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-top: none;
+    border-radius: 0 0 4px 4px;
+  }
+  .about-us-card {
+    width: 80%;
+    margin: 20px;
+    padding: 20px;
+    background: url('../../images/background.PNG') no-repeat center center;
+    background-size: cover; /* Cover the entire area of the card */
+    color: #fff; /* Assuming white text to stand out on a likely dark background */
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    position: relative; /* Needed for layout positioning if additional elements are absolutely positioned */
+  }
+  
+  .accordion-item {
+    background: rgba(0, 0, 0, 0.5); /* Semi-transparent background for accordion items to enhance readability */
+    border-radius: 4px;
+    margin: 10px 0;
+  }
+    

@@ -1,0 +1,34 @@
+@media print {
+    body * {
+      visibility: hidden; /* Hides all content except the print area when printing */
+    }
+    .about-us-card, .about-us-card * {
+      visibility: visible; /* Only the calendar and its content are visible */
+    }
+    .about-us-card {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+    }
+    .print-button, .calendar-note {
+      display: none; /* Hide elements that are not needed for printing */
+    }
+  }
+  
+  .print-button {
+    margin-top: 20px;
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .calendar-note {
+    font-size: 0.85em;
+    margin-top: 20px;
+    color: #666;
+  }
+  

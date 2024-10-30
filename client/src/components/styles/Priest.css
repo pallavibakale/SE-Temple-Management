@@ -1,0 +1,60 @@
+.priest-section {
+    width: 80%;
+    margin: 20px auto; /* Centers the section horizontally */
+    padding: 20px;
+    background: url('../../images/background.PNG') no-repeat center center;
+    background-size: cover;
+    color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+.priest-card {
+    background-color: rgba(255, 255, 255, 0.6); /* Semi-transparent white background */
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    color: #312f2f;
+}
+
+.priest-section h1 {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1500px;
+    width: 80%;
+    padding-left: 10px;
+    padding-right: 40px;
+    color: #333;
+    text-align: left;
+}
+
+.priest-card p {
+    color: #666;
+    line-height: 1.6;
+}
+
+.priest-card a {
+    color: blue;
+    text-decoration: underline;
+    padding: 0 5px;
+}
+
+.priest-card a:hover {
+    text-decoration: none;
+}
+
+.priest-card ul {
+    padding-left: 20px;
+}
+
+.priest-card li {
+    margin-bottom: 10px;
+}
+
+.priest-card img {
+    width: 30%; /* Reduce the width of the image to 30% */
+    height: auto; /* Maintain aspect ratio */
+    display: block; /* Ensure the image behaves properly */
+    margin: 0 auto 20px; /* Center the image horizontally and add some bottom margin */
+}

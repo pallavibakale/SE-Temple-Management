@@ -1,0 +1,141 @@
+.container {
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .banner-image {
+    width: 100%;
+  }
+  
+  .main-content {
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    overflow: hidden;
+    position: relative;
+    z-index: 10;
+    padding: 25px 51px 46px;
+  }
+  
+  .page-title {
+    color: #000;
+    font: 700 32px Inter, sans-serif;
+  }
+  
+  .donation-info {
+    background-color: rgba(217, 217, 217, 0.4);
+    display: flex;
+    flex-direction: column;
+    font-weight: 500;
+    padding: 22px 0 73px;
+    border-radius: 10px; /* Add border-radius for curved edges */
+  }
+  
+  .donation-details {
+    display: flex;
+    flex-direction: column;
+    padding: 0 20px;
+  }
+  
+  .npo-info {
+    color: #000;
+    font: 20px Inter, sans-serif;
+  }
+  
+  .donation-options {
+    display: flex;
+    gap: 20px;
+    justify-content: space-between;
+    margin: 28px 0 0 87px;
+  }
+  
+  .donation-option {
+    align-self: start;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .donation-title {
+    color: #000;
+    font: 20px Inter, sans-serif;
+  }
+  
+  .donation-type {
+    font-size: 24px;
+    color: rgba(143, 0, 0, 1);
+  }
+  
+  .donation-button {
+    border-radius: 20px;
+    background-color: #ab0b0b;
+    align-self: center;
+    margin-top: 27px;
+    color: #fff;
+    padding: 10px 41px 17px;
+    font: 32px Inter, sans-serif;
+    cursor: pointer;
+  }
+  
+  .monthly-pledge {
+    display: flex;
+    flex-direction: column;
+    font-size: 20px;
+    color: #000;
+  }
+  
+  .pledge-dropdown {
+    position: relative;
+  }
+  
+  .dropdown-arrow {
+    margin-left: auto; /* Push the chevron icon to the extreme right */
+  }
+  
+  .selected-amount {
+    border-radius: 10px;
+    background-color: #fff;
+    display: flex;
+    margin-top: 7px;
+    gap: 20px;
+    padding: 7px 10px 0 11px; /* Adjusted padding for shorter length */
+    cursor: pointer;
+  }
+  
+  .dropdown-options {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: calc(100% - 22px); /* Adjusted width to match the shorter pledge field */
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    z-index: 1;
+  }
+  
+  .dropdown-option {
+    padding: 10px;
+    cursor: pointer;
+  }
+  
+  .dropdown-option:hover {
+    background-color: #f5f5f5;
+  }
+  
+  .cancel-link {
+    text-decoration-line: underline;
+  }
+  
+  .cash-check-info {
+    color: #000;
+    text-decoration-line: none;
+    margin: 44px 29px 0 20px;
+    font: 20px Inter, sans-serif;
+  }
+  
+  .donation-form-link {
+    display: block; /* Display the link on a different line */
+    margin-top: 10px; /* Add some top margin to separate it from the previous content */
+    text-decoration: underline;
+  }
+  

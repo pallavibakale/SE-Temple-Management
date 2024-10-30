@@ -1,0 +1,35 @@
+.book-section {
+    width: 100%;
+    margin: auto;
+    padding: 20px;
+    background: url('../../images/background.PNG') no-repeat center center;
+    background-size: cover;
+    color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow-y: auto; /* Make signup section scrollable if it exceeds screen height */
+  }
+  
+  .book-form {
+    background-color: #d9d9d9;
+    border-radius: 5px;
+    padding: 33px 40px;
+    max-width: 593px;
+    width: 100%;
+    margin: 0 auto; /* Center the form horizontally */
+  }
+  
+  .form-title {
+    color: #000;
+    font-family: Inter, sans-serif;
+    font-size: 32px;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .submit-btn {
+    margin-top: 25px;
+    width: 100%; /* Ensure button takes full width */
+  }
+  

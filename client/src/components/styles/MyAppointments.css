@@ -1,0 +1,48 @@
+
+.table-card{
+    height: 100vh;
+}
+.table-container {
+    height: 100vh;
+    width: auto;
+    overflow-y: auto;
+  }
+  
+  .top-content, .train-stats {
+    max-height: 300px;
+    overflow-y: auto;
+    /* Additional styling as needed */
+  }
+  
+  .row {
+    padding-bottom: 50px;
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+  }
+  
+  th, td {
+    padding: 10px;
+    text-align: center;
+    border: 1px solid #ddd;
+  }
+  
+  th {
+    background-color: #f2f2f2;
+    cursor: pointer; /* Indicates the header is clickable */
+  }
+  
+  th svg {
+    margin-right: 5px; /* Space between icon and text */
+  }
+  
+  .progress-bar {
+    background-color: #007bff; /* Customize as needed */
+  }
+  
+  td .progress {
+    margin: 0; /* Full-width progress bar inside table cells */
+  }

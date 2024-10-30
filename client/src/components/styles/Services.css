@@ -1,0 +1,189 @@
+.scroll-container {
+    display: flex;
+    align-items: center;
+    position: relative; /* To position the buttons */
+    padding-left: 100px;
+    padding-right: 100px;
+}
+
+.horizontal-scroll {
+    display: flex;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    width: 100%; /* Adjust as needed */
+    padding: 20px 0; /* Add some vertical padding */
+}
+
+.image-container {
+    flex: 0 0 auto; /* Do not grow, do not shrink, and base size on content */
+    margin-right: 20px; /* Space between images */
+    text-align: center; /* Center the text below images */
+}
+
+.service-image {
+    width: auto; /* Maintain aspect ratio */
+    height: 150px; /* Set a fixed height */
+}
+
+.image-description {
+    margin-top: 8px; /* Space between image and description */
+}
+
+.scroll-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 2; /* Ensure they're above the images */
+    background-color: #fff; /* Add background color if needed */
+    border: none; /* Remove border */
+    /* Add additional styling as needed */
+    padding: 40px;
+}
+
+.left-button {
+    left: 0;
+}
+
+.right-button {
+    right: 0;
+}
+
+/* Hiding the scrollbar while allowing the scrolling */
+.horizontal-scroll::-webkit-scrollbar {
+    display: none;
+}
+
+.horizontal-scroll {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+}
+
+.services-desc {
+    /* Add your styles here */
+    margin-bottom: 20px; /* Add some space before the image scroll */
+    background-color: #ccc;
+    margin: 10px; 
+    padding: 20px;
+    border-radius: 10px;
+}
+.schedule-button{
+    border-radius: 5px;
+    background-color: seagreen;.container {
+    max-width: 100%;
+    padding: 0;
+    margin: 0 auto;
+    }
+
+.main-content {
+    padding: 15px;
+    margin-top: 20px; /* Adjust as needed for your layout */
+}
+
+.scroll-container {
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.horizontal-scroll {
+    display: flex;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+}
+
+.image-container {
+    flex: 0 0 auto;
+    margin-right: 20px;
+    text-align: center;
+}
+
+.service-image {
+    width: 100%; /* Responsive image width */
+    max-height: 150px; /* Fixed max height */
+    object-fit: contain;
+}
+
+.image-description {
+    margin-top: 8px;
+}
+
+.scroll-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: #fff;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.left-button {
+    left: 10px;
+}
+
+.right-button {
+    right: 10px;
+}
+
+.horizontal-scroll::-webkit-scrollbar {
+    display: none;
+}
+
+.horizontal-scroll {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.services-desc {
+    background-color: #f2f2f2;
+    padding: 20px;
+    border-radius: 10px;
+    margin: 10px 0;
+}
+
+.schedule-button {
+    border-radius: 5px;
+    background-color: #4CAF50; /* Changed to a standard hex code */
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    display: block; /* Make the button a block element to center it */
+    margin: 20px auto; /* Center the button */
+}
+
+
+
+.form-field {
+    margin-bottom: 15px;
+}
+
+.label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.input {
+    width: 100%;
+    padding: 8px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+}
+
+.save-button {
+    background-color: #008CBA;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+}
+
+    height: 35px;
+    font-weight: bold;
+    font-size: large;
+    border: 0;
+}

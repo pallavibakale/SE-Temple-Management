@@ -1,0 +1,62 @@
+.education-section {
+  width: 80%;
+  margin: 20px;
+  padding: 20px;
+  background: url('../../images/background.PNG') no-repeat center center;
+  background-size: cover; /* Cover the entire area of the card */
+  color: #fff; /* Assuming white text to stand out on a likely dark background */
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  position: relative; /* Needed for layout positioning if additional elements are absolutely positioned */
+  align-self: center;
+}
+  
+  .education-card {
+    background-color: rgba(255, 255, 255, 0.6); /* Semi-transparent white background */
+    padding: 40px; /* Provides padding around the content */
+    margin: 20px auto; /* Centers the card and provides margin on the top and bottom */
+    max-width: 1500px; /* Limits the maximum width of the card */
+    width: 80%; /* Sets the width to 80% of its container */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    color: #312f2f; /* Ensures text is readable on a lighter background */
+  }
+  
+  .education-section h1 {
+    margin-left: auto; /* Aligns header to the center of its container */
+    margin-right: auto; /* Keeps it centered */
+    max-width: 1500px; /* Same as the card to keep width consistent */
+    width: 80%; /* Matches the card's width */
+    padding-left: 10px; /* Matches the card's left padding */
+    padding-right: 40px; /* Ensures padding is consistent on both sides */
+    color: #333;
+    text-align: left; /* Aligns the text to the left within the styled <h1> area */
+}
+  
+  .education-card h2 {
+    color: #333;
+  }
+  
+  .education-card p, .education-card li {
+    color: #666;
+    line-height: 1.6;
+  }
+  
+  .stream-link, .channel-link, .donation-link {
+    color: blue;
+    text-decoration: underline;
+    padding: 0 5px; /* Padding for links */
+  }
+  
+  .stream-link:hover, .channel-link:hover, .donation-link:hover {
+    text-decoration: none;
+  }
+  
+  ul {
+    padding-left: 20px;
+  }
+  
+  li {
+    margin-bottom: 10px;
+  }
+  

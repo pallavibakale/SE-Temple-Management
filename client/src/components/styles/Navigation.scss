@@ -1,0 +1,48 @@
+@import "./global";
+
+.header {
+  background-color: $white;
+  width: 100%;
+  display: flex;
+  justify-content: center; // Center navbar items
+
+  .navbar {
+    border-bottom: 1px solid $border-grey;
+    width: 100%;
+
+    .navbar-nav {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%; // Use the full width of the navbar
+      list-style: none;
+      padding: 15px 12px;
+
+      .nav-item {
+        margin-right: 20px; // Space between nav items
+        display: flex;
+        align-items: center;
+        height: 100%;
+        a {
+          color: inherit;
+          text-decoration: none;
+        }
+      }
+    }
+  }
+}
+
+// Responsive Styles
+@media (max-width: 992px) {
+  .header {
+    .navbar {
+      .navbar-nav {
+        flex-direction: column; // Stack items vertically on smaller screens
+
+        .nav-item {
+          text-align: center; // Center align the links
+        }
+      }
+    }
+  }
+}

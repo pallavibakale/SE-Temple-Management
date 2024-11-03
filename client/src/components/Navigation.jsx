@@ -1,14 +1,5 @@
 import React from "react";
 import { Navbar, Nav, NavDropdown, Button } from "react-bootstrap";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faHome,
-  faCalendarAlt,
-  faImages,
-  faInfoCircle,
-  faDonate,
-  faSignInAlt,
-} from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
 import "./styles/Navigation.css";
 
@@ -22,7 +13,6 @@ const Navigation = ({ onLogout }) => {
             {(role === "Devotee" || role === "Priest" || role === "") && (
               <Nav.Item className="nav-item">
                 <Link to="/" className="nav-link">
-                  <FontAwesomeIcon icon={faHome} />
                   Home
                 </Link>
               </Nav.Item>
@@ -30,19 +20,11 @@ const Navigation = ({ onLogout }) => {
             {role === "Admin" && (
               <Nav.Item className="nav-item">
                 <Link to="/admin-home" className="nav-link">
-                  <FontAwesomeIcon icon={faHome} />
                   Home
                 </Link>
               </Nav.Item>
             )}
-            <NavDropdown
-              title={
-                <>
-                  <FontAwesomeIcon icon={faCalendarAlt} /> Activities
-                </>
-              }
-              id="navbarScrollingDropdown"
-            >
+            <NavDropdown title={<>Activities</>} id="navbarScrollingDropdown">
               {(role === "Devotee" || role === "") && (
                 <>
                   <NavDropdown.Item className="nav-item">
@@ -75,14 +57,7 @@ const Navigation = ({ onLogout }) => {
                 </Link>
               </NavDropdown.Item>
             </NavDropdown>
-            <NavDropdown
-              title={
-                <>
-                  <FontAwesomeIcon icon={faImages} /> Resources
-                </>
-              }
-              id="navbarScrollingDropdown"
-            >
+            <NavDropdown title={<>Resources</>} id="navbarScrollingDropdown">
               <NavDropdown.Item className="nav-item">
                 <Link to="/gallery" className="dropdown-item">
                   Gallery
@@ -115,14 +90,7 @@ const Navigation = ({ onLogout }) => {
                 </>
               )}
             </NavDropdown>
-            <NavDropdown
-              title={
-                <>
-                  <FontAwesomeIcon icon={faInfoCircle} /> About Us
-                </>
-              }
-              id="navbarScrollingDropdown"
-            >
+            <NavDropdown title={<>About Us</>} id="navbarScrollingDropdown">
               <NavDropdown.Item className="nav-item">
                 <Link to="/mission" className="dropdown-item">
                   Mission
@@ -143,14 +111,12 @@ const Navigation = ({ onLogout }) => {
             </NavDropdown>
             <Nav.Item className="nav-item">
               <Link to="/donations" className="nav-link">
-                <FontAwesomeIcon icon={faDonate} />
                 Donations
               </Link>
             </Nav.Item>
             {role === "" && (
               <Nav.Item className="nav-item">
                 <Link to="/login" className="nav-link">
-                  <FontAwesomeIcon icon={faSignInAlt} />
                   Login
                 </Link>
               </Nav.Item>

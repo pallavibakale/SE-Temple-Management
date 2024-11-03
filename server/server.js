@@ -17,7 +17,7 @@ const app = express();
 const PORT = process.env.PORT || 3001;
 
 const dbURI =
-  "mongodb+srv://pallavib0996:HskKA5PlAYgA5U5h@templedb.c678m.mongodb.net/templedb?retryWrites=true&w=majority";
+  "mongodb+srv://pallavib0996:HskKA5PlAYgA5U5h@templedb.c678m.mongodb.net/?retryWrites=true&w=majority&appName=templedb";
 
 // Connect to MongoDB
 mongoose.connect(dbURI, {});

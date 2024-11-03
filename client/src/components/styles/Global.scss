@@ -1,0 +1,28 @@
+@import "variables";
+
+button {
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: Inter;
+  font-size: 18px;
+  line-height: 28px;
+  font-weight: 400;
+  color: $white;
+  background: $primary-color;
+  opacity: 1;
+  border: none;
+  border-radius: 6px;
+  &:hover {
+    color: $white;
+    background: $primary-hover;
+    &:active {
+      color: $white;
+      background: $primary-hover;
+    }
+  }
+  &:disabled {
+    opacity: 0.4;
+  }
+}

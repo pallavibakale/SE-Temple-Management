@@ -8,6 +8,13 @@ const Navigation = ({ onLogout }) => {
   return (
     <header className="header">
       <Navbar>
+        <Navbar.Brand href="/">
+          <img
+            src="logo (1).jpg"
+            alt="Logo"
+            style={{ width: "50px", height: "50px" }}
+          />
+        </Navbar.Brand>
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="navbar-nav">
             {(role === "Devotee" || role === "Priest" || role === "") && (

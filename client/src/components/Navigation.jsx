@@ -16,16 +16,16 @@ const Navigation = ({ onLogout }) => {
           />
         </Navbar.Brand>
         <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="navbar-nav">
+          <Nav className="">
             {(role === "Devotee" || role === "Priest" || role === "") && (
-              <Nav.Item className="nav-item">
+              <Nav.Item className="">
                 <Link to="/" className="nav-link">
                   Home
                 </Link>
               </Nav.Item>
             )}
             {role === "Admin" && (
-              <Nav.Item className="nav-item">
+              <Nav.Item className="">
                 <Link to="/admin-home" className="nav-link">
                   Home
                 </Link>
@@ -34,7 +34,7 @@ const Navigation = ({ onLogout }) => {
             <NavDropdown title={<>Activities</>} id="navbarScrollingDropdown">
               {(role === "Devotee" || role === "") && (
                 <>
-                  <NavDropdown.Item className="nav-item">
+                  <NavDropdown.Item className="">
                     <Link to="/services" className="dropdown-item">
                       Services
                     </Link>

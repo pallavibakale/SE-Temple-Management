@@ -2,7 +2,6 @@ import React, { useState, useEffect, useContext } from "react";
 import "./styles/Home.css";
 import Navigation from "./Navigation";
 import Footer from "./Footer";
-import Banner from "../images/omkaar.png";
 import UriContext from "./UriContext";
 import { useNavigate } from "react-router-dom";
 

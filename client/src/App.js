@@ -21,7 +21,7 @@ import CreatePriest from "./components/CreatePriest";
 import PasswordReset from "./components/PasswordReset";
 
 function App() {
-  const uriValue = "http://localhost:3001";
+  const uriValue = "http://localhost:3000";
   localStorage.setItem("role", "");
 
   return (

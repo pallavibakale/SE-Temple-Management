@@ -1,6 +1,6 @@
 import React from "react";
 import { Navbar, Nav, Button } from "react-bootstrap";
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 import "./styles/Navigation.css";
 
 const Navigation = ({ onLogout }) => {
@@ -80,7 +80,7 @@ const Navigation = ({ onLogout }) => {
             {(role === "Devotee" || role === "") && (
               <Nav.Item className="">
                 <NavLink
-                  to="/contactUs"
+                  to="/contact"
                   className="nav-link"
                   activeClassName="active"
                 >
@@ -126,15 +126,9 @@ const Navigation = ({ onLogout }) => {
             {role === "" && (
               <Navbar.Collapse className="justify-content-end">
                 <Nav.Item className="nav-item">
-                  <button>
-                    <NavLink
-                      to="/login"
-                      className="nav-link"
-                      activeClassName="active"
-                    >
-                      Login
-                    </NavLink>
-                  </button>
+                  <Link to="/login" className="nav-link">
+                    <button>Login</button>
+                  </Link>
                 </Nav.Item>
               </Navbar.Collapse>
             )}

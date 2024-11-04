@@ -11,7 +11,7 @@ button {
   background: #ff7400;
   opacity: 1;
   border: none;
-  border-radius: 6px;
+  border-radius: 6px !important;
 }
 button:hover {
   color: white;

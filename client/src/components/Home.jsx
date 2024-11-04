@@ -159,7 +159,6 @@ function HomePage() {
 
   return (
     <div className="">
-      {/* <button>hjsjk</button> */}
       <Navigation onLogout={handleLogout} />
       <main className="main-content">
         <div className="announcements-section">

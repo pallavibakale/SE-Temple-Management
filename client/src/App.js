@@ -21,7 +21,7 @@ import CreatePriest from "./components/CreatePriest";
 import PasswordReset from "./components/PasswordReset";
 
 function App() {
-  const uriValue = "http://localhost:3000";
+  const uriValue = "http://localhost:3001";
   localStorage.setItem("role", "");
 
   return (
@@ -35,7 +35,7 @@ function App() {
             <Route path="/edu" element={<Education />} />
             <Route path="/events" element={<Events />} />
             <Route path="/contact" element={<ContactUs />} />
-            <Route path="/mission" element={<AboutUs />} />
+            <Route path="/aboutUs" element={<AboutUs />} />
             <Route path="/live" element={<LiveStreamCard />} />
             <Route path="/signup" element={<SignUp />} />
             <Route path="/admin-home" element={<AdminHome />} />
@@ -44,8 +44,8 @@ function App() {
             <Route path="/appointments" element={<MyAppointment />} />
             <Route path="/priest" element={<PriestCard />} />
             <Route path="/gallery" element={<Gallery />} />
-            <Route path="/donations" element={<DonationsCard />} />
-            <Route path="/card-details" element={<Donate />} />
+            {/* <Route path="/donations" element={<DonationsCard />} /> */}
+            <Route path="/donate" element={<Donate />} />
             <Route path="/add-priest" element={<CreatePriest />} />
             <Route path="/forgot-password" element={<PasswordReset />} />
           </Routes>

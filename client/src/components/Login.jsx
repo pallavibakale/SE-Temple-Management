@@ -1,13 +1,13 @@
-import React, { useState, useContext} from "react";
+import React, { useState, useContext } from "react";
 import { Form, Button } from "react-bootstrap";
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import Navigation from "./Navigation";
 import Footer from "./Footer";
-import Banner from "../images/omkaar.png";
+
 import "./styles/Login.css";
-import UriContext from './UriContext';
-import { useNavigate } from 'react-router-dom';
+import UriContext from "./UriContext";
+import { useNavigate } from "react-router-dom";
 
 const LoginForm = () => {
   const uri = useContext(UriContext);
@@ -15,7 +15,7 @@ const LoginForm = () => {
   const [formValues, setFormValues] = useState({
     email: "",
     password: "",
-    role: ""
+    role: "",
   });
 
   const handleSubmit = async (e) => {
@@ -23,37 +23,36 @@ const LoginForm = () => {
     const errors = validateForm();
     if (Object.keys(errors).length === 0) {
       try {
-        const response = await fetch(uri+'/login', {
-          method: 'POST',
+        const response = await fetch(uri + "/login", {
+          method: "POST",
           headers: {
-            'Content-Type': 'application/json',
+            "Content-Type": "application/json",
           },
           body: JSON.stringify(formValues),
         });
         const data = await response.json();
-        if (data.message === 'Logged successfully') {
-          toast.success('Logged in successfully');
-          localStorage.setItem('token', data.token);
-          localStorage.setItem('id', data.user.empId);
-          localStorage.setItem('role', data.user.role);
-          if(data.user.role === 'Admin'){
-            navigate('/admin-home');
-          }else{
-            navigate('/');
+        if (data.message === "Logged successfully") {
+          toast.success("Logged in successfully");
+          localStorage.setItem("token", data.token);
+          localStorage.setItem("id", data.user.empId);
+          localStorage.setItem("role", data.user.role);
+          if (data.user.role === "Admin") {
+            navigate("/admin-home");
+          } else {
+            navigate("/");
           }
         } else {
           toast.error(data.message);
         }
       } catch (error) {
-        toast.error('Failed to connect to the server'+error);
+        toast.error("Failed to connect to the server" + error);
       }
     } else {
-      Object.values(errors).forEach(error => {
+      Object.values(errors).forEach((error) => {
         toast.error(error);
       });
     }
   };
-
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -62,7 +61,7 @@ const LoginForm = () => {
 
   const validateForm = () => {
     let errors = {};
-    if (!formValues.email.includes('@')) {
+    if (!formValues.email.includes("@")) {
       errors.email = "Email must include '@' character";
     }
     if (formValues.password.length < 8) {
@@ -122,19 +121,23 @@ const LoginForm = () => {
           Not a member? <a href="/signup">Sign up</a>
         </p>
       </Form>
-      <ToastContainer position="top-center" autoClose={5000} hideProgressBar={false} newestOnTop={false} closeOnClick rtl={false} pauseOnFocusLoss draggable pauseOnHover />
+      <ToastContainer
+        position="top-center"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+      />
     </div>
   );
 };
 
 const LoginSection = () => (
   <div className="container text-center">
-    <img
-      loading="lazy"
-      src={Banner}
-      alt="Omkaar Temple banner"
-      className="banner-image"
-    />
     <Navigation />
     <LoginForm />
     <Footer />

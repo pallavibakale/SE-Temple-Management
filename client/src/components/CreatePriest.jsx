@@ -1,12 +1,12 @@
 import React, { useState, useContext } from "react";
 import { Form, Button } from "react-bootstrap";
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import Navigation from "./Navigation";
 import Footer from "./Footer";
-import Banner from "../images/omkaar.png";
+
 import "./styles/Signup.css";
-import UriContext from './UriContext';
+import UriContext from "./UriContext";
 import { useNavigate } from "react-router-dom";
 
 const SignUpForm = () => {
@@ -18,7 +18,7 @@ const SignUpForm = () => {
     phone: "",
     password: "",
     address: "",
-    empId: ""
+    empId: "",
   });
 
   const handleSubmit = async (e) => {
@@ -26,31 +26,33 @@ const SignUpForm = () => {
     const errors = validateForm();
     if (Object.keys(errors).length === 0) {
       try {
-        const response = await fetch(uri+'/create-priest', {
-          method: 'POST',
+        const response = await fetch(uri + "/create-priest", {
+          method: "POST",
           headers: {
-            'Content-Type': 'application/json'
+            "Content-Type": "application/json",
           },
-          body: JSON.stringify({...formValues, empId: undefined}) // ensure empId is not sent from the client
+          body: JSON.stringify({ ...formValues, empId: undefined }), // ensure empId is not sent from the client
         });
         if (response.ok) {
           const data = await response.json();
-          toast.success(`Signed up successfully. Your Employee ID is ${data.empId}.`); // Display empId to the user
+          toast.success(
+            `Signed up successfully. Your Employee ID is ${data.empId}.`
+          ); // Display empId to the user
         } else {
-          console.error('Failed to sign up:', response.statusText);
-          toast.error('Failed to sign up. Please try again.');
+          console.error("Failed to sign up:", response.statusText);
+          toast.error("Failed to sign up. Please try again.");
         }
       } catch (error) {
-        console.error('Error signing up:', error);
-        toast.error('Error signing up. Please try again later.');
+        console.error("Error signing up:", error);
+        toast.error("Error signing up. Please try again later.");
       }
     } else {
-      Object.values(errors).forEach(error => {
+      Object.values(errors).forEach((error) => {
         toast.error(error);
       });
     }
-};
-  
+  };
+
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormValues({ ...formValues, [name]: value });
@@ -64,14 +66,19 @@ const SignUpForm = () => {
     if (!formValues.lastName.match(/^[a-zA-Z]+$/)) {
       errors.lastName = "Last name must not include numbers";
     }
-    if (!formValues.email.includes('@')) {
+    if (!formValues.email.includes("@")) {
       errors.email = "Email must include '@' character";
     }
     if (!formValues.phone.match(/^\+\d{1,2}-?\d{10}$/)) {
       errors.phone = "Phone number must include country code and be 10 digits";
     }
-    if (!formValues.password.match(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*\W).{8,}$/)) {
-      errors.password = "Password must be at least 8 characters, include a number, uppercase, lowercase, and special character";
+    if (
+      !formValues.password.match(
+        /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*\W).{8,}$/
+      )
+    ) {
+      errors.password =
+        "Password must be at least 8 characters, include a number, uppercase, lowercase, and special character";
     }
     return errors;
   };
@@ -150,33 +157,37 @@ const SignUpForm = () => {
           Create Priest
         </Button>
       </Form>
-      <ToastContainer position="top-center" autoClose={5000} hideProgressBar={false} newestOnTop={false} closeOnClick rtl={false} pauseOnFocusLoss draggable pauseOnHover />
+      <ToastContainer
+        position="top-center"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+      />
     </div>
   );
 };
 
-const CreatePriest = () =>{
+const CreatePriest = () => {
   const navigate = useNavigate();
   const handleLogout = async () => {
-    localStorage.removeItem('token');
-    localStorage.removeItem('role');
-    localStorage.removeItem('empId');
-    localStorage.setItem('role', '');
-    navigate('/');
+    localStorage.removeItem("token");
+    localStorage.removeItem("role");
+    localStorage.removeItem("empId");
+    localStorage.setItem("role", "");
+    navigate("/");
   };
   return (
-  <div className="container text-center">
-    <img
-      loading="lazy"
-      src={Banner}
-      alt="Omkaar Temple banner"
-      className="banner-image"
-    />
-    <Navigation onLogout={handleLogout}/>
-    <SignUpForm />
-    <Footer />
-  </div>
-);
-}
+    <div className="container text-center">
+      <Navigation onLogout={handleLogout} />
+      <SignUpForm />
+      <Footer />
+    </div>
+  );
+};
 
 export default CreatePriest;

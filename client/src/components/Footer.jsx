@@ -1,20 +1,17 @@
 import React from "react";
+import "./styles/Footer.css";
 
 const Footer = () => {
-  
-  const styles = {
-        backgroundColor: "#8f0000",
-        fontWeight: "bold",
-        color: "#fff",
-        textAlign: "center",
-        padding: "20px 0",
-        bottom: "0",
-        width: "100%"
-  }
-
   return (
-    <footer className="footer" style={styles}>
-      <p>&copy; 2024 Omkaar Temple. All rights reserved.</p>
+    <footer className="footer">
+      <div>
+        &copy; 2024 TMS, Inc. All rights reserved
+        <ul className="footer-list">
+          <li>Privacy</li>
+          <li>Terms</li>
+          <li>Sitemap</li>
+        </ul>
+      </div>
     </footer>
   );
 };

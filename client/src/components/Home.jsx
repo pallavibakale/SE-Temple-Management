@@ -158,7 +158,7 @@ function HomePage() {
   );
 
   return (
-    <div className="">
+    <div className="container">
       <Navigation onLogout={handleLogout} />
       <main className="main-content">
         <div className="announcements-section">

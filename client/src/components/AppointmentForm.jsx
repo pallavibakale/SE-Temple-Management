@@ -1,18 +1,17 @@
-import React, { useState, useContext,useEffect } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { Form, Button } from "react-bootstrap";
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import Navigation from "./Navigation";
 import Footer from "./Footer";
-import Banner from "../images/omkaar.png";
 import "./styles/Appointment.css";
-import UriContext from './UriContext';
+import UriContext from "./UriContext";
 import { useNavigate } from "react-router-dom";
 
 const Appointment = () => {
   const uri = useContext(UriContext);
   const navigate = useNavigate();
-  const empId = localStorage.getItem('id');
+  const empId = localStorage.getItem("id");
   const [formValues, setFormValues] = useState({
     empId: empId,
     firstName: "",
@@ -23,10 +22,10 @@ const Appointment = () => {
     address: "",
     priest: "",
     priestId: "",
-    status: "pending"
+    status: "pending",
   });
-  const [formErrors, setFormErrors] = useState({})
-  const [priests, setPriests] = useState([])
+  const [formErrors, setFormErrors] = useState({});
+  const [priests, setPriests] = useState([]);
 
   useEffect(() => {
     fetchPriests();
@@ -34,73 +33,71 @@ const Appointment = () => {
 
   const fetchPriests = async () => {
     try {
-      const response = await fetch(uri + '/get-priests', {
-        method: 'POST',
+      const response = await fetch(uri + "/get-priests", {
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json'
+          "Content-Type": "application/json",
         },
-        body: JSON.stringify({ role: 'Priest' })  // Ensure this matches server expectations
+        body: JSON.stringify({ role: "Priest" }), // Ensure this matches server expectations
       });
       if (response.ok) {
         const data = await response.json(); // Corrected await
         setPriests(data); // Assume data is an array of priest objects
       } else {
-        alert('Failed to fetch priests');
+        alert("Failed to fetch priests");
       }
     } catch (error) {
-      console.error('Error fetching priests:', error);
+      console.error("Error fetching priests:", error);
     }
   };
-  
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     const errors = validateForm();
     if (Object.keys(errors).length === 0) {
       try {
-        const response = await fetch(uri+'/book-appointment', {
-          method: 'POST',
+        const response = await fetch(uri + "/book-appointment", {
+          method: "POST",
           headers: {
-            'Content-Type': 'application/json'
+            "Content-Type": "application/json",
           },
-          body: JSON.stringify(formValues)
+          body: JSON.stringify(formValues),
         });
         if (response.ok) {
-          navigate('/appointments');
+          navigate("/appointments");
           // Optionally, you can redirect or show a success message here
         } else {
-          console.error('Failed to book:', response.statusText);
-          toast.error('Failed to book. Please try again.');
+          console.error("Failed to book:", response.statusText);
+          toast.error("Failed to book. Please try again.");
         }
       } catch (error) {
-        console.error('Error booking:', error);
-        toast.error('Error booking. Please try again later.');
+        console.error("Error booking:", error);
+        toast.error("Error booking. Please try again later.");
       }
     } else {
       setFormErrors(errors);
-      Object.values(errors).forEach(error => {
+      Object.values(errors).forEach((error) => {
         toast.error(error);
       });
     }
   };
-  
+
   const handleInputChange = (e) => {
     const { name, value } = e.target;
-    if (name === 'priest') {
-      const val = value.split('-');
-      setFormValues(prev => ({
+    if (name === "priest") {
+      const val = value.split("-");
+      setFormValues((prev) => ({
         ...prev,
-        priest: val[0],  // Set priest name
-        priestId: val[1] // Set priest ID
+        priest: val[0], // Set priest name
+        priestId: val[1], // Set priest ID
       }));
     } else {
-      setFormValues(prev => ({
+      setFormValues((prev) => ({
         ...prev,
-        [name]: value
+        [name]: value,
       }));
     }
   };
-  
 
   const validateForm = () => {
     let errors = {};
@@ -110,20 +107,19 @@ const Appointment = () => {
     if (!formValues.title.match(/^[a-zA-Z\s]+$/)) {
       errors.title = "Title must not include numbers";
     }
-    if (!formValues.email.includes('@')) {
+    if (!formValues.email.includes("@")) {
       errors.email = "Email must include '@' character";
     }
     if (!formValues.phone.match(/^\+\d{1,2}-?\d{10}$/)) {
       errors.phone = "Phone number must include country code and be 10 digits";
     }
     if (!formValues.priest) {
-        formErrors.issue = 'Select Priest is required';
-      }
+      formErrors.issue = "Select Priest is required";
+    }
     return errors;
   };
 
   return (
-    
     <div className="book-section">
       <Form className="book-form" onSubmit={handleSubmit}>
         <h2 className="form-title">Appointment</h2>
@@ -185,18 +181,18 @@ const Appointment = () => {
         <Form.Group controlId="priest">
           <Form.Label>Priest:</Form.Label>
           <Form.Control
-                as="select"
-                name="priest"
-                value={formValues.priest}
-                onChange={handleInputChange}
-              >
-                <option>Select Priest Name</option>
-                {priests.map((priest) => (
-                  <option key={priest._id}>
-                    {priest.firstName} {priest.lastName}-{priest.empId}
-                  </option>
-                ))}
-              </Form.Control>
+            as="select"
+            name="priest"
+            value={formValues.priest}
+            onChange={handleInputChange}
+          >
+            <option>Select Priest Name</option>
+            {priests.map((priest) => (
+              <option key={priest._id}>
+                {priest.firstName} {priest.lastName}-{priest.empId}
+              </option>
+            ))}
+          </Form.Control>
         </Form.Group>
         <Form.Group controlId="address">
           <Form.Label>Address:</Form.Label>
@@ -213,7 +209,17 @@ const Appointment = () => {
           Book Appointment
         </Button>
       </Form>
-      <ToastContainer position="top-center" autoClose={5000} hideProgressBar={false} newestOnTop={false} closeOnClick rtl={false} pauseOnFocusLoss draggable pauseOnHover />
+      <ToastContainer
+        position="top-center"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+      />
     </div>
   );
 };
@@ -221,25 +227,19 @@ const Appointment = () => {
 const AppointmentForm = () => {
   const navigate = useNavigate();
   const handleLogout = async () => {
-    localStorage.removeItem('token');
-    localStorage.removeItem('role');
-    localStorage.removeItem('empId');
-    localStorage.setItem('role', '');
-    navigate('/');
+    localStorage.removeItem("token");
+    localStorage.removeItem("role");
+    localStorage.removeItem("empId");
+    localStorage.setItem("role", "");
+    navigate("/");
   };
   return (
-  <div className="container text-center">
-    <img
-      loading="lazy"
-      src={Banner}
-      alt="Omkaar Temple banner"
-      className="banner-image"
-    />
-    <Navigation onLogout={handleLogout}/>
-    <Appointment />
-    <Footer />
-  </div>
-)
-}
+    <div className="container text-center">
+      <Navigation onLogout={handleLogout} />
+      <Appointment />
+      <Footer />
+    </div>
+  );
+};
 
 export default AppointmentForm;

@@ -1,10 +1,9 @@
 import React, { useState } from "react";
 import "./styles/Home.css";
 import "./styles/AboutUs.css";
-import 'react-toastify/dist/ReactToastify.css';
+import "react-toastify/dist/ReactToastify.css";
 import Navigation from "./Navigation";
 import Footer from "./Footer";
-import Banner from "../images/omkaar.png";
 import { useNavigate } from "react-router-dom";
 
 // Accordion Component
@@ -27,37 +26,32 @@ const AboutUsCard = () => {
 
   // Logout function
   const handleLogout = async () => {
-    localStorage.removeItem('token');
-    localStorage.removeItem('role');
-    localStorage.removeItem('empId');
-    localStorage.setItem('role', '');
-    navigate('/');
+    localStorage.removeItem("token");
+    localStorage.removeItem("role");
+    localStorage.removeItem("empId");
+    localStorage.setItem("role", "");
+    navigate("/");
   };
 
   return (
     <div className="container">
-      {/* Banner */}
-      <img
-        loading="lazy"
-        src={Banner}
-        alt="Omkaar Temple banner"
-        className="banner-image"
-      />
-      {/* Navigation */}
-      <Navigation onLogout={handleLogout}/>
+      <Navigation onLogout={handleLogout} />
       <main className="main-content">
         <div className="about-us-card">
           {/* About Us Content */}
           <h1>Welcome to Omkaar Temple</h1>
           <p>
-            Omkaar, the inaugural Hindu temple in North America named after the sacred Aum mantra,
-            will house the Pancha Mukha Shiva Linga as its primary deity. This profound symbol
-            reflects the vastness of the universe, embodying all creation, life, and existence
-            in its entirety. The Pancha Mukha Shiva Linga, representing universal unity in all
-            directions, will be revered alongside other deities who hold a cherished place in
-            Hindu worship. These include Parvathy (Ambaal), Ganapathi, Murugan, Balaji (Perumal),
-            Padmavathi, Lakshmi, Sriram Parivar, Hanuman, Krishna, Radha, and the Nava Grahas.
-            Together, they encapsulate the rich tapestry of divine forms in Hindu tradition.
+            Omkaar, the inaugural Hindu temple in North America named after the
+            sacred Aum mantra, will house the Pancha Mukha Shiva Linga as its
+            primary deity. This profound symbol reflects the vastness of the
+            universe, embodying all creation, life, and existence in its
+            entirety. The Pancha Mukha Shiva Linga, representing universal unity
+            in all directions, will be revered alongside other deities who hold
+            a cherished place in Hindu worship. These include Parvathy (Ambaal),
+            Ganapathi, Murugan, Balaji (Perumal), Padmavathi, Lakshmi, Sriram
+            Parivar, Hanuman, Krishna, Radha, and the Nava Grahas. Together,
+            they encapsulate the rich tapestry of divine forms in Hindu
+            tradition.
           </p>
           {/* Accordions */}
           <Accordion
@@ -90,6 +84,6 @@ const AboutUsCard = () => {
       <Footer />
     </div>
   );
-}
+};
 
 export default AboutUsCard;

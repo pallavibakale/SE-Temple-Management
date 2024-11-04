@@ -4,7 +4,6 @@ import UriContext from "./UriContext";
 import Service from "./Service";
 import Footer from "./Footer";
 import Navigation from "./Navigation";
-import Banner from "../images/omkaar.png";
 import "./styles/Home.css";
 import "./styles/Services.css";
 import { useNavigate } from "react-router-dom";
@@ -84,12 +83,6 @@ function AdminServices() {
 
   return (
     <div className="container">
-      <img
-        loading="lazy"
-        src={Banner}
-        alt="Omkaar Temple banner"
-        className="banner-image"
-      />
       <Navigation onLogout={handleLogout} />
       <main className="main-content">
         <Container fluid>

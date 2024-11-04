@@ -1,40 +1,40 @@
 import React, { useState, useContext } from "react";
 import { Form, Button } from "react-bootstrap";
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import Navigation from "./Navigation";
 import Footer from "./Footer";
-import Banner from "../images/omkaar.png";
+
 import "./styles/Signup.css";
-import UriContext from './UriContext';
+import UriContext from "./UriContext";
 import { useNavigate } from "react-router-dom";
 
 const Password = () => {
   const uri = useContext(UriContext);
   const navigate = useNavigate();
-  const [email, setEmail] = useState('');
-  const [otp, setOtp] = useState('');
-  const [password, setPassword] = useState('');
-  const [password1, setPassword1] = useState('');
+  const [email, setEmail] = useState("");
+  const [otp, setOtp] = useState("");
+  const [password, setPassword] = useState("");
+  const [password1, setPassword1] = useState("");
 
   const handleEmailSubmit = async (e) => {
     e.preventDefault();
     try {
       const response = await fetch(`${uri}/request-otp`, {
-        method: 'POST',
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json'
+          "Content-Type": "application/json",
         },
-        body: JSON.stringify({ email })
+        body: JSON.stringify({ email }),
       });
       if (response.ok) {
-        toast.success('OTP sent to your email.');
+        toast.success("OTP sent to your email.");
       } else {
-        toast.error('Email not registered or server error.');
+        toast.error("Email not registered or server error.");
       }
     } catch (error) {
-      console.error('Error sending OTP:', error);
-      toast.error('Error sending OTP. Please try again later.');
+      console.error("Error sending OTP:", error);
+      toast.error("Error sending OTP. Please try again later.");
     }
   };
 
@@ -46,21 +46,21 @@ const Password = () => {
     }
     try {
       const response = await fetch(`${uri}/reset-password`, {
-        method: 'PATCH',
+        method: "PATCH",
         headers: {
-          'Content-Type': 'application/json'
+          "Content-Type": "application/json",
         },
-        body: JSON.stringify({ email, otp, password })
+        body: JSON.stringify({ email, otp, password }),
       });
       if (response.ok) {
-        toast.success('Password reset successful!');
-        navigate('/login');
+        toast.success("Password reset successful!");
+        navigate("/login");
       } else {
-        toast.error('Failed to reset. Please try again.');
+        toast.error("Failed to reset. Please try again.");
       }
     } catch (error) {
-      console.error('Error resetting password:', error);
-      toast.error('Error resetting password. Please try again later.');
+      console.error("Error resetting password:", error);
+      toast.error("Error resetting password. Please try again later.");
     }
   };
 
@@ -79,7 +79,9 @@ const Password = () => {
             required
           />
         </Form.Group>
-        <Button variant="primary" type="submit" className="submit-btn">Send OTP</Button>
+        <Button variant="primary" type="submit" className="submit-btn">
+          Send OTP
+        </Button>
       </Form>
       <Form className="signup-form" onSubmit={handleResetSubmit}>
         <Form.Group controlId="otp" className="form-fields">
@@ -115,9 +117,21 @@ const Password = () => {
             required
           />
         </Form.Group>
-        <Button variant="primary" type="submit" className="submit-btn">Reset Password</Button>
+        <Button variant="primary" type="submit" className="submit-btn">
+          Reset Password
+        </Button>
       </Form>
-      <ToastContainer position="top-center" autoClose={5000} hideProgressBar={false} newestOnTop={false} closeOnClick rtl={false} pauseOnFocusLoss draggable pauseOnHover />
+      <ToastContainer
+        position="top-center"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+      />
     </div>
   );
 };
@@ -125,25 +139,19 @@ const Password = () => {
 const PasswordReset = () => {
   const navigate = useNavigate();
   const handleLogout = async () => {
-    localStorage.removeItem('token');
-    localStorage.removeItem('role');
-    localStorage.removeItem('empId');
-    localStorage.setItem('role', '');
-    navigate('/');
+    localStorage.removeItem("token");
+    localStorage.removeItem("role");
+    localStorage.removeItem("empId");
+    localStorage.setItem("role", "");
+    navigate("/");
   };
   return (
-  <div className="container text-center">
-    <img
-      loading="lazy"
-      src={Banner}
-      alt="Omkaar Temple banner"
-      className="banner-image"
-    />
-    <Navigation onLogout={handleLogout}/>
-    <Password />
-    <Footer />
-  </div>
-);
-}
+    <div className="container text-center">
+      <Navigation onLogout={handleLogout} />
+      <Password />
+      <Footer />
+    </div>
+  );
+};
 
 export default PasswordReset;

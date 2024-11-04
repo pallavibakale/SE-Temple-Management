@@ -2,9 +2,8 @@ import React, { useState, useEffect, useContext } from "react";
 import "./styles/Home.css";
 import Navigation from "./Navigation";
 import Footer from "./Footer";
-import Banner from "../images/omkaar.png";
 import Announcement from "./Announcement";
-import UriContext from './UriContext';
+import UriContext from "./UriContext";
 import { useNavigate } from "react-router-dom";
 
 const TempleHours = () => (
@@ -106,11 +105,11 @@ function HomePage() {
   const [searchQuery, setSearchQuery] = useState("");
   const navigate = useNavigate();
   const handleLogout = async () => {
-    localStorage.removeItem('token');
-    localStorage.removeItem('role');
-    localStorage.removeItem('empId');
-    localStorage.setItem('role', '');
-    navigate('/');
+    localStorage.removeItem("token");
+    localStorage.removeItem("role");
+    localStorage.removeItem("empId");
+    localStorage.setItem("role", "");
+    navigate("/");
   };
 
   useEffect(() => {
@@ -118,18 +117,18 @@ function HomePage() {
   });
 
   const fetchAnnouncements = async () => {
-    const response = await fetch(uri+'/announcements');
+    const response = await fetch(uri + "/announcements");
     const data = await response.json();
     setAnnouncements(data);
   };
 
   const handleAddAnnouncement = async (announcement) => {
-    const response = await fetch(uri+'/add-announcement', {
-      method: 'POST',
+    const response = await fetch(uri + "/add-announcement", {
+      method: "POST",
       headers: {
-        'Content-Type': 'application/json'
+        "Content-Type": "application/json",
       },
-      body: JSON.stringify(announcement)
+      body: JSON.stringify(announcement),
     });
     if (response.ok) {
       fetchAnnouncements(); // Refresh the list
@@ -137,12 +136,12 @@ function HomePage() {
   };
 
   const handleEditAnnouncement = async (announcement) => {
-    const response = await fetch(uri+`/announcements/${announcement._id}`, {
-      method: 'PUT',
+    const response = await fetch(uri + `/announcements/${announcement._id}`, {
+      method: "PUT",
       headers: {
-        'Content-Type': 'application/json'
+        "Content-Type": "application/json",
       },
-      body: JSON.stringify(announcement)
+      body: JSON.stringify(announcement),
     });
     if (response.ok) {
       fetchAnnouncements(); // Refresh the list
@@ -150,8 +149,8 @@ function HomePage() {
   };
 
   const handleDeleteAnnouncement = async (id) => {
-    const response = await fetch(uri+`/announcements/${id}`, {
-      method: 'DELETE',
+    const response = await fetch(uri + `/announcements/${id}`, {
+      method: "DELETE",
     });
     if (response.ok) {
       fetchAnnouncements(); // Refresh the list after deletion
@@ -168,13 +167,7 @@ function HomePage() {
 
   return (
     <div className="container">
-      <img
-        loading="lazy"
-        src={Banner}
-        alt="Omkaar Temple banner"
-        className="banner-image"
-      />
-      <Navigation onLogout={handleLogout}/>
+      <Navigation onLogout={handleLogout} />
       <main className="main-content">
         {/* <img
           loading="lazy"

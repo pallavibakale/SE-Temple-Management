@@ -1,0 +1,42 @@
+button {
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: Inter;
+  font-size: 18px;
+  line-height: 28px;
+  font-weight: 400;
+  color: white;
+  background: #ff7400;
+  opacity: 1;
+  border: none;
+  border-radius: 6px !important;
+}
+button:hover {
+  color: white;
+  background: #ca5b00;
+}
+button:hover:active {
+  color: white;
+  background: #ca5b00;
+}
+button:disabled {
+  opacity: 0.4;
+}
+
+footer {
+  background: #f8f9fa;
+  width: 100%;
+  text-align: center;
+  padding: 15px 0;
+  font-size: 14px;
+}
+footer .footer-list {
+  display: inline-flex;
+  text-align: center;
+  list-style-position: inside;
+  gap: 15px;
+  padding-left: 15px;
+  margin-bottom: 0;
+}/*# sourceMappingURL=Footer.css.map */

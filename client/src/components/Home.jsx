@@ -1,11 +1,9 @@
-import React, {useState, useEffect, useContext} from "react";
+import React, { useState, useEffect, useContext } from "react";
 import "./styles/Home.css";
 import Navigation from "./Navigation";
 import Footer from "./Footer";
-import Banner from "../images/omkaar.png";
 import UriContext from "./UriContext";
 import { useNavigate } from "react-router-dom";
-//import BG from "../images/background.PNG";
 
 const AnnouncementItem = ({ title, description, expanded, onClick }) => {
   const handleClick = () => {
@@ -15,10 +13,15 @@ const AnnouncementItem = ({ title, description, expanded, onClick }) => {
   return (
     <div className="announcement-item">
       <div className="announcement-title">{title}</div>
-      {expanded && <div className="announcement-description">{description}</div>}
+      {expanded && (
+        <div className="announcement-description">{description}</div>
+      )}
       {!expanded && (
-        <div className="announcement-expand" >
-          <button className="announcement-expand-text" onClick={handleClick}>&#9660;</button> {/* Down arrow symbol */}
+        <div className="announcement-expand">
+          <button className="announcement-expand-text" onClick={handleClick}>
+            &#9660;
+          </button>{" "}
+          {/* Down arrow symbol */}
         </div>
       )}
     </div>
@@ -129,15 +132,15 @@ function HomePage() {
   });
 
   const handleLogout = async () => {
-    localStorage.removeItem('token');
-    localStorage.removeItem('role');
-    localStorage.removeItem('empId');
-    localStorage.setItem('role', '');
-    navigate('/');
+    localStorage.removeItem("token");
+    localStorage.removeItem("role");
+    localStorage.removeItem("empId");
+    localStorage.setItem("role", "");
+    navigate("/");
   };
 
   const fetchAnnouncements = async () => {
-    const response = await fetch(uri+'/announcements');
+    const response = await fetch(uri + "/announcements");
     const data = await response.json();
     setAnnouncements(data);
   };
@@ -155,14 +158,8 @@ function HomePage() {
   );
 
   return (
-    <div className="container">
-      <img
-        loading="lazy"
-        src = {Banner}
-        alt="Omkaar Temple banner"
-        className="banner-image"
-      />
-      <Navigation onLogout={handleLogout}/>
+    <div className="">
+      <Navigation onLogout={handleLogout} />
       <main className="main-content">
         <div className="announcements-section">
           <h2 className="section-title">Announcements</h2>
@@ -202,7 +199,7 @@ function HomePage() {
         </section>
       </main>
       <Footer />
-      </div>
+    </div>
   );
 }
 

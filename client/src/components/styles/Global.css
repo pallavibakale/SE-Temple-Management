@@ -1,0 +1,26 @@
+button {
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: Inter;
+  font-size: 18px;
+  line-height: 28px;
+  font-weight: 400;
+  color: white;
+  background: #ff7400;
+  opacity: 1;
+  border: none;
+  border-radius: 6px !important;
+}
+button:hover {
+  color: white;
+  background: #ca5b00;
+}
+button:hover:active {
+  color: white;
+  background: #ca5b00;
+}
+button:disabled {
+  opacity: 0.4;
+}/*# sourceMappingURL=Global.css.map */

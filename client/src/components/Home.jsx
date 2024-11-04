@@ -69,56 +69,7 @@ const TempleHours = () => (
   </div>
 );
 
-const NewsletterSignup = () => (
-  <div className="newsletter-signup">
-    <div className="newsletter-signup-header">
-      <div className="newsletter-signup-title">
-        Sign up for Omkaar Temple's Newsletter :
-      </div>
-      <div className="newsletter-signup-required">
-        *{" "}
-        <span className="newsletter-signup-required-text">
-          indicates Required
-        </span>
-      </div>
-    </div>
-    <form className="newsletter-signup-form">
-      <label htmlFor="email" className="newsletter-signup-label">
-        Email <span className="required">*</span>
-      </label>
-      <input
-        type="email"
-        id="email"
-        className="newsletter-signup-input"
-        required
-        aria-required="true"
-      />
-      <label htmlFor="firstName" className="newsletter-signup-label">
-        First Name <span className="required">*</span>
-      </label>
-      <input
-        type="text"
-        id="firstName"
-        className="newsletter-signup-input"
-        required
-        aria-required="true"
-      />
-      <label htmlFor="lastName" className="newsletter-signup-label">
-        Last Name <span className="required">*</span>
-      </label>
-      <input
-        type="text"
-        id="lastName"
-        className="newsletter-signup-input"
-        required
-        aria-required="true"
-      />
-      <button type="submit" className="newsletter-signup-button">
-        Subscribe
-      </button>
-    </form>
-  </div>
-);
+
 
 function HomePage() {
   const uri = useContext(UriContext);
@@ -192,7 +143,7 @@ function HomePage() {
               <div className="temple-info-container">
                 <TempleHours />
                 <h2 className="section-title">Newsletter</h2>
-                <NewsletterSignup />
+                
               </div>
             </div>
           </div>

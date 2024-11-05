@@ -40,7 +40,7 @@ const ContactUsCard = () => {
           
             <div className="contact-item">
               <h1 style={{color:'black'}}>Contact Us</h1>
-              <Form className="contact-form" onSubmit={handleSubmit}>
+              <Form className="contact-form" onSubmit={handleSubmit} style={{backgroundColor:'#fff'}}>
                 <Form.Group controlId="name" className="form-fields">
                   <Form.Label > Name:</Form.Label>
                   <Form.Control
@@ -49,7 +49,7 @@ const ContactUsCard = () => {
                     value={formValues.name}
                     onChange={handleInputChange}
                     placeholder="Enter Your Name"
-                    style={{padding:'5px', width:'350px'}}
+                    style={{padding:'5px', width:'350px', borderRadius:'10px' }}
                     required
                   />
                 </Form.Group>
@@ -63,6 +63,7 @@ const ContactUsCard = () => {
                     value={formValues.email}
                     onChange={handleInputChange}
                     placeholder="&#9993;  Enter Your Email"
+                    style={{ borderRadius:'10px'}}
                     required
                 />
                 </Form.Group>
@@ -74,6 +75,7 @@ const ContactUsCard = () => {
                     className="input"
                     value={formValues.question}
                     onChange={handleInputChange}
+                    style={{ borderRadius:'10px',height:'80px'}}
                     placeholder="Ask me question...."
                     rows={3}
                   />

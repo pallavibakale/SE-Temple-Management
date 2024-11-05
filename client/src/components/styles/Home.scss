@@ -203,59 +203,6 @@
   }
 }
 
-.newsletter-signup {
-  background-color: #d9d9d9;
-  display: flex;
-  flex-direction: column;
-  padding: 26px;
-  text-align: center;
-  border-radius: 10px;
-
-  .newsletter-signup-header {
-    color: #000;
-    display: flex;
-    flex-direction: column;
-    padding: 0 44px;
-
-    .newsletter-signup-title {
-      font: 600 16px Inter, sans-serif;
-    }
-
-    .newsletter-signup-required {
-      align-self: end;
-      font: 300 16px Inter, sans-serif;
-      margin-top: 8px;
-
-      .newsletter-signup-required-text {
-        color: rgba(0, 0, 0, 1);
-        font-size: 13px;
-      }
-    }
-  }
-
-  .newsletter-signup-form {
-    display: flex;
-    flex-direction: column;
-    font-weight: 300;
-    padding: 0 44px;
-
-    .newsletter-signup-label {
-      color: #ec0e0e;
-      font: 300 16px Inter, sans-serif;
-      margin-top: 6px;
-    }
-
-    .newsletter-signup-input {
-      background-color: #d9d9d9;
-      height: 27px;
-      margin-top: 4px;
-    }
-  }
-
-  .newsletter-signup-button {
-    align-self: start;
-  }
-}
 
 .required {
   color: #d70d0d;

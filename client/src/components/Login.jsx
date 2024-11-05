@@ -4,6 +4,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Navigation from "./Navigation";
 import Footer from "./Footer";
+import { FaGoogle } from "react-icons/fa";
 
 import "./styles/Login.css";
 import UriContext from "./UriContext";
@@ -73,15 +74,62 @@ const LoginForm = () => {
   return (
     <div className="login-section">
       <Form className="login-form" onSubmit={handleSubmit}>
-        <h2 className="form-title">Login</h2>
+        <h2 className="form-title">Sign in</h2>
+        <button style={{   
+            width: '520px',
+            height: '44px',
+            padding: '0 16px',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            fontFamily: 'Inter',
+            fontSize: '16px',
+            lineHeight: '26px',
+            fontWeight: '400',
+            color: '#FFFFFF',
+            background: '#4E85EB',
+            border: 'none',
+            borderRadius: '6px',
+            gap: '6px',
+            cursor: 'pointer',
+            opacity: '1',
+          }}> 
+          <FaGoogle style={{marginRight: '5px'}} />
+          Sign in with Google
+        </button>
+
+        <p style={{fontSize: '14px', lineHeight: '22px', fontWeight: '400', color: '#9095A1FF', marginTop:'5px'}}>
+            <span style={{textDecoration: 'line-through',color:'#9095A1FF'}}>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;                    
+            </span> 
+            &nbsp;or &nbsp;  
+            <span style={{textDecoration: 'line-through',color:'#9095A1FF'}}>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;                    
+            </span>
+        </p>
         <Form.Group controlId="email" className="input-group">
           <Form.Label className="form-label">Email:</Form.Label>
           <Form.Control
             type="email"
             name="email"
             value={formValues.email}
+            style={{
+              width: '520px',
+              height: '36px',
+              paddingLeft: '15px',
+              paddingRight: '12px',
+              fontFamily: 'Inter',
+              fontSize: '14px',
+              lineHeight: '22px',
+              fontWeight: '400',
+              background: '#F3F4F6',
+              borderRadius: '6px',
+              borderWidth: '0px',
+              outline: 'none',
+              color: '#BDC1CA'
+            }}
             onChange={handleInputChange}
-            placeholder="Email"
+            placeholder="&#9993;  Email"
             required
           />
         </Form.Group>
@@ -90,36 +138,60 @@ const LoginForm = () => {
           <Form.Control
             type="password"
             name="password"
+            style={{
+              width: '520px',
+              height: '36px',
+              paddingLeft: '15px',
+              paddingRight: '12px',
+              fontFamily: 'Inter',
+              fontSize: '14px',
+              lineHeight: '22px',
+              fontWeight: '400',
+              background: '#F3F4F6',
+              borderRadius: '6px',
+              borderWidth: '0px',
+              outline: 'none',
+              color: '#BDC1CA'
+            }}
             value={formValues.password}
             onChange={handleInputChange}
-            placeholder="Password"
+            placeholder="&#128274;  Password"
             required
           />
-          <Form.Text className="text-muted forgot-password">
-            <a href="/forgot-password">Forgot Password?</a>
-          </Form.Text>
+          
         </Form.Group>
-        <Form.Group controlId="role" className="input-group">
-          <Form.Label className="form-label">Role:</Form.Label>
-          <Form.Control
-            as="select"
-            name="role"
-            value={formValues.role}
-            onChange={handleInputChange}
-            required
-          >
-            <option value="">Select Role</option>
-            <option value="Priest">Priest</option>
-            <option value="Devotee">Devotee</option>
-            <option value="Admin">Admin</option>
-          </Form.Control>
-        </Form.Group>
-        <Button type="submit" className="btn-success">
-          Login
+        
+        <div style={{display:'flex',alignItems:'center',justifyContent:'space-between'}}>
+          <p href="/forgot-password" className="text-muted forgot-password">Forgot Password?</p>
+          <p className="login-link">
+            Don't have an account? <a href="/signup">Sign up</a>
+          </p>
+        </div>
+       
+
+        <Button 
+          type="submit" 
+          className="btn-success"
+          style={{
+            width: '520px',
+            height: '44px',
+            padding: '0 10px',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            fontFamily: 'Inter',
+            fontSize: '16px',
+            lineHeight: '26px',
+            fontWeight: '400',
+            color: '#FFFFFF',
+            background: '#FF7400',
+            opacity: 1,
+            border: 'none',
+            borderRadius: '6px',
+            cursor: 'pointer',
+          }}>
+          Sign in
         </Button>
-        <p className="login-link">
-          Not a member? <a href="/signup">Sign up</a>
-        </p>
       </Form>
       <ToastContainer
         position="top-center"

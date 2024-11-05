@@ -40,3 +40,46 @@ footer .footer-list {
   padding-left: 15px;
   margin-bottom: 0;
 }/*# sourceMappingURL=Footer.css.map */
+
+.newsletter-signup {
+  background-color: #f8f9fa;
+  display: flex;
+  flex-direction: column;
+  padding: 2px;
+  text-align: center;
+  border-radius: 10px;
+  align-items: center;
+
+  .newsletter-signup-header {
+    color: #000;
+    display: flex;
+    flex-direction: column;
+
+    .newsletter-signup-title {
+      font: 600 16px Inter, sans-serif;
+    }
+  }
+
+  .newsletter-signup-form {
+    background-color: #f8f9fa;
+    display: flex;
+    flex-direction: row;
+    font-weight: 300;
+    padding: 0 20px;
+    align-items: center;
+    justify-content: space-around;
+
+    .newsletter-signup-input {
+      height: 27px;
+      margin-top: 4px;
+      border-radius:20px;
+    }
+  }
+
+  .newsletter-signup-button {
+    align-self: start;
+    margin: 5px 0px 0px 30px;
+    padding: 2px 15px;
+    border-radius: 20px;
+  }
+}

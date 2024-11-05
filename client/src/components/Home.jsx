@@ -142,7 +142,6 @@ function HomePage() {
             <div className="column temple-info-column">
               <div className="temple-info-container">
                 <TempleHours />
-                <h2 className="section-title">Newsletter</h2>
                 
               </div>
             </div>

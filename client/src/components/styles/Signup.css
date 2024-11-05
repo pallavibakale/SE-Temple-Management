@@ -5,12 +5,13 @@
   padding: 20px;
   background-size: cover;
   color: #fff;
+
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   overflow-y: auto; /* Make signup section scrollable if it exceeds screen height */
 }
 
 .signup-form {
-  background-color:  #fff;
+  background-color: #fff;
   border-radius: 5px;
   padding: 33px 40px;
   max-width: 593px;

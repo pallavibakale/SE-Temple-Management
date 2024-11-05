@@ -1,26 +1,15 @@
-.live-stream-section {
-    width: 80%;
-    margin: 20px;
-    padding: 20px;
-    background: url('../../images/background.PNG') no-repeat center center;
-    background-size: cover;
-    /* Cover the entire area of the card */
-    color: #fff;
-    /* Assuming white text to stand out on a likely dark background */
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    position: relative;
-    /* Needed for layout positioning if additional elements are absolutely positioned */
-    align-self: center;
-}
 
 .live-stream-card {
-    background-color: rgba(255, 255, 255, 0.6); /* Semi-transparent white background */
+    background-color:  #FFF7F0FF;
+    position: relative; /* Semi-transparent white background */
     padding: 40px; /* Provides padding around the content */
-    margin: 20px auto; /* Centers the card and provides margin on the top and bottom */
+    margin: 20px 40px; /* Centers the card and provides margin on the top and bottom */
     max-width: 1500px; /* Limits the maximum width of the card */
     width: 80%; /* Sets the width to 80% of its container, you can adjust this as needed */
     border-radius: 8px;
+    align-content: center;
+    align-items: center;
+    align-self: center;
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     color: #312f2f; /* Ensures text is readable on a lighter background */
 }

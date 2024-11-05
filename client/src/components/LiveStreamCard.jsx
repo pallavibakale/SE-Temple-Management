@@ -28,9 +28,10 @@ const LiveStreamCard = () => {
         alt="Temple background"
         className="background-image"
       /> */}
-        <div className="live-stream-section">
-          <h1>Join Our Next Live Stream!</h1>
-          <div className="live-stream-card">
+        
+          
+          <div className="live-stream-card" style={{backgroundColor:'#FFF7F0',padding: '60px'}}>
+            <h1 style={{marginLeft:'100px'}}>Join Our Next Live Stream!</h1><br/>
             <p>
               Our next livestream is scheduled for 6pm on March 8th, 2024 (Maha
               Shiva Rathri).
@@ -116,7 +117,6 @@ const LiveStreamCard = () => {
               pauseOnHover
             />
           </div>
-        </div>
       </main>
       <Footer />
     </div>

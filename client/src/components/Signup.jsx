@@ -132,7 +132,7 @@ const SignUpForm = () => {
             className="input"
             value={formValues.email}
             onChange={handleInputChange}
-            placeholder="Email"
+            placeholder="&#9993;  Enter Email"
             required
           />
         </Form.Group>
@@ -144,7 +144,7 @@ const SignUpForm = () => {
             value={formValues.phone}
             className="input"
             onChange={handleInputChange}
-            placeholder="Phone"
+            placeholder="&#128222;  Phone"
             required
           />
         </Form.Group>
@@ -156,7 +156,7 @@ const SignUpForm = () => {
             className="input"
             value={formValues.password}
             onChange={handleInputChange}
-            placeholder="Password"
+            placeholder="&#128274;  Password"
             required
           />
         </Form.Group>

@@ -22,71 +22,19 @@ const ContactUsCard = () => {
     <div className="container">
       <Navigation onLogout={handleLogout} />
       <main className="main-content">
-        {/* <img
-        loading="lazy"
-        src={BG}
-        alt="Temple background"
-        className="background-image"
-      /> */}
         <div className="contact-us-section">
-          <h1>Contact Us</h1>
-          <div className="contact-us-card">
+          
+          
             <div className="contact-item">
-              <h3>Facebook:</h3>
-              <p>
-                *Facebook Messenger is currently the most reliable way of
-                contacting us.*
-              </p>
-              <a
-                href="https://www.facebook.com/OmkaarTemple"
-                className="contact-link"
-              >
-                Omkaar Temple Facebook Page
-              </a>
+            <h1>Contact Us</h1>
+              <form>
+
+              </form>
             </div>
 
             <div className="contact-item">
-              <h3>Email:</h3>
-              <p>
-                *Please be advised that Facebook Messenger is currently the best
-                method of contact.*
-              </p>
-              <a
-                href="mailto:contact@omkaartemple.org"
-                className="contact-link"
-              >
-                contact@omkaartemple.org
-              </a>{" "}
-              (Limited Availability)
-            </div>
-
-            <div className="contact-item">
-              <h3>Phone:</h3>
-              <p>
-                *Please be advised that Facebook Messenger is currently the best
-                method of contact.*
-              </p>
-              <a href="tel:+12603021008" className="contact-link">
-                260-302-1008
-              </a>{" "}
-              (Limited Availability)
-            </div>
-
-            <div className="contact-item">
-              <h3>US Postal Address:</h3>
-              <p>
-                Omkaar Temple
-                <br />
-                14745 Yellow River Road
-                <br />
-                Fort Wayne, IN 46818
-              </p>
-              <a
-                href="https://www.google.com/maps/search/?api=1&query=14745+Yellow+River+Road+Fort+Wayne+IN+46818"
-                className="contact-link"
-              >
-                Open in Google Maps
-              </a>
+              <iframe id="map" src="https://www.google.com/maps/embed?pb=!1m26!1m12!1m3!1d116096.61185683029!2d-85.44151264024133!3d41.11836115405251!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m11!3e6!4m3!3m2!1d41.118829399999996!2d-85.33625479999999!4m5!1s0x8815de98058d4389%3A0xbacc97d8d7f4dbaa!2s14745%20Yellow%20River%20Rd%2C%20Fort%20Wayne%2C%20IN%2046818!3m2!1d41.117633999999995!2d-85.333675!5e0!3m2!1sen!2sus!4v1730770283478!5m2!1sen!2sus" 
+              style={{width:"800", height:"600", style:"border:0;", allowfullscreen:"" ,loading:"lazy", referrerpolicy:"no-referrer-when-downgrade"}}></iframe>           
             </div>
 
             <ToastContainer
@@ -101,7 +49,7 @@ const ContactUsCard = () => {
               pauseOnHover
             />
           </div>
-        </div>
+        
       </main>
       <Footer />
     </div>

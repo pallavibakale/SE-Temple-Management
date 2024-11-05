@@ -16,7 +16,7 @@ const LoginForm = () => {
   const [formValues, setFormValues] = useState({
     email: "",
     password: "",
-    role: "",
+    
   });
 
   const handleSubmit = async (e) => {
@@ -36,7 +36,7 @@ const LoginForm = () => {
           toast.success("Logged in successfully");
           localStorage.setItem("token", data.token);
           localStorage.setItem("id", data.user.empId);
-          localStorage.setItem("role", data.user.role);
+          
           if (data.user.role === "Admin") {
             navigate("/admin-home");
           } else {

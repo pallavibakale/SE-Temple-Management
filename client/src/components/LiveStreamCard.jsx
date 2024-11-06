@@ -31,7 +31,7 @@ const LiveStreamCard = () => {
         
           
           <div className="live-stream-card" style={{backgroundColor:'#FFF7F0',padding: '60px'}}>
-            <h1 style={{marginLeft:'100px'}}>Join Our Next Live Stream!</h1><br/>
+            <h1 style={{marginLeft:'45px'}}>Join Our Next Live Stream!</h1><br/>
             <p>
               Our next livestream is scheduled for 6pm on March 8th, 2024 (Maha
               Shiva Rathri).

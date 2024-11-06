@@ -56,6 +56,7 @@ const AboutUsCard = () => {
       </div>
       <br/><br/>
       <h1 style={{color:'#FF7700',fontWeight:'700'}}>Gallery</h1>
+      <br/><br/>
       <div className="gallery-section">
         {imgSrc.map((img, index) => (
               <img key={index} src={img.src} alt="missing"/>

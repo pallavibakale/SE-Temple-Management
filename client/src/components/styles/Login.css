@@ -10,7 +10,8 @@
 
 .login-form {
   background-color: #fff;
-  border-radius: 5px;
+  border: 2px solid #FF7400;
+  border-radius: 25px;
   padding: 33px 40px;
   max-width: 593px;
   width: 100%;

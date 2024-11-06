@@ -1,0 +1,31 @@
+
+.confirmation{
+    height: 450px;
+    margin-top: 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.confirmation-section{
+    border: 1px solid #FF7400;
+    padding: 20px ;
+    max-width: 500px;
+    margin-bottom: 30px;
+}
+
+.support-section{
+    color: black;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    margin:25px 0 25px 0;
+    padding:25px 0 25px 0
+}
+
+.confirmation Button{
+    background-color:#FF7400;
+    border:none;
+    outline:none;
+    border-radius:25px;
+}

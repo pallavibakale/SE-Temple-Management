@@ -124,7 +124,6 @@ const Appointment = () => {
       <Form className="book-form" onSubmit={handleSubmit}>
         <h2 className="form-title">Appointment</h2>
         <Form.Group controlId="firstName">
-          <Form.Label>First Name:</Form.Label>
           <Form.Control
             type="text"
             name="firstName"
@@ -135,7 +134,6 @@ const Appointment = () => {
           />
         </Form.Group>
         <Form.Group controlId="title">
-          <Form.Label>Title:</Form.Label>
           <Form.Control
             type="text"
             name="title"
@@ -146,7 +144,6 @@ const Appointment = () => {
           />
         </Form.Group>
         <Form.Group controlId="date">
-          <Form.Label>Date:</Form.Label>
           <Form.Control
             type="date"
             name="date"
@@ -157,29 +154,27 @@ const Appointment = () => {
           />
         </Form.Group>
         <Form.Group controlId="email">
-          <Form.Label>Email:</Form.Label>
           <Form.Control
             type="email"
             name="email"
             value={formValues.email}
             onChange={handleInputChange}
-            placeholder="Email"
+            placeholder="&#9993;  Email"
             required
           />
         </Form.Group>
         <Form.Group controlId="phone">
-          <Form.Label>Phone:</Form.Label>
           <Form.Control
             type="tel"
             name="phone"
             value={formValues.phone}
             onChange={handleInputChange}
-            placeholder="Phone"
+            placeholder="&#128222;  Phone"
             required
           />
         </Form.Group>
+        <br/>
         <Form.Group controlId="priest">
-          <Form.Label>Priest:</Form.Label>
           <Form.Control
             as="select"
             name="priest"
@@ -194,8 +189,8 @@ const Appointment = () => {
             ))}
           </Form.Control>
         </Form.Group>
+        <br/>
         <Form.Group controlId="address">
-          <Form.Label>Address:</Form.Label>
           <Form.Control
             as="textarea"
             name="address"
@@ -205,6 +200,7 @@ const Appointment = () => {
             rows={3}
           />
         </Form.Group>
+        <br/>
         <Button variant="success" type="submit" className="submit-btn">
           Book Appointment
         </Button>
@@ -220,7 +216,14 @@ const Appointment = () => {
         draggable
         pauseOnHover
       />
+
+      <div style={{color: 'black', display:'flex', flexDirection:'column', alignItems:'center',margin:'25px 0 25px 0',padding:'25px 0 25px 0'}}>
+        <h1 style={{color:'#FF7400 '}}> Support Our Temple</h1>
+        <p style={{width:'700px'}}>Join us in preserving our sacred space and supporting our community by making a generous donation today. Every contribution makes a difference.</p>
+        <Button style={{backgroundColor:'#FF7400',border:'none',outline:'none',borderRadius:'25px'}}>Donate Now</Button>
+      </div>
     </div>
+
   );
 };
 

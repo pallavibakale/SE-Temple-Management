@@ -14,22 +14,7 @@
     max-width: 1200px;
   }
   
-  .gallery-section {
-    width: 80%;
-    height: 80%;
-    margin: 20px;
-    padding: 20px;
-    background-image: url('../../images/background.PNG');
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-    color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    position: relative;
-    align-self: center;
-  }
-  
+
   
   .gallery {
     position: relative;

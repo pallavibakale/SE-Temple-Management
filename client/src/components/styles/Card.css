@@ -1,0 +1,18 @@
+.card{
+    display: flex;
+    flex-direction: row;
+    width: 350px;
+    height: 150px;
+    padding: 15px;
+    border-top-right-radius: 25px;
+    border: 1px solid #FF7400 ;
+}
+.card-details{
+    border: none;
+    outline: none;
+    width: 200px;
+    padding:10px;
+}
+.card-image{
+    border-top-right-radius: 25px;
+}

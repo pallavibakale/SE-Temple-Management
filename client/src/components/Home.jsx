@@ -4,6 +4,8 @@ import Navigation from "./Navigation";
 import Footer from "./Footer";
 import UriContext from "./UriContext";
 import { useNavigate } from "react-router-dom";
+import Card from "./Card";
+import { Button } from "react-bootstrap";
 
 const AnnouncementItem = ({ title, description, expanded, onClick }) => {
   const handleClick = () => {
@@ -28,58 +30,69 @@ const AnnouncementItem = ({ title, description, expanded, onClick }) => {
   );
 };
 
-const TempleHours = () => (
-  <div className="temple-hours">
-    <div className="temple-hours-content">
-      Mon, Tues, Thurs, Fri : 9:30 - 11:00am & 5:30 - 8:00pm
-      <br />
-      <br />
-      Sat & Sun : 9:30 - 12:00pm & 5:30 - 8:00pm
-      <br />
-      <br />
-      Abhishekam @6pm
-      <br />
-      <br />
-      Aarthi @6:30pm
-    </div>
-    <div className="temple-address">
-      <span className="temple-address-label">Address</span> :
-    </div>
-    <div className="temple-address-details">
-      <div className="temple-address-text">
-        Omkaar Temple 14745 Yellow River Road Fort Wayne, IN 46818
-      </div>
-      <a href="https://www.google.com/maps/place/Omkaar+Temple/@41.1158296,-85.3360281,17z/data=!3m1!4b1!4m5!3m4!1s0x8815de98058d4389:0xbacc97d8d7f4dbaa!8m2!3d41.1158514!4d-85.3338393?shorturl=1">
-        <img
-          loading="lazy"
-          src="https://cdn.builder.io/api/v1/image/assets/TEMP/4a6ac57d3f0c241adf241dcf9a21e6927aac676ab0f2e3e796591213b0edc307?apiKey=0a7c2887b1ad4700964c6779ce9bea19&"
-          alt="Temple location map"
-          className="temple-map"
-        />
-      </a>
-      <a href="https://maps.apple.com/place?q=Omkaar%20Temple&ll=41.1157161%2C-85.3338632&auid=18339372791188327544&lsp=9902&address=14745%20Yellow%20River%20Rd%2C%20Fort%20Wayne%2C%20IN%20%2046818%2C%20United%20States">
-        <img
-          loading="lazy"
-          src="https://cdn.builder.io/api/v1/image/assets/TEMP/e7928995020c9784452fdade412b0d652054e02a06a738b0c8a01d281668713c?apiKey=0a7c2887b1ad4700964c6779ce9bea19&"
-          alt="Temple location map"
-          className="temple-map"
-        />
-      </a>
-    </div>
-  </div>
-);
 
 
+const announcements = [
+  {
+      title: 'Diwali Night',
+      description: 'Join us for the grand Diwali celebration with rituals, food, and cultural events. Everyone is welcome! Celebrate the festival of lights with us.',
+      image: 'card-image.jpg',
+  },
+  {
+      title: 'Navratri Festival',
+      description: 'Celebrate the nine nights of Navratri with us. Enjoy traditional dance, music, and rituals in honor of Goddess Durga.',
+      image: 'card-image.jpg',
+  },
+  {
+      title: 'Ganesha Chaturthi',
+      description: 'Participate in the grand Ganesha Chaturthi celebrations. Join us for prayers, rituals, and the immersion ceremony.',
+      image: 'card-image.jpg',
+  }
+];
+
+const rituals = [
+  {
+      title: 'Ganesh Puja',
+      description: 'Ganesh Puja is performed to remove obstacles and bring prosperity.',
+      image: 'card-image.jpg',
+  },
+  {
+      title: 'Durga Puja',
+      description: 'Durga Puja, celebrating the goddess Durga, is a major festival in India.',
+      image: 'card-image.jpg',
+  },
+  {
+      title: 'Lakshmi Puja',
+      description: 'Lakshmi Puja is performed to seek blessings for wealth and prosperity.',
+      image: 'card-image.jpg',
+  },
+  {
+      title: 'Saraswati Puja',
+      description: 'Saraswati Puja is dedicated to the goddess of knowledge, Saraswati.',
+      image: 'card-image.jpg',
+  },
+  {
+      title: 'Shiva Puja',
+      description: 'Shiva Puja is performed to honor Lord Shiva and seek his blessings.',
+      image: 'card-image.jpg',
+  },
+  {
+      title: 'Vishnu Puja',
+      description: 'Vishnu Puja is conducted to seek the protection and blessings of Lord Vishnu.',
+      image: 'card-image.jpg',
+  }
+];
 
 function HomePage() {
   const uri = useContext(UriContext);
   const navigate = useNavigate();
-  const [announcements, setAnnouncements] = useState([]);
+  // const [announcements, setAnnouncements] = useState([]);
   const [expandedIndex, setExpandedIndex] = useState(0);
-  const [searchQuery, setSearchQuery] = useState("");
+
+  // setAnnouncements(data)
 
   useEffect(() => {
-    fetchAnnouncements();
+    // fetchAnnouncements();
   });
 
   const handleLogout = async () => {
@@ -90,64 +103,51 @@ function HomePage() {
     navigate("/");
   };
 
-  const fetchAnnouncements = async () => {
-    const response = await fetch(uri + "/announcements");
-    const data = await response.json();
-    setAnnouncements(data);
-  };
+  // const fetchAnnouncements = async () => {
+  //   const response = await fetch(uri + "/announcements");
+  //   const data = await response.json();
+  //   setAnnouncements(data);
+  // };
 
-  const handleExpand = (index) => {
-    if (index === expandedIndex) {
-      setExpandedIndex(-1); // Collapse the clicked announcement if it's already expanded
-    } else {
-      setExpandedIndex(index); // Expand the clicked announcement
-    }
-  };
-
-  const filteredAnnouncements = announcements.filter((announcement) =>
-    announcement.title.toLowerCase().includes(searchQuery.toLowerCase())
-  );
+  // const handleExpand = (index) => {
+  //   if (index === expandedIndex) {
+  //     setExpandedIndex(-1); // Collapse the clicked announcement if it's already expanded
+  //   } else {
+  //     setExpandedIndex(index); // Expand the clicked announcement
+  //   }
+  // };
 
   return (
     <div className="container">
       <Navigation onLogout={handleLogout} />
-      <main className="main-content">
-        <div className="announcements-section">
-          <h2 className="section-title">Announcements</h2>
-          <input
-            type="text"
-            placeholder="Search announcements..."
-            value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
-            className="search-input"
-          />
+      <div className="home-section">
+            <div className="overlay" >
+                <h1>Welcome to Our Temple</h1>
+                <p>Discover peace and spirituality at Temple</p>
+                <Button style={{backgroundColor:'#FF7400',border:'none',outline:'none'}}> Explore More</Button>
+            </div>
         </div>
-        <section className="content-section">
-          <div className="content-columns">
-            <div className="column announcements-column">
-              <div className="announcements-container">
-                <div className="announcements-list">
-                  {filteredAnnouncements.map((announcement, index) => (
-                    <AnnouncementItem
-                      key={index}
-                      title={announcement.title}
-                      description={announcement.description}
-                      expanded={index === expandedIndex}
-                      onClick={() => handleExpand(index)}
-                    />
-                  ))}
-                </div>
-              </div>
-            </div>
-            <div className="column temple-info-column">
-              <div className="temple-info-container">
-                <TempleHours />
-                
-              </div>
-            </div>
-          </div>
-        </section>
-      </main>
+        <br/><br/>
+        <div className="announcements-section">
+          <h2 className="section-title">Announcements</h2>   
+        </div>  
+        <br/>  
+        <div className="announcements-list">
+          {announcements.map((announcement, index) => (
+            <Card key={index} title={announcement.title} description={announcement.description} image={announcement.image} />
+          ))}
+        </div>
+        <br/><br/><br/>
+        <div className="rituals-section">
+          <h2 className="section-title">Rituals and Pujas</h2>        
+        </div>
+        <br/>
+        <div className="rituals-grid">
+          {rituals.map((ritual, index) => (
+            <Card key={index} title={ritual.title} description={ritual.description} image={ritual.image} />
+          ))}
+        </div>
+        <br/>
       <Footer />
     </div>
   );

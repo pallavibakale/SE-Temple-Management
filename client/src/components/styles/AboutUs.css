@@ -3,61 +3,51 @@
     flex-direction: column;
     align-items: center;
   }
-  
-  .about-us-card {
-    width: 80%;
-    margin: 20px;
-    padding: 20px;
-    background: #fff;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-    align-self: center;
-  }
-  
-  .accordion-item {
-    margin: 10px 0;
-  }
-  
-  .accordion-title {
-    background: #d9d9d9;
-    border: none;
-    outline: none;
-    width: 100%;
-    padding: 15px 20px;
-    text-align: left;
-    font-size: 18px;
-    font-weight: bold;
-    cursor: pointer;
-    border-radius: 4px;
-    transition: background-color 0.3s ease;
-  }
-  
-  .accordion-title:hover {
-    background-color: #8f0000;
+
+  .about-bg-section {
+    position: relative;
+    background-image: url('../../images/about-bg-img.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 500px; /* Adjust the height as needed */
+    width: 90%;
+    display: flex;
+    align-items: last baseline;
+    justify-content: flex-start ;
     color: white;
   }
   
-  .accordion-content {
-    padding: 15px;
-    border: 1px solid #ccc;
-    border-top: none;
-    border-radius: 0 0 4px 4px;
+  .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.4); /* Semi-black overlay */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
   }
-  .about-us-card {
-    width: 80%;
-    margin: 20px;
-    padding: 20px;
-    background: url('../../images/background.PNG') no-repeat center center;
-    background-size: cover; /* Cover the entire area of the card */
-    color: #fff; /* Assuming white text to stand out on a likely dark background */
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-    position: relative; /* Needed for layout positioning if additional elements are absolutely positioned */
+  h1{
+    font-size: 3rem;
+    text-align: center;
+    color: #FF7700;
+  }
+  .overlay h1 {
+    font-size: 3rem; /* Adjust the size as needed */
+    text-align: center;
+  }
+
+  .gallery-section{
+    position: relative;
+    width: 90%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 columns */
+    grid-template-rows: repeat(2, auto);
+    gap: 20px;
+    justify-items: center;
   }
   
-  .accordion-item {
-    background: rgba(0, 0, 0, 0.5); /* Semi-transparent background for accordion items to enhance readability */
-    border-radius: 4px;
-    margin: 10px 0;
-  }
+
     

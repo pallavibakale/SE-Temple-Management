@@ -19,6 +19,7 @@ import DonationsCard from "./components/DonationsCard";
 import Donate from "./components/Donate";
 import CreatePriest from "./components/CreatePriest";
 import PasswordReset from "./components/PasswordReset";
+import AppointmentConfirmation from "./components/AppointmentConfirmation";
 
 function App() {
   const uriValue = "http://localhost:3001";
@@ -41,6 +42,7 @@ function App() {
             <Route path="/admin-home" element={<AdminHome />} />
             <Route path="/admin-service" element={<AdminServices />} />
             <Route path="/schedule-appointment" element={<AppointmentForm />} />
+            <Route path="/appointment-confirmation" element={<AppointmentConfirmation />} />
             <Route path="/appointments" element={<MyAppointment />} />
             <Route path="/priest" element={<PriestCard />} />
             <Route path="/gallery" element={<Gallery />} />

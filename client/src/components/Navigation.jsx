@@ -80,7 +80,7 @@ const Navigation = ({ onLogout }) => {
             {(role === "Devotee" || role === "") && (
               <Nav.Item className="">
                 <NavLink
-                  to="/contactUs"
+                  to="/contact"
                   className="nav-link"
                   activeClassName="active"
                 >

@@ -5,20 +5,32 @@ import "react-toastify/dist/ReactToastify.css";
 import Navigation from "./Navigation";
 import Footer from "./Footer";
 import { useNavigate } from "react-router-dom";
+import { Button } from "react-bootstrap";
 
-// Accordion Component
-const Accordion = ({ title, content }) => {
-  const [isOpen, setIsOpen] = useState(false);
 
-  return (
-    <div className="accordion-item">
-      <button className="accordion-title" onClick={() => setIsOpen(!isOpen)}>
-        {title}
-      </button>
-      {isOpen && <div className="accordion-content">{content}</div>}
-    </div>
-  );
-};
+const imgSrc=[
+  {
+    src: 'card-image.png'
+  },
+  {
+    src: '../images/about-bg-img.jpg'
+  },
+  {
+    src: '../images/pic1.jpeg'
+  },
+  {
+    src: '../images/pic1.jpeg'
+  },
+  {
+    src: '../images/pic1.jpeg'
+  },
+  {
+    src: '../images/pic1.jpeg'
+  },
+  {
+    src: '../images/pic1.jpeg'
+  },
+]
 
 // AboutUsCard Component with Background Image
 const AboutUsCard = () => {
@@ -36,50 +48,28 @@ const AboutUsCard = () => {
   return (
     <div className="container">
       <Navigation onLogout={handleLogout} />
-      <main className="main-content">
-        <div className="about-us-card">
-          {/* About Us Content */}
-          <h1>Welcome to Omkaar Temple</h1>
-          <p>
-            Omkaar, the inaugural Hindu temple in North America named after the
-            sacred Aum mantra, will house the Pancha Mukha Shiva Linga as its
-            primary deity. This profound symbol reflects the vastness of the
-            universe, embodying all creation, life, and existence in its
-            entirety. The Pancha Mukha Shiva Linga, representing universal unity
-            in all directions, will be revered alongside other deities who hold
-            a cherished place in Hindu worship. These include Parvathy (Ambaal),
-            Ganapathi, Murugan, Balaji (Perumal), Padmavathi, Lakshmi, Sriram
-            Parivar, Hanuman, Krishna, Radha, and the Nava Grahas. Together,
-            they encapsulate the rich tapestry of divine forms in Hindu
-            tradition.
-          </p>
-          {/* Accordions */}
-          <Accordion
-            title="Our Mission"
-            content="Omkaar Temple is dedicated to creating a sacred space in Fort Wayne, IN, where the
-            Hindu community can engage in worship, celebrate rituals, and immerse themselves
-            in the rich tapestry of Hindu culture and philosophy. The temple will serve as a
-            beacon for those seeking knowledge and spiritual growth through the diverse aspects
-            of Hindu teachings, including yoga, education, and philosophy."
-          />
-          <Accordion
-            title="Our Vision"
-            content="Our vision is to erect a temple that not only stands as a house of worship but also
-            embodies the spiritual unity of the Universe through the installation of the Pancha
-            Mukha Shiva Linga and Sri Venkateshwara. These deities, along with others such as
-            Raja Ganapathi, Murugan, Parvathi, and the Nava Grahas, will be venerated in a setting
-            that reflects their divine stature, ensuring all deities receive equal reverence as
-            per Hindu tradition."
-          />
-          <Accordion
-            title="Our Purpose"
-            content="The temple aims to foster a deeper understanding across different faiths and cultures,
-            promoting a spirit of communal harmony and support for humanitarian endeavors. Omkaar
-            Temple will be a place where spiritual fulfillment is intertwined with cultural and
-            social enrichment, enhancing the well-being of our community and beyond."
-          />
-        </div>
-      </main>
+      <div className="about-bg-section">
+            <div className="overlay" >
+                <h1>About us</h1>
+                <p>Discover the spiritual offerings and community events at our temple</p>
+            </div>
+      </div>
+      <br/><br/>
+      <h1 style={{color:'#FF7700',fontWeight:'700'}}>Gallery</h1>
+      <br/><br/>
+      <div className="gallery-section">
+        {imgSrc.map((img, index) => (
+              <img key={index} src={img.src} alt="missing"/>
+          ))
+        }
+      </div>
+      <br/><br/>
+      <div style={{color: 'black', display:'flex', flexDirection:'column', alignItems:'center',margin:'25px 0 25px 0',padding:'25px 0 25px 0'}}>
+        <h1 style={{color:'#FF7400 '}}> Support Our Temple</h1>
+        <p style={{width:'700px',alignContent:'center',alignItems:'center'}}>Join us in preserving our sacred space and supporting our community by making a generous donation today. Every contribution makes a difference.</p>
+        <Button style={{backgroundColor:'#FF7400',border:'none',outline:'none',borderRadius:'25px'}}>Donate Now</Button>
+      </div>
+          
       {/* Footer */}
       <Footer />
     </div>

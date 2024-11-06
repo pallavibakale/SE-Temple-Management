@@ -46,7 +46,7 @@ function App() {
             <Route path="/appointments" element={<MyAppointment />} />
             <Route path="/priest" element={<PriestCard />} />
             <Route path="/gallery" element={<Gallery />} />
-            {/* <Route path="/donations" element={<DonationsCard />} /> */}
+            <Route path="/donations" element={<DonationsCard />} />
             <Route path="/donate" element={<Donate />} />
             <Route path="/add-priest" element={<CreatePriest />} />
             <Route path="/forgot-password" element={<PasswordReset />} />

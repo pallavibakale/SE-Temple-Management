@@ -10,7 +10,7 @@ import { Button } from "react-bootstrap";
 
 const imgSrc=[
   {
-    src: 'card-image.png'
+    src: '../../public/card-image.jpg'
   },
   {
     src: '../images/about-bg-img.jpg'

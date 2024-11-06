@@ -21,6 +21,7 @@ const Navigation = ({ onLogout }) => {
               <Nav.Item className="">
                 <NavLink to="/" className="nav-link" activeClassName="active">
                   Home
+                  {role} ----
                 </NavLink>
               </Nav.Item>
             )}

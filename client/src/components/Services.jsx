@@ -7,12 +7,11 @@ import "./styles/Services.css";
 
 import UriContext from "./UriContext";
 import { useNavigate } from "react-router-dom";
+import ServiceCard from "./ServiceCard";
 
 function Services() {
   const uri = useContext(UriContext);
   const navigate = useNavigate();
-  const scrollContainerRefHomams = useRef(null);
-  const scrollContainerRefPoojas = useRef(null);
   const [selectedService, setSelectedService] = useState(null);
   const [services, setServices] = useState([]);
 
@@ -23,38 +22,57 @@ function Services() {
     localStorage.setItem("role", "");
     navigate("/");
   };
-
-  // Function to scroll left
-  const scrollLeft = (ref) => {
-    if (ref.current) {
-      ref.current.scrollBy({ left: -200, behavior: "smooth" });
+  
+  const serviceData=[
+    {
+      title: 'Ganesh Puja',
+      description: 'Ganesh Puja is performed to remove obstacles and bring prosperity.',
+      image: 'card-image.jpg',
+    },
+    {
+        title: 'Durga Puja',
+        description: 'Durga Puja, celebrating the goddess Durga, is a major festival in India.',
+        image: 'card-image.jpg',
+    },
+    {
+        title: 'Lakshmi Puja',
+        description: 'Lakshmi Puja is performed to seek blessings for wealth and prosperity.',
+        image: 'card-image.jpg',
+    },
+    {
+        title: 'Saraswati Puja',
+        description: 'Saraswati Puja is dedicated to the goddess of knowledge, Saraswati.',
+        image: 'card-image.jpg',
+    },
+    {
+        title: 'Shiva Puja',
+        description: 'Shiva Puja is performed to honor Lord Shiva and seek his blessings.',
+        image: 'card-image.jpg',
+    },
+    {
+        title: 'Vishnu Puja',
+        description: 'Vishnu Puja is conducted to seek the protection and blessings of Lord Vishnu.',
+        image: 'card-image.jpg',
     }
-  };
+  ]
 
-  // Function to scroll right
-  const scrollRight = (ref) => {
-    if (ref.current) {
-      ref.current.scrollBy({ left: 200, behavior: "smooth" });
-    }
-  };
+  // useEffect(() => {
+  //   fetchServices();
+  // });
 
-  useEffect(() => {
-    fetchServices();
-  });
+  // const fetchServices = async () => {
+  //   try {
+  //     const response = await fetch(uri + "/services");
+  //     const data = await response.json();
+  //     setServices(data);
+  //   } catch (error) {
+  //     console.error("Error fetching services:", error);
+  //   }
+  // };
 
-  const fetchServices = async () => {
-    try {
-      const response = await fetch(uri + "/services");
-      const data = await response.json();
-      setServices(data);
-    } catch (error) {
-      console.error("Error fetching services:", error);
-    }
-  };
-
-  const handleClick = (service) => {
-    setSelectedService(service);
-  };
+  // const handleClick = (service) => {
+  //   setSelectedService(service);
+  // };
 
   const handleSchedule = () => {
     const role = localStorage.getItem("role");
@@ -65,129 +83,16 @@ function Services() {
     }
   };
 
-  const homams = services.filter((service) => service.category === "Homam");
-  const poojas = services.filter((service) => service.category === "Pooja");
-
   return (
     <div className="container">
       <Navigation onLogout={handleLogout} />
-      <main className="main-content">
-        <Container fluid>
-          {selectedService ? (
-            <Row>
-              <Col className="Service-tab">
-                <h2 className="section-title">Services</h2>
-                <div className="services-desc">
-                  <h3 className="section-title">{selectedService.title}</h3>
-                  <div style={{ textAlign: "center", padding: "0px" }}>
-                    <p>{selectedService.description}</p>
-                    <img
-                      src={selectedService.serviceImage}
-                      alt={selectedService.alt}
-                      className="service-image"
-                    />
-                    <div style={{ padding: "20px" }}>
-                      <Button
-                        className="btn btn-primary"
-                        onClick={handleSchedule}
-                      >
-                        Schedule Appointment
-                      </Button>
-                    </div>
-                  </div>
-                </div>
-              </Col>
-            </Row>
-          ) : (
-            <Row>
-              <Col className="Service-tab">
-                <h2 className="section-title">Services</h2>
-                <div className="services-desc">
-                  <h3 className="service-title">"By Request" Services</h3>
-                  <p>
-                    The following "by request" services can be performed at
-                    either the Temple or at a location of the devotees choosing.
-                  </p>
-                  <p>
-                    Donation for services performed away from Temple site (e.g.,
-                    Warsaw, IN): $201.00
-                  </p>
-                  <p>Donation for services performed at Temple listed below.</p>
-                  <p>
-                    Scheduling or Questions: <a href="/contact">Contact</a>
-                  </p>
-                </div>
-              </Col>
-              <Col>
-                <h2 className="section-title">Homams - 151$</h2>
-                <div className="scroll-container">
-                  <Button
-                    onClick={() => scrollLeft(scrollContainerRefHomams)}
-                    className="scroll-button left-button"
-                  >
-                    &lt;
-                  </Button>
-                  <div
-                    className="horizontal-scroll"
-                    ref={scrollContainerRefHomams}
-                  >
-                    {homams.map((service, index) => (
-                      <div className="image-container" key={index}>
-                        <img
-                          src={service.serviceImage}
-                          alt={service.alt}
-                          className="service-image"
-                          onClick={() => handleClick(service)}
-                        />
-                        <p className="image-description">{service.title}</p>
-                      </div>
-                    ))}
-                  </div>
-                  <Button
-                    onClick={() => scrollRight(scrollContainerRefHomams)}
-                    className="scroll-button right-button"
-                  >
-                    &gt;
-                  </Button>
-                </div>
-              </Col>
-              <Col>
-                <h2 className="section-title">Poojas</h2>
-                <div className="scroll-container">
-                  <Button
-                    onClick={() => scrollLeft(scrollContainerRefPoojas)}
-                    className="scroll-button left-button"
-                  >
-                    &lt;
-                  </Button>
-                  <div
-                    className="horizontal-scroll"
-                    ref={scrollContainerRefPoojas}
-                  >
-                    {poojas.map((service, index) => (
-                      <div className="image-container" key={index}>
-                        <img
-                          src={service.serviceImage}
-                          alt={service.alt}
-                          className="service-image"
-                          onClick={() => handleClick(service)}
-                        />
-                        <p className="image-description">{service.title}</p>
-                      </div>
-                    ))}
-                  </div>
-                  <Button
-                    onClick={() => scrollRight(scrollContainerRefPoojas)}
-                    className="scroll-button right-button"
-                  >
-                    &gt;
-                  </Button>
-                </div>
-              </Col>
-            </Row>
-          )}
-        </Container>
-      </main>
+        <div className="service-container">
+          {
+            serviceData.map((service,index)=>(
+              <ServiceCard key={index} title={service.title} description={service.description} image={service.image} />
+            ))
+          }
+        </div>
       <Footer />
     </div>
   );

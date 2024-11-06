@@ -7,19 +7,30 @@ import Footer from "./Footer";
 import { useNavigate } from "react-router-dom";
 import { Button } from "react-bootstrap";
 
-// Accordion Component
-const Accordion = ({ title, content }) => {
-  const [isOpen, setIsOpen] = useState(false);
 
-  return (
-    <div className="accordion-item">
-      <button className="accordion-title" onClick={() => setIsOpen(!isOpen)}>
-        {title}
-      </button>
-      {isOpen && <div className="accordion-content">{content}</div>}
-    </div>
-  );
-};
+const imgSrc=[
+  {
+    src: 'card-image.png'
+  },
+  {
+    src: '../images/about-bg-img.jpg'
+  },
+  {
+    src: '../images/pic1.jpeg'
+  },
+  {
+    src: '../images/pic1.jpeg'
+  },
+  {
+    src: '../images/pic1.jpeg'
+  },
+  {
+    src: '../images/pic1.jpeg'
+  },
+  {
+    src: '../images/pic1.jpeg'
+  },
+]
 
 // AboutUsCard Component with Background Image
 const AboutUsCard = () => {
@@ -43,7 +54,20 @@ const AboutUsCard = () => {
                 <p>Discover the spiritual offerings and community events at our temple</p>
             </div>
       </div>
-      <h1>Gallery</h1>
+      <br/><br/>
+      <h1 style={{color:'#FF7700',fontWeight:'700'}}>Gallery</h1>
+      <div className="gallery-section">
+        {imgSrc.map((img, index) => (
+              <img key={index} src={img.src} alt="missing"/>
+          ))
+        }
+      </div>
+      <br/><br/>
+      <div style={{color: 'black', display:'flex', flexDirection:'column', alignItems:'center',margin:'25px 0 25px 0',padding:'25px 0 25px 0'}}>
+        <h1 style={{color:'#FF7400 '}}> Support Our Temple</h1>
+        <p style={{width:'700px',alignContent:'center',alignItems:'center'}}>Join us in preserving our sacred space and supporting our community by making a generous donation today. Every contribution makes a difference.</p>
+        <Button style={{backgroundColor:'#FF7400',border:'none',outline:'none',borderRadius:'25px'}}>Donate Now</Button>
+      </div>
           
       {/* Footer */}
       <Footer />

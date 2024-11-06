@@ -8,7 +8,7 @@ const Card = ({ title, description, image }) => {
             <p style={{fontSize:'12px'}}>{description}</p>
         </div>
         <div className='card-image'>
-            <img className='card-image' src={image} alt='any image'/>
+            <img  className='card-image' src={image} alt='any image'/>
         </div>
     </div>
   )

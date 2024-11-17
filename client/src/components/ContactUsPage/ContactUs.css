@@ -1,0 +1,90 @@
+.container {
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 0px;
+  align-content: center;
+  align-items: center;
+}
+.container .main-content {
+  display: flex;
+  flex-direction: column;
+  min-height: 600px;
+  position: relative;
+  width: 100%;
+  margin-top: 0;
+  margin-bottom: 0;
+  align-items: center;
+  margin: 0px auto;
+  padding-bottom: 0px;
+}
+
+.contact-us-section {
+  width: 85%;
+  margin: 20px 20px 0px 20px;
+  padding: 20px 20px 0px 20px;
+  
+  background-size: cover; /* Cover the entire area of the card */
+  color: #fff; /* Assuming white text to stand out on a likely dark background */
+  border-radius: 8px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-items: flex-start;
+  justify-content: space-around;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  
+}
+
+.contact-us-section .form-heading{
+  color: black;
+}
+
+.contact-form{
+  background-color: #fff;
+}
+
+.contact-item {
+  margin-bottom: 20px;
+  background-color: #fff;
+}
+
+.form-fields{
+  padding: 5px;
+  width: 350px;
+  border-radius: 10px;
+}
+
+.form-textarea{
+  border-radius:'10px';
+  height:'80px';
+}
+
+.map{
+  margin-top: 30px;
+  padding-top: 25px;
+  width:400px;
+  height: 395px;
+  border-radius: 25px;
+}
+
+.contact-form .custom-submit-btn{
+  width: '100px';
+  height: '44px';
+  padding: '0 10px';
+  display: 'flex';
+  align-items: 'center';
+  margin-left:'-2px';
+  justify-content: 'center';
+  font-family: 'Inter';
+  font-size: '16px';
+  line-height: '26px';
+  font-weight: '400';
+  color: '#FFFFFF';
+  background: '#FF7400';
+  opacity: 1;
+  border: 'none';
+  border-radius: '6px';
+  cursor: 'pointer';
+}

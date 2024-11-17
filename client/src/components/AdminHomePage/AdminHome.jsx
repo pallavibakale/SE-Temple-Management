@@ -2,8 +2,8 @@ import React, { useState, useEffect, useContext } from "react";
 import "./Home.css";
 import Navigation from "../Navigation/Navigation";
 import Footer from "../Footer/Footer";
-import Announcement from "../Announcement";
-import UriContext from "../UriContext";
+import Announcement from "../AnnouncementPage/Announcement";
+import UriContext from "../ContextApi/UriContext";
 import { useNavigate } from "react-router-dom";
 
 const TempleHours = () => (

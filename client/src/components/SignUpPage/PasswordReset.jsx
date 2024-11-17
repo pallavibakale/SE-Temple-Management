@@ -6,7 +6,7 @@ import Navigation from "../Navigation/Navigation";
 import Footer from "../Footer/Footer";
 
 import "./Signup.css";
-import UriContext from "../UriContext";
+import UriContext from "../ContextApi/UriContext";
 import { useNavigate } from "react-router-dom";
 
 const Password = () => {

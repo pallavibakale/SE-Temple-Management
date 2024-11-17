@@ -7,7 +7,7 @@ import Footer from "../Footer/Footer";
 import { FaGoogle } from "react-icons/fa";
 
 import "./Login.css";
-import UriContext from "../UriContext";
+import UriContext from "../ContextApi/UriContext";
 import { useNavigate } from "react-router-dom";
 
 const LoginForm = () => {

@@ -7,7 +7,7 @@ import AboutUs from "./components/AboutUsPage/AboutUs";
 import LiveStreamCard from "./components/LiveStreamPage/LiveStreamCard.jsx";
 import SignUp from "./components/SignUpPage/Signup.jsx";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import UriContext from "./components/UriContext";
+import UriContext from "./components/ContextApi/UriContext.jsx";
 import AdminHome from "./components/AdminHomePage/AdminHome.jsx";
 import AdminServices from "./components/AdminServicesPage/AdminServices.jsx";
 import AppointmentForm from "./components/AppointmentPage/AppointmentForm.jsx";

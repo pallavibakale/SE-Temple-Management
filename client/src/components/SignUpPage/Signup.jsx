@@ -6,7 +6,7 @@ import Navigation from "../Navigation/Navigation";
 import Footer from "../Footer/Footer";
 import { FaGoogle } from "react-icons/fa";
 import "./Signup.css";
-import UriContext from "../UriContext";
+import UriContext from "../ContextApi/UriContext";
 import { useNavigate } from "react-router-dom";
 
 // SignUpForm component handles the sign-up form functionality

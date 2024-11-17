@@ -2,7 +2,7 @@ import React, { useState, useEffect, useContext } from "react";
 import "./Home.css";
 import Navigation from "../Navigation/Navigation";
 import Footer from "../Footer/Footer";
-import UriContext from "../UriContext";
+import UriContext from "../ContextApi/UriContext";
 import { useNavigate } from "react-router-dom";
 import Card from "../Card/Card";
 import { Button } from "react-bootstrap";

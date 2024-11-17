@@ -3,7 +3,7 @@ import { Container, Button, Card, CardBody } from "react-bootstrap"; // Assuming
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import UriContext from "../UriContext";
+import UriContext from "../ContextApi/UriContext";
 import Navigation from "../Navigation/Navigation";
 import Footer from "../Footer/Footer";
 // import "./styles/Home.css";

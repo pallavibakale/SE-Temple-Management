@@ -5,7 +5,7 @@ import Navigation from "../Navigation/Navigation";
 // import "./styles/Home.css";
 import "./Services.css";
 
-import UriContext from "../UriContext";
+import UriContext from "../ContextApi/UriContext";
 import { useNavigate } from "react-router-dom";
 import ServiceCard from "./ServiceCard";
 

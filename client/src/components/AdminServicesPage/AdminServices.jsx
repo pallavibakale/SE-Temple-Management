@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext } from "react";
 import { Container } from "react-bootstrap";
-import UriContext from "../UriContext";
+import UriContext from "../ContextApi/UriContext";
 import Service from "./Service";
 import Footer from "../Footer/Footer";
 import Navigation from "../Navigation/Navigation";

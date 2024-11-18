@@ -17,7 +17,7 @@ const app = express();
 const PORT = process.env.PORT || 3001;
 
 const dbURI =
-  "mongodb+srv://pallavib0996:HskKA5PlAYgA5U5h@templedb.c678m.mongodb.net/?retryWrites=true&w=majority&appName=templedb";
+"mongodb+srv://pallavib0996:HskKA5PlAYgA5U5h@templedb.c678m.mongodb.net/templedb?retryWrites=true&w=majority&appName=templedb";
 
 // Connect to MongoDB
 mongoose.connect(dbURI, {});
@@ -109,9 +109,9 @@ app.patch("/reset-password", async (req, res) => {
 });
 
 app.post("/login", async (req, res) => {
-  const { email, password, role } = req.body;
+  const { email, password } = req.body;
 
-  const user = await User.findOne({ email, role });
+  const user = await User.findOne({ email });
 
   if (!user) {
     return res.status(400).json({ message: "User not found" });
@@ -122,10 +122,10 @@ app.post("/login", async (req, res) => {
   if (!isMatch) {
     return res.status(400).json({ message: "Invalid credentials" });
   }
-  req.session.user = { id: user.empId, role: user.role };
+  req.session.user = { id: user.empId };
   // Generate JWT Token
   const secret = "Team1";
-  const token = jwt.sign({ id: user.empId, role: user.role }, secret, {
+  const token = jwt.sign({ id: user.empId }, secret, {
     expiresIn: "1h",
   });
 

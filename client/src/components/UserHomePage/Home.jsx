@@ -85,9 +85,11 @@ const rituals = [
 
 function HomePage() {
   const uri = useContext(UriContext);
-  const navigate = useNavigate();
+  const navigate = useNavigate
+  const role = localStorage.getItem("role");
   // const [announcements, setAnnouncements] = useState([]);
   const [expandedIndex, setExpandedIndex] = useState(0);
+
 
   // setAnnouncements(data)
 
@@ -138,6 +140,9 @@ function HomePage() {
           ))}
         </div>
         <br/><br/><br/>
+
+        { (role==="Devotee") && (
+        <div>
         <div className="rituals-section">
           <h2 className="section-title">Rituals and Pujas</h2>        
         </div>
@@ -147,7 +152,20 @@ function HomePage() {
             <Card key={index} title={ritual.title} description={ritual.description} image={ritual.image} />
           ))}
         </div>
+        </div>
+        )}
+        {(role ==="Admin" || role ==="Priest") && (
+          <div className="buttons">
+            <button>
+              Add Event to announcements
+            </button>
+            <button>
+              Start Livestreaming
+            </button>
+          </div>
+        )}
         <br/>
+        
       <Footer />
     </div>
   );

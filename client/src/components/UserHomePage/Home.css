@@ -89,3 +89,13 @@
     gap: 20px;
     justify-items: center;
   }
+  .buttons {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .buttons button{
+    margin-bottom: 30px;
+    padding: 6px 10px;
+  }
+

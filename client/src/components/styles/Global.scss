@@ -1,7 +1,7 @@
 @import "variables";
 
 button {
-  padding: 5px 20px;
+  padding: 10px 20px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -10,7 +10,7 @@ button {
   line-height: 28px;
   font-weight: 400;
   color: $white;
-  background: $primary-color;
+  background: #ff7700;
   opacity: 1;
   border: none;
   border-radius: 6px !important;

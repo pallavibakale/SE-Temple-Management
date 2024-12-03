@@ -5,7 +5,7 @@ const NewsletterSignup = () => (
   <div className="newsletter-signup">
     <div className="newsletter-signup-header">
       <div className="newsletter-signup-title">
-        Sign up for Newsletter :
+        Sign up for Newsletter
       </div>
     </div>
     <form className="newsletter-signup-form">

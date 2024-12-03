@@ -52,5 +52,7 @@
     justify-items: center;
   }
   
+  .gallery-section img{
 
-    
+    width: 300px;
+  }

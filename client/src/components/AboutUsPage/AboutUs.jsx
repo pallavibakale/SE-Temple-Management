@@ -19,17 +19,33 @@ const imgSrc=[
     src: 'card-image.jpg'
   },
   {
-    src: 'pic5.jpeg'
+    src: 'card-image.jpg',
   },
   {
-    src: 'pic4.jpeg'
+    src: 'card-image.jpg',
   },
   {
-    src: 'pic6.jpeg'
+    src: 'card-image.jpg'
   },
   {
-    src: 'pic3.jpeg'
+    src: 'card-image.jpg',
   },
+  {
+    src: 'card-image.jpg',
+  },
+  {
+    src: 'card-image.jpg'
+  },
+  {
+    src: 'card-image.jpg',
+  },
+  {
+    src: 'card-image.jpg',
+  },
+  {
+    src: 'card-image.jpg'
+  },
+
 ]
 
 // AboutUsCard Component with Background Image

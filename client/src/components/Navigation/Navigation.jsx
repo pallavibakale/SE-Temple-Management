@@ -56,7 +56,7 @@ const Navigation = ({ onLogout }) => {
                 Services
               </NavLink>
             </Nav.Item>
-            {(role === "Devotee" || role === "Priest") && (
+            {(role === "Devotee") && (
               <Nav.Item className="">
                 <NavLink
                   to="/donate"
@@ -127,24 +127,18 @@ const Navigation = ({ onLogout }) => {
             {role === "" && (
               <Navbar.Collapse className="justify-content-end">
                 <Nav.Item className="nav-item">
-                  <button>
-                    <NavLink
-                      to="/login"
-                      className="nav-link"
-                      activeClassName="active"
-                    >
-                      Login
-                    </NavLink>
-                  </button>
+                  <Button href="/login" style={{backgroundColor:'#FF7400',border:'none',outline:'none',borderRadius:'6px', color:'white'}}>
+                    Login
+                  </Button>
                 </Nav.Item>
               </Navbar.Collapse>
             )}
             {(role === "Priest" || role === "Admin" || role === "Devotee") && (
               <Navbar.Collapse className="justify-content-end">
                 <Nav.Item className="nav-item">
-                  <button onClick={onLogout}>
+                  <Button onClick={onLogout} style={{backgroundColor:'#FF7400',border:'none',outline:'none',borderRadius:'6px', color:'white'}}>
                       Logout
-                  </button>
+                  </Button>
                 </Nav.Item>
               </Navbar.Collapse>
             )}

@@ -324,18 +324,21 @@ app.delete("/announcements/:id", async (req, res) => {
 app.use(express.urlencoded({ extended: true }));
 
 app.post("/add-service", upload.single("serviceImage"), async (req, res) => {
-  const { title, alt, description, category } = req.body;
+  const { title, cost, description } = req.body;
   const serviceImage = req.file
     ? `data:image/jpeg;base64,${req.file.buffer.toString("base64")}`
     : null;
+    console.log(title);
+    console.log(cost);
+    
+    console.log(description);
 
   try {
     const newService = new Service({
       title,
       serviceImage,
-      alt,
       description,
-      category,
+      cost
     });
     await newService.save();
     res.status(201).send("Service added successfully");
@@ -346,7 +349,7 @@ app.post("/add-service", upload.single("serviceImage"), async (req, res) => {
 });
 
 app.put("/services/:id", upload.single("serviceImage"), async (req, res) => {
-  const { title, alt, description, category } = req.body;
+  const { title, cost, description } = req.body;
   const serviceImage = req.file
     ? `data:image/jpeg;base64,${req.file.buffer.toString("base64")}`
     : null;
@@ -356,7 +359,7 @@ app.put("/services/:id", upload.single("serviceImage"), async (req, res) => {
       {
         title: title,
         serviceImage: serviceImage,
-        alt: alt,
+        cost: cost,
         description: description,
       },
       { new: true }

@@ -1,6 +1,6 @@
 import React, { useState, useRef } from 'react';
 import { Button, Modal, Form } from 'react-bootstrap';
-import "./AdminServices.css";
+import "./AddServices.css";
 
 function Service({ services, onAdd, onEdit,onDelete, category }) {
   const [showModal, setShowModal] = useState(false);

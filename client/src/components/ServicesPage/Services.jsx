@@ -12,7 +12,6 @@ import ServiceCard from "./ServiceCard";
 function Services() {
   const uri = useContext(UriContext);
   const navigate = useNavigate();
-  const [selectedService, setSelectedService] = useState(null);
   const [services, setServices] = useState([]);
 
   const handleLogout = async () => {
@@ -22,58 +21,21 @@ function Services() {
     localStorage.setItem("role", "");
     navigate("/");
   };
-  
-  const serviceData=[
-    {
-      title: 'Ganesh Puja',
-      description: 'Ganesh Puja is performed to remove obstacles and bring prosperity.',
-      image: 'card-image.jpg',
-    },
-    {
-        title: 'Durga Puja',
-        description: 'Durga Puja, celebrating the goddess Durga, is a major festival in India.',
-        image: 'card-image.jpg',
-    },
-    {
-        title: 'Lakshmi Puja',
-        description: 'Lakshmi Puja is performed to seek blessings for wealth and prosperity.',
-        image: 'card-image.jpg',
-    },
-    {
-        title: 'Saraswati Puja',
-        description: 'Saraswati Puja is dedicated to the goddess of knowledge, Saraswati.',
-        image: 'card-image.jpg',
-    },
-    {
-        title: 'Shiva Puja',
-        description: 'Shiva Puja is performed to honor Lord Shiva and seek his blessings.',
-        image: 'card-image.jpg',
-    },
-    {
-        title: 'Vishnu Puja',
-        description: 'Vishnu Puja is conducted to seek the protection and blessings of Lord Vishnu.',
-        image: 'card-image.jpg',
+
+  useEffect(() => {
+    fetchServices();
+  });
+
+  const fetchServices = async () => {
+    try {
+      const response = await fetch(uri + "/services");
+      const data = await response.json();
+      setServices(data);
+    } catch (error) {
+      console.error("Error fetching services:", error);
     }
-  ]
-
-  // useEffect(() => {
-  //   fetchServices();
-  // });
-
-  // const fetchServices = async () => {
-  //   try {
-  //     const response = await fetch(uri + "/services");
-  //     const data = await response.json();
-  //     setServices(data);
-  //   } catch (error) {
-  //     console.error("Error fetching services:", error);
-  //   }
-  // };
-
-  // const handleClick = (service) => {
-  //   setSelectedService(service);
-  // };
-
+  };
+  
   const handleSchedule = () => {
     const role = localStorage.getItem("role");
     if (role === "") {
@@ -86,13 +48,15 @@ function Services() {
   return (
     <div className="container">
       <Navigation onLogout={handleLogout} />
+      <h2 className="service-title">Puja Services</h2>
         <div className="service-container">
           {
-            serviceData.map((service,index)=>(
-              <ServiceCard key={index} title={service.title} description={service.description} image={service.image} />
+            services.map((service,index)=>(
+              <ServiceCard key={index} title={service.title} description={service.description} cost={service.cost} image={service.image} />
             ))
           }
         </div>
+        <Button href="/admin-service" style={{textAlign:'center', background: 'rgb(255, 116, 0)', border: 'none'}}>Add Services</Button>
       <Footer />
     </div>
   );

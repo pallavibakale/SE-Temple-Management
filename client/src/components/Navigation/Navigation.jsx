@@ -127,15 +127,9 @@ const Navigation = ({ onLogout }) => {
             {role === "" && (
               <Navbar.Collapse className="justify-content-end">
                 <Nav.Item className="nav-item">
-                  <button>
-                    <NavLink
-                      to="/login"
-                      className="nav-link"
-                      activeClassName="active"
-                    >
-                      Login
-                    </NavLink>
-                  </button>
+                  <Link to="/login" className="nav-link">
+                    <button>Login</button>
+                  </Link>
                 </Nav.Item>
               </Navbar.Collapse>
             )}

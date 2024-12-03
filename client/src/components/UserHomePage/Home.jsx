@@ -124,7 +124,7 @@ function HomePage() {
             <div className="overlay" >
                 <h1>Welcome to Our Temple</h1>
                 <p>Discover peace and spirituality at Temple</p>
-                <Button style={{backgroundColor:'#FF7400',border:'none',outline:'none'}}> Explore More</Button>
+                <Button href="/services" style={{backgroundColor:'#FF7400',border:'none',outline:'none'}}>Explore More</Button>
             </div>
         </div>
         <br/><br/>

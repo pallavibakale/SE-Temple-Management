@@ -51,7 +51,7 @@ const NewsletterSignup = () => (
   <div className="newsletter-signup">
     <div className="newsletter-signup-header">
       <div className="newsletter-signup-title">
-        Sign up for Omkaar Temple's Newsletter :
+        Sign up for Omkaar Temple's Newsletter
       </div>
       <div className="newsletter-signup-required">
         *{" "}

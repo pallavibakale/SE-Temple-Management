@@ -14,21 +14,19 @@ function AddServices() {
   const handleLogout = async () => {
     localStorage.removeItem("token");
     localStorage.removeItem("role");
-    localStorage.setItem("role", "");
     navigate("/");
   };
 
   const [currentService, setCurrentService] = useState({
     title: "",
     serviceImage: null,
-    alt: "",
     description: "",
     cost: "",
   });
 
   useEffect(() => {
     fetchServices();
-  }, []); // Added dependency array to prevent infinite loop
+  }, []);
 
   const fetchServices = async () => {
     try {
@@ -41,7 +39,7 @@ function AddServices() {
   };
 
   const handleAddService = async (e) => {
-    e.preventDefault(); // Prevent the default form submission behavior
+    e.preventDefault();
 
     const formData = new FormData();
     formData.append("title", currentService.title);
@@ -90,58 +88,69 @@ function AddServices() {
     <div className="container">
       <Navigation onLogout={handleLogout} />
       <main className="main-content">
-        <Container fluid>
-          <Form
-            style={{ justifySelf: "center", height: "100%" }}
-            onSubmit={handleAddService}
-          >
-            <Form.Group>
-              <Form.Label>Title</Form.Label>
-              <Form.Control
-                type="text"
-                name="title"
-                value={currentService.title}
-                required
-                onChange={handleChange}
-                placeholder="Title"
-              />
-            </Form.Group>
-            <Form.Group>
-              <Form.Label>Description</Form.Label>
-              <Form.Control
-                as="textarea"
-                rows={3}
-                name="description"
-                value={currentService.description}
-                placeholder="Description"
-                required
-                onChange={handleChange}
-              />
-            </Form.Group>
-            <Form.Group>
-              <Form.Label>Cost</Form.Label>
-              <Form.Control
-                type="text"
-                name="cost"
-                value={currentService.cost}
-                onChange={handleChange}
-                placeholder="Cost"
-                required
-              />
-            </Form.Group>
-            <Form.Group>
-              <Form.Label>Image</Form.Label>
-              <Form.Control
-                type="file"
-                name="serviceImage"
-                onChange={handleChange}
-              />
-            </Form.Group>
-            <Button variant="primary" type="submit">
-              Save Changes
-            </Button>
-          </Form>
-        </Container>
+      <Container className="add-service-form-container">
+      <h2 className="form-heading">Add Pooja Services</h2>
+      <Form className="form-layout" onSubmit={handleAddService}>
+        <Form.Group className="form-group">
+          <Form.Control
+            type="text"
+            name="title"
+            value={currentService.title}
+            required
+            onChange={handleChange}
+            placeholder="Title"
+            className="form-input"
+          />
+        </Form.Group>
+
+        <Form.Group className="form-group">
+          <Form.Control
+            as="textarea"
+            rows={3}
+            name="description"
+            value={currentService.description}
+            placeholder="Description"
+            required
+            onChange={handleChange}
+            className="form-input"
+          />
+        </Form.Group>
+
+
+        <Form.Group className="form-group">
+          <Form.Control
+            type="text"
+            name="cost"
+            value={currentService.cost}
+            onChange={handleChange}
+            placeholder="Cost"
+            required
+            className="form-input"
+          />
+        </Form.Group>
+
+
+        <Form.Group className="form-group">
+          <Form.Label>Add Image</Form.Label>
+          <div className="image-upload">
+            <label htmlFor="serviceImage" className="image-placeholder">
+              <img src="/placeholder-image.png" alt="Placeholder" />
+            </label>
+            <Form.Control
+              type="file"
+              id="serviceImage"
+              name="serviceImage"
+              onChange={handleChange}
+              className="file-input"
+            />
+          </div>
+        </Form.Group>
+
+        <Button variant="primary" type="submit" className="submit-button">
+          Submit
+        </Button>
+      </Form>
+    </Container>
       </main>
       <Footer />
     </div>

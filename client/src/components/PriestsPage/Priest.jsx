@@ -14,7 +14,7 @@ const PriestCard = () => {
     localStorage.removeItem("token");
     localStorage.removeItem("role");
     localStorage.removeItem("empId");
-    localStorage.setItem("role", "");
+    // localStorage.setItem("role", "");
     navigate("/");
   };
   return (

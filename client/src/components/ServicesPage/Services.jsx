@@ -18,30 +18,21 @@ function Services() {
     localStorage.removeItem("token");
     localStorage.removeItem("role");
     localStorage.removeItem("empId");
-    localStorage.setItem("role", "");
     navigate("/");
   };
 
   useEffect(() => {
     fetchServices();
-  });
+  }, []);
 
   const fetchServices = async () => {
     try {
       const response = await fetch(uri + "/services");
       const data = await response.json();
       setServices(data);
+      
     } catch (error) {
       console.error("Error fetching services:", error);
-    }
-  };
-  
-  const handleSchedule = () => {
-    const role = localStorage.getItem("role");
-    if (role === "") {
-      navigate("/login");
-    } else {
-      navigate("/schedule-appointment");
     }
   };
 
@@ -52,7 +43,7 @@ function Services() {
         <div className="service-container">
           {
             services.map((service,index)=>(
-              <ServiceCard key={index} title={service.title} description={service.description} cost={service.cost} image={service.image} />
+              <ServiceCard key={index} title={service.title} description={service.description} cost={service.cost} image={service.serviceImage} />
             ))
           }
         </div>

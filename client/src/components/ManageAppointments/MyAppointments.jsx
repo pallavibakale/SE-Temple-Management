@@ -21,7 +21,7 @@ function MyAppointment() {
   const handleLogout = async () => {
     localStorage.removeItem("token");
     localStorage.removeItem("role");
-    localStorage.setItem("role", "");
+    // localStorage.setItem("role", "");
     navigate("/");
   };
 

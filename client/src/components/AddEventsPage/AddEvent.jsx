@@ -72,7 +72,7 @@ const AddEvent = () => {
       <label className="form-label" htmlFor="serviceImage">Add Image</label>
       <div className="image-upload">
         <label htmlFor="serviceImage" className="image-placeholder">
-          <img src="/placeholder-image.png" alt="Placeholder" />
+          <img src="/placeholder-image.png" alt="Add Image" />
         </label>
         <input
           type="file"

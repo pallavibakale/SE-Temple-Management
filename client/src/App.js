@@ -9,7 +9,7 @@ import SignUp from "./components/SignUpPage/Signup.jsx";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import UriContext from "./components/ContextApi/UriContext.jsx";
 import AdminHome from "./components/AdminHomePage/AdminHome.jsx";
-import AdminServices from "./components/AdminServicesPage/AdminServices.jsx";
+import AdminServices from "./components/AddServicesPage/AddServices.jsx";
 import AppointmentForm from "./components/AppointmentPage/AppointmentForm.jsx";
 import MyAppointment from "./components/ManageAppointments/MyAppointments";
 import PriestCard from "./components/PriestsPage/Priest.jsx";

@@ -48,7 +48,6 @@ const imgSrc=[
 
 ]
 
-// AboutUsCard Component with Background Image
 const AboutUsCard = () => {
   const navigate = useNavigate();
 
@@ -57,7 +56,6 @@ const AboutUsCard = () => {
     localStorage.removeItem("token");
     localStorage.removeItem("role");
     localStorage.removeItem("empId");
-    localStorage.setItem("role", "");
     navigate("/");
   };
 

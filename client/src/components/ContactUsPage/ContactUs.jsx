@@ -20,7 +20,6 @@ const ContactUsCard = () => {
     localStorage.removeItem("token");
     localStorage.removeItem("role");
     localStorage.removeItem("empId");
-    localStorage.setItem("role", "");
     navigate("/");
   };
 

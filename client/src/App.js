@@ -23,8 +23,6 @@ import ContactUsCard from "./components/ContactUsPage/ContactUs";
 
 function App() {
   const uriValue = "http://localhost:3001";
-  localStorage.setItem("role", "");
-
   return (
     <div className="App">
       <UriContext.Provider value={uriValue}>

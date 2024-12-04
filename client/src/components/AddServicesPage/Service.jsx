@@ -9,9 +9,8 @@ function Service({ services, onAdd, onEdit,onDelete, category }) {
   const [currentService, setCurrentService] = useState({
     title: '',
     serviceImage: null,
-    alt: '',
+    cost: '',
     description: '',
-    category: category
   });
 
   const handleClose = () => setShowModal(false);
@@ -23,9 +22,8 @@ function Service({ services, onAdd, onEdit,onDelete, category }) {
       setCurrentService({
         title: '',
         serviceImage: null,
-        alt: '',
+        cost: '',
         description: '',
-        category: category
       });
       setEditMode(false);
     }

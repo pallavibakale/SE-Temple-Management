@@ -114,7 +114,7 @@ function HomePage() {
         <br/><br/>
         {(role === "Priest") && (
           <>
-            <Button href="/events" style={{backgroundColor:'#FF7400',border:'none',outline:'none',borderRadius:'6px', color:'white'}}>Add event to Annoucements</Button>
+            <Button href="/add-event" style={{backgroundColor:'#FF7400',border:'none',outline:'none',borderRadius:'6px', color:'white'}}>Add event to Annoucements</Button>
             <br/><br/>
             <Button href="/" style={{backgroundColor:'#FF7400',border:'none',outline:'none',borderRadius:'6px', color:'white'}}>Start live streaming</Button>
           </>

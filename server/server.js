@@ -12,12 +12,13 @@ const nodemailer = require("nodemailer");
 const crypto = require("crypto");
 const session = require("express-session");
 const multer = require("multer");
+import * as dotenv from "dotenv";
+
 
 const app = express();
 const PORT = process.env.PORT || 3001;
 
-const dbURI =
-"mongodb+srv://pallavib0996:HskKA5PlAYgA5U5h@templedb.c678m.mongodb.net/templedb?retryWrites=true&w=majority&appName=templedb";
+const dbURI =process.env.MONGODB_URL
 
 // Connect to MongoDB
 mongoose.connect(dbURI, {});

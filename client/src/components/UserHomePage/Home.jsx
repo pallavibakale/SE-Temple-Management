@@ -57,6 +57,7 @@ function HomePage() {
   const navigate = useNavigate();
   // const [announcements, setAnnouncements] = useState([]);
 
+
   // setAnnouncements(data)
   const fetchServices = async () => {
     if (role != "Priest") {
@@ -111,28 +112,33 @@ function HomePage() {
             <Card key={index} title={announcement.title} description={announcement.description} image={announcement.image} />
           ))}
         </div>
-        <br/><br/>
-        {(role === "Priest") && (
-          <>
-            <Button href="/events" style={{backgroundColor:'#FF7400',border:'none',outline:'none',borderRadius:'6px', color:'white'}}>Add event to Annoucements</Button>
-            <br/><br/>
-            <Button href="/" style={{backgroundColor:'#FF7400',border:'none',outline:'none',borderRadius:'6px', color:'white'}}>Start live streaming</Button>
-          </>
+        <br/><br/><br/>
+
+        { (role==="Devotee") && (
+        <div>
+        <div className="rituals-section">
+          <h2 className="section-title">Rituals and Pujas</h2>        
+        </div>
+        <br/>
+        <div className="rituals-grid">
+          {services.map((service, index) => (
+            <Card key={index} title={service.title} description={service.description} image={service.serviceImage} />
+          ))}
+        </div>
+        </div>
         )}
-        {(role !== "Priest") && (
-          <>
-            <div className="rituals-section">
-              <h2 className="section-title">Rituals and Pujas</h2>        
-            </div>
-            <br/>
-            <div className="rituals-grid">
-            {services.map((service, index) => (
-              <Card key={index} title={service.title} description={service.description} image={service.serviceImage} />
-            ))}
-            </div>
-          </>
+        {(role ==="Admin" || role ==="Priest") && (
+          <div className="buttons">
+            <Button href="/add-event">
+              Add Event to announcements
+            </Button><br/><br/>
+            <Button>
+              Start Livestreaming
+            </Button>
+          </div>
         )}
         <br/>
+        
       <Footer />
     </div>
   );

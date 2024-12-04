@@ -14,6 +14,7 @@ function AddServices() {
   const handleLogout = async () => {
     localStorage.removeItem("token");
     localStorage.removeItem("role");
+    localStorage.setItem("role", "");
     navigate("/");
   };
 

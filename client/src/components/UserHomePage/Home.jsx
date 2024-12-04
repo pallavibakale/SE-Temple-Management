@@ -156,12 +156,12 @@ function HomePage() {
         )}
         {(role ==="Admin" || role ==="Priest") && (
           <div className="buttons">
-            <button>
+            <Button href="/add-event">
               Add Event to announcements
-            </button>
-            <button>
+            </Button><br/><br/>
+            <Button>
               Start Livestreaming
-            </button>
+            </Button>
           </div>
         )}
         <br/>

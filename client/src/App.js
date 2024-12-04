@@ -20,6 +20,7 @@ import CreatePriest from "./components/CreatePriest/CreatePriest.jsx";
 import PasswordReset from "./components/SignUpPage/PasswordReset.jsx";
 import AppointmentConfirmation from "./components/AppointmentPage/AppointmentConfirmation";
 import ContactUsCard from "./components/ContactUsPage/ContactUs";
+import AddEventSection from "./components/AddEventPage/AddEvent.jsx";
 
 function App() {
   const uriValue = "http://localhost:3001";
@@ -42,6 +43,7 @@ function App() {
             <Route path="/admin-home" element={<AdminHome />} />
             <Route path="/admin-service" element={<AdminServices />} />
             <Route path="/schedule-appointment" element={<AppointmentForm />} />
+            <Route path="/add-event" element={<AddEventSection />} />
             <Route path="/appointment-confirmation" element={<AppointmentConfirmation />} />
             <Route path="/appointments" element={<MyAppointment />} />
             <Route path="/priest" element={<PriestCard />} />

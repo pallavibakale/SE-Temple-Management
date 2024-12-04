@@ -1,12 +1,11 @@
 import React, { useContext, useState, useEffect } from "react";
-import { Container, Button, Card, CardBody } from "react-bootstrap"; // Assuming you are using react-bootstrap
+import { Container, Button, Card, CardBody } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import UriContext from "../ContextApi/UriContext";
 import Navigation from "../Navigation/Navigation";
 import Footer from "../Footer/Footer";
-// import "./styles/Home.css";
 import "./MyAppointments.css";
 
 function MyAppointment() {
@@ -22,14 +21,14 @@ function MyAppointment() {
   const handleLogout = async () => {
     localStorage.removeItem("token");
     localStorage.removeItem("role");
-    localStorage.removeItem("empId");
     localStorage.setItem("role", "");
     navigate("/");
   };
 
   useEffect(() => {
-    const token = localStorage.getItem("user");
-    if (!token) {
+    const token = localStorage.getItem("token");
+    const role = localStorage.getItem("role");
+    if (!token || (role !== "Admin" && role !== "Priest")) {
       navigate("/login");
     }
     fetchAppointments();
@@ -65,21 +64,6 @@ function MyAppointment() {
     }
   };
 
-  const handleFilter = () => {
-    const filteredAppointments = appointments.filter((appointment) =>
-      appointment[filterColumn]
-        ?.toLowerCase()
-        .includes(filterValue.toLowerCase())
-    );
-    setAppointments(filteredAppointments);
-  };
-
-  const handleClearFilter = () => {
-    setFilterColumn("name");
-    setFilterValue("");
-    fetchAppointments();
-  };
-
   const sortedAppointments = [...appointments].sort((a, b) => {
     if (sortConfig.direction === "ascending") {
       return a[sortConfig.key] > b[sortConfig.key] ? 1 : -1;
@@ -87,31 +71,6 @@ function MyAppointment() {
       return a[sortConfig.key] < b[sortConfig.key] ? 1 : -1;
     }
   });
-
-  const handleSortAndSearch = (key) => {
-    const direction =
-      sortConfig.key === key && sortConfig.direction === "ascending"
-        ? "descending"
-        : "ascending";
-    setSortConfig({ key, direction });
-
-    // Perform search on sorted data
-    const sortedAndSearchedappointments = [...appointments]
-      .sort((a, b) => {
-        if (direction === "ascending") {
-          return a[key] > b[key] ? 1 : -1;
-        } else {
-          return a[key] < b[key] ? 1 : -1;
-        }
-      })
-      .filter((appointment) =>
-        appointment[filterColumn]
-          .toLowerCase()
-          .includes(filterValue.toLowerCase())
-      );
-
-    setAppointments(sortedAndSearchedappointments);
-  };
 
   const handleStatusChange = async (id, newStatus) => {
     try {
@@ -135,134 +94,47 @@ function MyAppointment() {
   };
 
   const role = localStorage.getItem("role");
+  console.log(appointments);
+  
 
   return (
     <div className="container">
       <Navigation onLogout={handleLogout} />
       <Container fluid>
-        <Card>
-          <h2>Appointments</h2>
+        <Card style={{width: "100%", border: "none", marginTop: "30px"}}>
+          <h2 style={{textAlign: "center", marginBottom: "35px"}}>Appointments</h2>
           <CardBody>
-            <div className="filter">
-              <label>
-                <select
-                  style={{ height: "40px", textJustify: "center" }}
-                  value={filterColumn}
-                  onChange={(e) => setFilterColumn(e.target.value)}
-                >
-                  <option value="title">Name</option>
-                  <option value="date">Date</option>
-                  <option value="time">Time</option>
-                  <option value="priest">Priest</option>
-                </select>
-              </label>
-              <input
-                style={{ height: "40px" }}
-                type="text"
-                placeholder="Filter value..."
-                value={filterValue}
-                onChange={(e) => setFilterValue(e.target.value)}
-              />
-              <button onClick={handleFilter}>Filter</button>
-              <button onClick={handleClearFilter}>Clear Filter</button>
-            </div>
             <div className="table-container">
               {sortedAppointments.length > 0 ? (
-                <>
-                  {role === "Devotee" ? (
-                    <table>
-                      <thead>
-                        <tr>
-                          <th>S.No</th>
-                          <th onClick={() => handleSortAndSearch("title")}>
-                            Name
-                          </th>
-                          <th onClick={() => handleSortAndSearch("date")}>
-                            Date
-                          </th>
-                          <th onClick={() => handleSortAndSearch("priest")}>
-                            Priest
-                          </th>
-                          <th>Status</th>
-                          <th>Action</th>
+                  <table className="appointments-table">
+                    <thead>
+                      <tr>
+                        <th>Devotee Name</th>
+                        <th>Pooja Name</th>
+                        <th>Email</th>
+                        <th>Devotee Contact</th>
+                        <th>Date</th>
+                        <th>Action</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {sortedAppointments.map((appointment) => (
+                        <tr key={appointment._id}>
+                          <td className="name-cell">{appointment.firstName}</td>
+                          <td>{appointment.title}</td>
+                          <td>{appointment.email}</td>
+                          <td>{appointment.phone}</td>
+                          <td>{new Date(appointment.date).toLocaleDateString('en-GB')}</td>
+                          <td variant="danger"
+                              className="delete-button"
+                              onClick={() => handleDelete(appointment._id)}
+                            >
+                              Remove
+                          </td>
                         </tr>
-                      </thead>
-                      <tbody>
-                        {sortedAppointments.map((appointment, index) => (
-                          <tr key={appointment._id}>
-                            <td>{index + 1}</td>
-                            <td>{appointment.title}</td>
-                            <td>{appointment.date}</td>
-                            <td>{appointment.priest}</td>
-                            <td>{appointment.status}</td>
-                            <td>
-                              <Button
-                                variant="danger"
-                                onClick={() => handleDelete(appointment._id)}
-                              >
-                                Cancel
-                              </Button>
-                            </td>
-                          </tr>
-                        ))}
-                      </tbody>
-                    </table>
-                  ) : (
-                    <table>
-                      <thead>
-                        <tr>
-                          <th>S.No</th>
-                          <th onClick={() => handleSortAndSearch("title")}>
-                            Name
-                          </th>
-                          <th onClick={() => handleSortAndSearch("date")}>
-                            Date
-                          </th>
-                          <th onClick={() => handleSortAndSearch("firstName")}>
-                            Devotee
-                          </th>
-                          <th>Devotee Id</th>
-                          <th>Status</th>
-                          <th>Action</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        {sortedAppointments.map((appointment, index) => (
-                          <tr key={appointment._id}>
-                            <td>{index + 1}</td>
-                            <td>{appointment.title}</td>
-                            <td>{appointment.date}</td>
-                            <td>{appointment.firstName}</td>
-                            <td>{appointment.empId}</td>
-                            <td>
-                              <select
-                                value={appointment.status}
-                                onChange={(e) =>
-                                  handleStatusChange(
-                                    appointment._id,
-                                    e.target.value
-                                  )
-                                }
-                              >
-                                <option value="pending">Pending</option>
-                                <option value="approved">Approve</option>
-                                <option value="cancelled">Cancel</option>
-                              </select>
-                            </td>
-                            <td>
-                              <Button
-                                variant="danger"
-                                onClick={() => handleDelete(appointment._id)}
-                              >
-                                Delete
-                              </Button>
-                            </td>
-                          </tr>
-                        ))}
-                      </tbody>
-                    </table>
-                  )}
-                </>
+                      ))}
+                    </tbody>
+                  </table>
               ) : (
                 <p>No appointments found.</p>
               )}

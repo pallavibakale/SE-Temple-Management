@@ -14,8 +14,8 @@ const LiveStreamCard = () => {
   const handleLogout = async () => {
     localStorage.removeItem("token");
     localStorage.removeItem("role");
-    localStorage.removeItem("empId");
     localStorage.setItem("role", "");
+    localStorage.removeItem("empId");
     navigate("/");
   };
   return (

@@ -3,27 +3,100 @@ import { Button } from 'react-bootstrap'
 import { useNavigate } from 'react-router-dom';
 
 
-const ServiceCard = ({ title, description, image}) => {
+const ServiceCard = ({ title, description, cost, image}) => {
+    const role = localStorage.getItem("role");
     const navigate = useNavigate();
-    const handleSchedule = () => {
-        const role = localStorage.getItem("role");
-        if (role === "") {
+    const handleSchedule = () => {    
+        if (role === "" || role =="Devotee") {
           navigate("/login");
         } else {
           navigate("/schedule-appointment");
         }
-      };
+    };
   return (
-        <div className='card' style={{display:'flex', flexDirection: 'row',paddingLeft:'0',paddingBottom:'0',width: '380px',height:'210px',marginRight:'20px',borderTopRightRadius: '25px',border: '2px solid #FF7400'}}>
-            <div className='card-details' style={{border:'none'}}>
-                <h5 className='card-heading' style={{fontSize:'16px', fontWeight:'700'}}>{title}</h5>
-                <p style={{fontSize:'12px'}}>{description}</p>
-                <Button onClick={handleSchedule} style={{fontSize:'12px',marginLeft:'0',marginRight:'0'}}>Schedule Appointment</Button>
-            </div>
-            <div className='card-image'>
-                <img className='card-image' src={image} alt='any image'/>
-            </div>
-        </div>
+    <div 
+    className="card" 
+    style={{
+      display: 'flex', 
+      flexDirection: 'column', 
+      padding: '20px', 
+      width: '380px', 
+      borderRadius: '15px', 
+      border: '2px solid #FF7400', 
+      boxShadow: '0px 4px 6px rgba(0, 0, 0, 0.1)', 
+      backgroundColor: '#fff'
+    }}
+  >
+    <div 
+      className="card-image" 
+      style={{
+        borderRadius: '10px', 
+        overflow: 'hidden', 
+        marginBottom: '15px'
+      }}
+    >
+      <img 
+        src={image} 
+        alt="Card Visual" 
+        style={{
+          width: '100%', 
+          height: '160px', 
+          objectFit: 'cover'
+        }} 
+      />
+    </div>
+    <div 
+      className="card-details" 
+      style={{
+        textAlign: 'left', border: 'none', width: '100%'
+      }}
+    >
+      <h5 
+        className="card-heading" 
+        style={{
+          fontSize: '18px', 
+          fontWeight: '700', 
+          marginBottom: '10px'
+        }}
+      >
+        {title}
+      </h5>
+      <p 
+        style={{
+          fontSize: '14px', 
+          color: '#6c757d', 
+          marginBottom: '10px'
+        }}
+      >
+        {description}
+      </p>
+      <p 
+        style={{
+          fontSize: '14px', 
+          color: 'rgb(108, 117, 125)'
+        }}
+      >
+        Cost: {cost}
+      </p>
+      {(role === "" || role === "Devotee") && (
+        <Button 
+          onClick={handleSchedule} 
+          style={{
+            fontSize: '14px', 
+            marginTop: '15px', 
+            backgroundColor: '#FF7400', 
+            color: '#fff', 
+            border: 'none', 
+            padding: '10px 15px', 
+            borderRadius: '5px', 
+            cursor: 'pointer'
+          }}
+        >
+          Schedule Appointment
+        </Button>
+      )}
+    </div>
+  </div>  
   )
 }
 

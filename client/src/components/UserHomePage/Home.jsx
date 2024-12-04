@@ -22,8 +22,7 @@ const AnnouncementItem = ({ title, description, expanded, onClick }) => {
         <div className="announcement-expand">
           <button className="announcement-expand-text" onClick={handleClick}>
             &#9660;
-          </button>{" "}
-          {/* Down arrow symbol */}
+          </button>
         </div>
       )}
     </div>
@@ -50,52 +49,34 @@ const announcements = [
   }
 ];
 
-const rituals = [
-  {
-      title: 'Ganesh Puja',
-      description: 'Ganesh Puja is performed to remove obstacles and bring prosperity.',
-      image: 'card-image.jpg',
-  },
-  {
-      title: 'Durga Puja',
-      description: 'Durga Puja, celebrating the goddess Durga, is a major festival in India.',
-      image: 'card-image.jpg',
-  },
-  {
-      title: 'Lakshmi Puja',
-      description: 'Lakshmi Puja is performed to seek blessings for wealth and prosperity.',
-      image: 'card-image.jpg',
-  },
-  {
-      title: 'Saraswati Puja',
-      description: 'Saraswati Puja is dedicated to the goddess of knowledge, Saraswati.',
-      image: 'card-image.jpg',
-  },
-  {
-      title: 'Shiva Puja',
-      description: 'Shiva Puja is performed to honor Lord Shiva and seek his blessings.',
-      image: 'card-image.jpg',
-  },
-  {
-      title: 'Vishnu Puja',
-      description: 'Vishnu Puja is conducted to seek the protection and blessings of Lord Vishnu.',
-      image: 'card-image.jpg',
-  }
-];
 
 function HomePage() {
   const uri = useContext(UriContext);
-  const navigate = useNavigate
   const role = localStorage.getItem("role");
+  const [services, setServices] = useState([]);
+  const navigate = useNavigate();
   // const [announcements, setAnnouncements] = useState([]);
-  const [expandedIndex, setExpandedIndex] = useState(0);
 
 
   // setAnnouncements(data)
+  const fetchServices = async () => {
+    if (role != "Priest") {
+      try {
+        const response = await fetch(uri + "/services");
+        const data = await response.json();
+        setServices(data);
+        
+      } catch (error) {
+        console.error("Error fetching services:", error);
+      }
+    }
+    else setServices([]);
+  };
 
   useEffect(() => {
     // fetchAnnouncements();
-  });
+    fetchServices();
+  }, []);
 
   const handleLogout = async () => {
     localStorage.removeItem("token");
@@ -109,14 +90,6 @@ function HomePage() {
   //   const response = await fetch(uri + "/announcements");
   //   const data = await response.json();
   //   setAnnouncements(data);
-  // };
-
-  // const handleExpand = (index) => {
-  //   if (index === expandedIndex) {
-  //     setExpandedIndex(-1); // Collapse the clicked announcement if it's already expanded
-  //   } else {
-  //     setExpandedIndex(index); // Expand the clicked announcement
-  //   }
   // };
 
   return (
@@ -148,8 +121,8 @@ function HomePage() {
         </div>
         <br/>
         <div className="rituals-grid">
-          {rituals.map((ritual, index) => (
-            <Card key={index} title={ritual.title} description={ritual.description} image={ritual.image} />
+          {services.map((service, index) => (
+            <Card key={index} title={service.title} description={service.description} image={service.serviceImage} />
           ))}
         </div>
         </div>

@@ -5,7 +5,7 @@ import "./Navigation.css";
 
 const Navigation = ({ onLogout }) => {
   const role = localStorage.getItem("role");
-
+  const token = localStorage.getItem("token");
   return (
     <header className="header">
       <Navbar>
@@ -17,11 +17,10 @@ const Navigation = ({ onLogout }) => {
         </Navbar.Brand>
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="">
-            {(role === "Devotee" || role === "Priest" || role === "") && (
+            {(role != "Admin") && (
               <Nav.Item className="">
                 <NavLink to="/" className="nav-link" activeClassName="active">
                   Home
-                  
                 </NavLink>
               </Nav.Item>
             )}
@@ -36,7 +35,7 @@ const Navigation = ({ onLogout }) => {
                 </NavLink>
               </Nav.Item>
             )}
-            {(role === "Devotee" || role === "Priest" || role === "") && (
+            {(role !== "Admin") && (
               <Nav.Item className="">
                 <NavLink
                   to="/aboutUs"
@@ -56,7 +55,7 @@ const Navigation = ({ onLogout }) => {
                 Services
               </NavLink>
             </Nav.Item>
-            {(role === "Devotee") && (
+            {(role !== "Priest" && role !== "Admin") && (
               <Nav.Item className="">
                 <NavLink
                   to="/donate"
@@ -78,14 +77,14 @@ const Navigation = ({ onLogout }) => {
                 </NavLink>
               </Nav.Item>
             )}
-            {(role === "Devotee" || role === "") && (
+            {(role !== "Priest" && role !== "Admin") && (
               <Nav.Item className="">
                 <NavLink
                   to="/contact"
                   className="nav-link"
                   activeClassName="active"
                 >
-                  Contact Us
+                Contact Us
                 </NavLink>
               </Nav.Item>
             )}
@@ -101,7 +100,8 @@ const Navigation = ({ onLogout }) => {
                 </NavLink>
               </Nav.Item>
             )}
-            {(role === "Devotee" || role === "") && (
+            
+            {(role != "Priest" && role != "Admin") && (
               <Nav.Item className="">
                 <NavLink
                   to="/live"
@@ -124,7 +124,7 @@ const Navigation = ({ onLogout }) => {
               </Nav.Item>
             )}
 
-            {role === "" && (
+            {!token && (
               <Navbar.Collapse className="justify-content-end">
                 <Nav.Item className="nav-item">
                   <Button href="/login" style={{backgroundColor:'#FF7400',border:'none',outline:'none',borderRadius:'6px', color:'white'}}>
@@ -133,7 +133,7 @@ const Navigation = ({ onLogout }) => {
                 </Nav.Item>
               </Navbar.Collapse>
             )}
-            {(role === "Priest" || role === "Admin" || role === "Devotee") && (
+            {((role === "Priest" || role === "Admin" || role === "Devotee") && token) && (
               <Navbar.Collapse className="justify-content-end">
                 <Nav.Item className="nav-item">
                   <Button onClick={onLogout} style={{backgroundColor:'#FF7400',border:'none',outline:'none',borderRadius:'6px', color:'white'}}>

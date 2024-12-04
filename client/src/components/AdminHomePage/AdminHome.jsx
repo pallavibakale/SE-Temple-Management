@@ -114,7 +114,7 @@ function HomePage() {
 
   useEffect(() => {
     fetchAnnouncements();
-  });
+  }, []);
 
   const fetchAnnouncements = async () => {
     const response = await fetch(uri + "/announcements");

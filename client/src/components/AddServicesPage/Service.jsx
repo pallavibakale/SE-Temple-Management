@@ -1,6 +1,6 @@
 import React, { useState, useRef } from 'react';
 import { Button, Modal, Form } from 'react-bootstrap';
-import "./AdminServices.css";
+import "./AddServices.css";
 
 function Service({ services, onAdd, onEdit,onDelete, category }) {
   const [showModal, setShowModal] = useState(false);
@@ -9,9 +9,8 @@ function Service({ services, onAdd, onEdit,onDelete, category }) {
   const [currentService, setCurrentService] = useState({
     title: '',
     serviceImage: null,
-    alt: '',
+    cost: '',
     description: '',
-    category: category
   });
 
   const handleClose = () => setShowModal(false);
@@ -23,9 +22,8 @@ function Service({ services, onAdd, onEdit,onDelete, category }) {
       setCurrentService({
         title: '',
         serviceImage: null,
-        alt: '',
+        cost: '',
         description: '',
-        category: category
       });
       setEditMode(false);
     }

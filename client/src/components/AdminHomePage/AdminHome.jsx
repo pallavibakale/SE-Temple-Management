@@ -108,12 +108,13 @@ function HomePage() {
     localStorage.removeItem("token");
     localStorage.removeItem("role");
     localStorage.removeItem("empId");
+    localStorage.setItem("role", "");
     navigate("/");
   };
 
   useEffect(() => {
     fetchAnnouncements();
-  });
+  }, []);
 
   const fetchAnnouncements = async () => {
     const response = await fetch(uri + "/announcements");

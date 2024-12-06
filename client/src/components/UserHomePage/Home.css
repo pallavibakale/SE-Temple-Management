@@ -1,90 +1,201 @@
+/* Home section */
 .home-section {
-    position: relative;
-    background-image: url('../../images/bg-image.png');
-    background-size: cover;
-    background-position: center;
-    height: 500px; /* Adjust the height as needed */
-    width: 90%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-  }
-  
-  .overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.5); /* Semi-black overlay */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  .overlay h1 {
-    font-size: 3rem; /* Adjust the size as needed */
-    text-align: center;
-  }
-  
-  
-  button {
-    padding: 0 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: Inter;
-    font-size: 18px;
-    line-height: 28px;
-    font-weight: 400;
-    color: white;
-    background: #ff7400;
-    opacity: 1;
-    border: none;
-    border-radius: 6px !important;
-  }
-  button:hover {
-    color: white;
-    background: #ca5b00;
-  }
-  button:hover:active {
-    color: white;
-    background: #ca5b00;
-  }
-  button:disabled {
-    opacity: 0.4;
-  }
-  
-  .container {
-    background-color: #fff;
-    display: flex;
-    flex-direction: row;
-    width: 100%;
-    padding: 0px;
-  }
-  .container .banner-image {
-    aspect-ratio: 7.16;
-    -o-object-fit: cover;
-       object-fit: cover;
-    width: 100%;
-    margin: 0%;
-    padding: 0px;
-  }
-  
-  .announcements-list {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(2, auto);
-    gap: 20px;
-    justify-items: center;
-  }
-  
+  position: relative;
+  background-image: url('../../images/bg-image.png');
+  background-size: cover;
+  background-position: center;
+  height: 500px; /* Adjust the height as needed */
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  padding: 20px;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5); /* Semi-black overlay */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.overlay h1 {
+  font-size: 3rem; /* Adjust the size as needed */
+  margin-bottom: 20px;
+}
+
+button {
+  padding: 10px 20px;
+  font-family: Inter, sans-serif;
+  font-size: 18px;
+  line-height: 28px;
+  font-weight: 400;
+  color: white;
+  background: #ff7400;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+button:hover {
+  background: #ca5b00;
+}
+
+button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+/* Container for announcements and rituals */
+.container {
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  width: 100%;
+  margin-top: 30px;
+}
+
+/* Announcement Section */
+.announcements-section {
+  width: 100%;
+  padding: 0 15px;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 15px; /* Reduced bottom margin to move title closer */
+}
+
+/* Announcements list styling */
+.announcements-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  justify-items: center;
+  margin-bottom: 40px;
+}
+
+.announcements-list .card {
+  width: 100%;
+  max-width: 320px; /* Slightly reduced card width */
+  padding: 20px;
+  background: #f4f4f4;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Space out elements within the card */
+  box-sizing: border-box; /* Include padding in height calculation */
+  height: auto; /* Allow the card to grow with content */
+}
+
+.announcements-list .card h3 {
+  font-size: 1.8rem;
+  margin-bottom: 10px;
+}
+
+.announcements-list .card p {
+  font-size: 1rem;
+  color: #555;
+  line-height: 1.5;
+  margin-bottom: 20px; /* Add space at the bottom of the paragraph */
+  max-height: 120px; /* Limit the height of the description */
+  overflow-y: auto; /* Allow scrolling if the text overflows */
+  flex-grow: 1; /* Allow the description to take up remaining space */
+}
+
+.announcements-list .card .card-footer {
+  margin-top: auto;
+  text-align: right;
+  font-size: 0.9rem;
+  color: #777;
+}
+
+/* Rituals and Pujas Section */
+.rituals-section {
+  width: 100%;
+  padding: 0 15px;
+  margin-top: 40px;
+}
+
+.rituals-section .section-title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 20px;
+  margin-top: -20px; /* Adjusted to push the title upwards */
+}
+
+/* Rituals and Pujas grid styling */
+.rituals-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  justify-items: center;
+  margin-top: 30px;
+}
+
+.rituals-grid .card {
+  width: 100%;
+  max-width: 320px; /* Consistent width with announcements */
+  padding: 20px;
+  background: #f4f4f4;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.rituals-grid .card h3 {
+  font-size: 1.8rem;
+  margin-bottom: 10px;
+}
+
+.rituals-grid .card p {
+  font-size: 1rem;
+  color: #555;
+  line-height: 1.5;
+}
+
+/* Specific styles for Diwali, Navratri, and Ganesh Chaturthi descriptions */
+.rituals-grid .card.diwali p,
+.rituals-grid .card.navratri p,
+.rituals-grid .card.ganeshchaturti p {
+  background: none; /* Remove background */
+  box-shadow: none; /* Remove box shadow */
+  padding: 0; /* Remove padding */
+  border-radius: 0; /* Remove border radius */
+  max-height: 120px; /* Limit the height of the description */
+  overflow-y: auto; /* Allow scrolling if the text overflows */
+  flex-grow: 1; /* Ensure descriptions take up remaining space */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .announcements-list,
   .rituals-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr); /* 3 columns */
-    grid-template-rows: repeat(2, auto);
-    gap: 20px;
-    justify-items: center;
+    grid-template-columns: 1fr 1fr; /* Stack into 2 columns on smaller screens */
   }
+}
+
+@media (max-width: 480px) {
+  .announcements-list,
+  .rituals-grid {
+    grid-template-columns: 1fr; /* Stack into a single column on very small screens */
+  }
+
+  .overlay h1 {
+    font-size: 2rem; /* Smaller font for small screens */
+  }
+}

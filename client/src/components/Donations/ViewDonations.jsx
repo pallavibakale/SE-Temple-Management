@@ -5,35 +5,49 @@ import "react-toastify/dist/ReactToastify.css";
 import UriContext from "../ContextApi/UriContext"; // Ensure the correct path to UriContext
 import Navigation from "../Navigation/Navigation"; // Ensure the correct path to Navigation
 import Footer from "../Footer/Footer"; // Ensure the correct path to Footer
+import './ViewDonations.css'; // Import the CSS file
 
 const ViewDonations = () => {
   const uri = useContext(UriContext); // Make sure UriContext is properly defined and exported
   const navigate = useNavigate();
-  const [donations, setDonations] = useState([]);
+  const [donations, setDonations] = useState([
+    {
+      _id: "1",
+      name: "John Doe",
+      amount: 100,
+      email: "johndoe@example.com",
+      phone: "123-456-7890",
+      date: "2024-12-05T12:00:00Z",
+    },
+    {
+      _id: "2",
+      name: "Jane Smith",
+      amount: 50,
+      email: "janesmith@example.com",
+      phone: "234-567-8901",
+      date: "2024-12-04T12:00:00Z",
+    },
+    {
+      _id: "3",
+      name: "Alice Johnson",
+      amount: 200,
+      email: "alicejohnson@example.com",
+      phone: "345-678-9012",
+      date: "2024-12-03T12:00:00Z",
+    },
+    {
+      _id: "4",
+      name: "Bob Brown",
+      amount: 75,
+      email: "bobbrown@example.com",
+      phone: "456-789-0123",
+      date: "2024-12-02T12:00:00Z",
+    },
+  ]);
   const [sortConfig, setSortConfig] = useState({
     key: null,
     direction: "ascending",
   });
-  const [filterColumn, setFilterColumn] = useState("name");
-  const [filterValue, setFilterValue] = useState("");
-
-  useEffect(() => {
-    fetchDonations();
-  }, []);
-
-  const fetchDonations = async () => {
-    try {
-      const response = await fetch(`${uri}/get-donations`);
-      if (response.ok) {
-        const data = await response.json();
-        setDonations(data);
-      } else {
-        console.error("Failed to fetch donations");
-      }
-    } catch (error) {
-      console.error("Error fetching donations:", error);
-    }
-  };
 
   const handleDelete = async (id) => {
     try {
@@ -42,7 +56,8 @@ const ViewDonations = () => {
       });
       if (response.ok) {
         alert("Donation deleted successfully.");
-        fetchDonations(); // Refresh the list after deletion
+        // Refresh the list after deletion (using sample data here)
+        setDonations(donations.filter((donation) => donation._id !== id));
       } else {
         console.error("Failed to delete donation");
       }

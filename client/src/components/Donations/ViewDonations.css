@@ -1,47 +1,59 @@
+/* ViewDonations.css */
+
 /* Ensure the table is scrollable on smaller screens */
 .table-container {
-    overflow-x: auto;
-    margin-top: 20px; /* Add spacing if necessary */
-  }
-  
-  /* Style the table to ensure a clean, consistent look */
-  .donations-table {
-    width: 100%;
-    border-collapse: collapse; /* Ensures that table borders collapse into a single border */
-    margin: 0 auto; /* Centers the table */
-  }
-  
-  /* Style the table header and cells */
-  .donations-table th, .donations-table td {
-    border: 1px solid black; /* Changed border color to black for visibility */
-    padding: 8px;
-    text-align: center; /* Center text for all cells */
-  }
-  
-  /* Style the header row */
-  .donations-table th {
-    background-color: #f2f2f2;
-    font-weight: bold; /* Bold text for header */
-  }
-  
-  /* Optional: Class to style name cells with bold text */
-  .name-cell {
-    font-weight: bold;
-  }
-  
-  /* Style the delete button */
-  .delete-button {
-    background-color: red;
-    color: white;
-    border: none; /* Ensures no border around the button */
-    padding: 5px 10px; /* Adds padding inside the button */
-    cursor: pointer; /* Shows a pointer cursor when hovering over the button */
-    border-radius: 5px; /* Adds rounded corners to the button */
-    transition: background-color 0.3s; /* Adds transition for smooth hover effect */
-  }
-  
-  /* Optional: Change the delete button color when hovered */
-  .delete-button:hover {
-    background-color: darkred; /* Darker red on hover */
-  }
-  
+  overflow-x: auto;
+  margin-top: 20px; /* Add spacing if necessary */
+}
+
+/* Style the table to ensure a clean, consistent look */
+.donations-table {
+  width: 100%;
+  border-collapse: collapse; /* Ensures that table borders collapse into a single border */
+  margin: 0 auto; /* Centers the table */
+}
+
+/* Style the table header and cells */
+.donations-table th, .donations-table td {
+  border: 1px solid black; /* Changed border color to black for visibility */
+  padding: 8px;
+  text-align: center; /* Center text for all cells */
+}
+
+/* Style the header row */
+.donations-table th {
+  background-color: #f2f2f2;
+  font-weight: bold; /* Bold text for header */
+}
+
+/* Optional: Class to style name cells with bold text */
+.name-cell {
+  font-weight: bold;
+}
+
+/* Style the delete button */
+.delete-button {
+  background-color: hwb(19 0% 0% / 0.996);
+  color: white;
+  border: none; /* Ensures no border around the button */
+  padding: 5px 10px; /* Adds padding inside the button */
+  cursor: pointer; /* Shows a pointer cursor when hovering over the button */
+  border-radius: 5px; /* Adds rounded corners to the button */
+  transition: background-color 0.3s; /* Adds transition for smooth hover effect */
+}
+
+/* Optional: Change the delete button color when hovered */
+.delete-button:hover {
+  background-color: #8b3100; /* Darker red on hover */
+}
+
+/* Style the footer */
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: #f2f2f2;
+  padding: 20px 0;
+  text-align: center;
+}

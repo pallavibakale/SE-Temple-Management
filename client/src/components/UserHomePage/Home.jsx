@@ -32,12 +32,12 @@ const imgSrc = [
 const announcements = [
   {
     title: 'Diwali Night',
-    description: 'Join us for the grand Diwali celebration with rituals, food, and cultural events. Everyone is welcome! Celebrate the festival of lights with us.',
+    description: 'Join us for the grand Diwali celebration with rituals, food, and cultural events. Everyone is welcome!',
     image: A2,
   },
   {
     title: 'Navratri Festival',
-    description: 'Celebrate the nine nights of Navratri with us. Enjoy traditional dance, music, and rituals in honor of Goddess Durga.',
+    description: 'Celebrate the nine nights of Navratri with us. Enjoy traditional dance, music, and rituals',
     image: A3,
   },
   {

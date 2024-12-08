@@ -43,7 +43,6 @@ const AddEvent = () => {
     <h2 className="form-heading">Add Event</h2>
     
     <div className="form-group">
-      <label className="form-label" htmlFor="title">Title</label>
       <input
         type="text"
         id="title"
@@ -57,11 +56,10 @@ const AddEvent = () => {
     </div>
     
     <div className="form-group">
-      <label className="form-label" htmlFor="description">Description</label>
       <textarea
         id="description"
         name="description"
-        rows="5"
+        rows="4"
         className="form-input"
         value={formValues.description}
         onChange={handleInputChange}
@@ -74,7 +72,7 @@ const AddEvent = () => {
       <label className="form-label" htmlFor="serviceImage">Add Image</label>
       <div className="image-upload">
         <label htmlFor="serviceImage" className="image-placeholder">
-          <img src="/placeholder-image.png" alt="Placeholder" />
+          <img src="/placeholder-image.png" alt="Add Image" />
         </label>
         <input
           type="file"

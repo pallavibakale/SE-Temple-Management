@@ -123,7 +123,17 @@ const Navigation = ({ onLogout }) => {
                 </NavLink>
               </Nav.Item>
             )}
-
+            { (
+              <Nav.Item className="nav-item">
+                <NavLink
+                  to="/ViewDonations"
+                  className="nav-link"
+                  activeClassName="active"
+                >
+                  ViewDonations
+                </NavLink>
+              </Nav.Item>
+            )}
             {!token && (
               <Navbar.Collapse className="justify-content-end">
                 <Nav.Item className="nav-item">

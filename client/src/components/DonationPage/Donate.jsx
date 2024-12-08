@@ -257,7 +257,7 @@ const Donate = () => {
                         />
                       </div>
                       <div className="input-group">
-                        <label htmlFor="cvv">CVV2</label>
+                        <label htmlFor="cvv">CVV</label>
                         <input
                           type="text"
                           id="cvv"

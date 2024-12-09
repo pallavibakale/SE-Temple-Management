@@ -81,6 +81,7 @@ const HomePage = () => {
           <p>Discover peace and spirituality at Temple</p>
           <Button href="/services">Explore More</Button>
         </div>
+<<<<<<< HEAD
       </div>
       <br />
       <div className="announcements-section">
@@ -118,6 +119,33 @@ const HomePage = () => {
           </div>
           <br />
           <div className="rituals-grid">
+=======
+        <br/><br/>
+        <div className="announcements-section">
+          <h2 className="section-title">Announcements</h2>   
+        </div>  
+        <br/>  
+        <div className="announcements-list">
+          {announcements.map((announcement, index) => (
+            <Card key={index} title={announcement.title} description={announcement.description} image={announcement.image} />
+          ))}
+        </div>
+        <br/><br/>
+        {(role === "Priest") && (
+          <>
+            <Button href="/add-event" style={{backgroundColor:'#FF7400',border:'none',outline:'none',borderRadius:'6px', color:'white'}}>Add event to Annoucements</Button>
+            <br/><br/>
+            <Button href="/live-streaming" style={{backgroundColor:'#FF7400',border:'none',outline:'none',borderRadius:'6px', color:'white'}}>Start live streaming</Button>
+          </>
+        )}
+        {(role !== "Priest") && (
+          <>
+            <div className="rituals-section">
+              <h2 className="section-title">Rituals and Pujas</h2>        
+            </div>
+            <br/>
+            <div className="rituals-grid">
+>>>>>>> 4cca950bf59460a24b5653de962f42a4061ed782
             {services.map((service, index) => (
               <Card
                 key={index}

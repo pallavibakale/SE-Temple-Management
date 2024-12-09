@@ -21,8 +21,12 @@ import PasswordReset from "./components/SignUpPage/PasswordReset.jsx";
 import AppointmentConfirmation from "./components/AppointmentPage/AppointmentConfirmation";
 import ContactUsCard from "./components/ContactUsPage/ContactUs";
 import AddEventSection from "./components/AddEventsPage/AddEvent.jsx";
+<<<<<<< HEAD
 import ViewDonations from "./components/Donations/ViewDonations.jsx";
 
+=======
+import Livestreaming from "./components/Livestreaming/Livestreaming.jsx";
+>>>>>>> 4cca950bf59460a24b5653de962f42a4061ed782
 
 function App() {
   const uriValue = "http://localhost:3001";
@@ -52,7 +56,11 @@ function App() {
             <Route path="/donate" element={<Donate />} />
             <Route path="/add-priest" element={<CreatePriest />} />
             <Route path="/forgot-password" element={<PasswordReset />} />
+<<<<<<< HEAD
             <Route path="/ViewDonations" element={<ViewDonations />} />
+=======
+            <Route path="/live-streaming" element={<Livestreaming />} />
+>>>>>>> 4cca950bf59460a24b5653de962f42a4061ed782
           </Routes>
         </Router>
       </UriContext.Provider>

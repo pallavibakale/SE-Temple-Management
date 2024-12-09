@@ -17,7 +17,7 @@ const Navigation = ({ onLogout }) => {
         </Navbar.Brand>
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="">
-            {(role != "Admin") && (
+            {(role !== "Admin") && (
               <Nav.Item className="">
                 <NavLink to="/" className="nav-link" activeClassName="active">
                   Home
@@ -123,7 +123,7 @@ const Navigation = ({ onLogout }) => {
                 </NavLink>
               </Nav.Item>
             )}
-            { (
+            {role === "Admin" && (
               <Nav.Item className="nav-item">
                 <NavLink
                   to="/ViewDonations"
@@ -143,7 +143,7 @@ const Navigation = ({ onLogout }) => {
                 </Nav.Item>
               </Navbar.Collapse>
             )}
-            {( token) && (
+            {(token) && (
               <Navbar.Collapse className="justify-content-end">
                 <Nav.Item className="nav-item">
                   <Button onClick={onLogout} style={{backgroundColor:'#FF7400',border:'none',outline:'none',borderRadius:'6px', color:'white'}}>
@@ -152,11 +152,6 @@ const Navigation = ({ onLogout }) => {
                 </Nav.Item>
               </Navbar.Collapse>
             )}
-            {/* {(role === "Priest" || role === "Admin" || role === "Devotee") && (
-              <Button variant="danger" onClick={onLogout}>
-                Logout
-              </Button>
-            )} */}
           </Nav>
         </Navbar.Collapse>
       </Navbar>

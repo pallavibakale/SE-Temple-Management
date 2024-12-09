@@ -1,58 +1,58 @@
 .container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
-  .about-bg-section {
-    position: relative;
-    background-image: url('../../images/about-bg-img.jpg');
-    background-size: cover;
-    background-position: center;
-    height: 500px; /* Adjust the height as needed */
-    width: 90%;
-    display: flex;
-    align-items: last baseline;
-    justify-content: flex-start ;
-    color: white;
-  }
-  
-  .about-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.4); /* Semi-black overlay */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-  }
-  h1{
-    font-size: 3rem;
-    text-align: center;
-    color: #FF7700;
-  }
-  .overlay h1 {
-    font-size: 3rem; /* Adjust the size as needed */
-    text-align: center;
-  }
+.about-bg-section {
+  position: relative;
+  background-image: url('../../images/about-bg-img.jpg');
+  background-size: cover;
+  background-position: center;
+  height: 500px; /* Adjust the height as needed */
+  width: 90%;
+  display: flex;
+  align-items: last baseline;
+  justify-content: flex-start ;
+  color: white;
+}
 
-  .support-description{
-    /* color: red; */
-  }
-  .gallery-section{
-    position: relative;
-    width: 90%;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr); /* 3 columns */
-    grid-template-rows: repeat(2, auto);
-    gap: 20px;
-    justify-items: center;
-  }
-  
-  .gallery-section img{
+.about-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.4); /* Semi-black overlay */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+h1{
+  font-size: 3rem;
+  text-align: center;
+  color: #FF7700;
+}
+.overlay h1 {
+  font-size: 3rem; /* Adjust the size as needed */
+  text-align: center;
+}
 
-    width: 300px;
-  }
+.support-description{
+  /* color: red; */
+}
+.gallery-section{
+  position: relative;
+  width: 90%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 columns */
+  grid-template-rows: repeat(2, auto);
+  gap: 20px;
+  justify-items: center;
+}
+
+.gallery-section img{
+
+  width: 300px;
+}

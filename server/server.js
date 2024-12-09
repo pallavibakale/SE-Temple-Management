@@ -12,16 +12,12 @@ const nodemailer = require("nodemailer");
 const crypto = require("crypto");
 const session = require("express-session");
 const multer = require("multer");
-const dotenv = require("dotenv");
-const http = require('http');
-const socketIo = require('socket.io');
 
-
-dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 3001;
 
-const dbURI ="mongodb+srv://pallavib0996:HskKA5PlAYgA5U5h@templedb.c678m.mongodb.net/templedb?retryWrites=true&w=majority&appName=templedb"
+const dbURI =
+"mongodb+srv://pallavib0996:HskKA5PlAYgA5U5h@templedb.c678m.mongodb.net/templedb?retryWrites=true&w=majority&appName=templedb";
 
 // Connect to MongoDB
 mongoose.connect(dbURI, {});
@@ -415,54 +411,6 @@ app.put("/events/:id", async (req, res) => {
 app.delete("/events/:id", async (req, res) => {
   await Event.findByIdAndDelete(req.params.id);
   res.status(204).send();
-});
-
-const server = http.createServer(app);
-const io = require('socket.io')(server, {
-  cors: {
-    origin: "http://localhost:3000",  // Frontend's URL
-    methods: ['GET', 'POST'],
-  }
-});
-
-// io.on('connection', (socket) => {
-//   socket.on('signal', (data) => {
-//     io.to(data.to).emit('signal', {
-//       from: data.from,
-//       signal: data.signal,
-//     });
-
-//   });
-//   console.log('A user connected');
-
-
-//   socket.on('join', (roomId) => {
-//     socket.join(roomId);
-//     socket.broadcast.to(roomId).emit('user-joined', socket.id);
-//   });
-
-//   socket.on('leave-room', (roomId) => {
-//     socket.leave(roomId);
-//     socket.broadcast.to(roomId).emit('user-left', socket.id);
-//   });
-
-//   socket.on('disconnect', () => {
-//     socket.broadcast.emit('user-left', socket.id);
-//     console.log('A user disconnected');
-//   });
-// });
-
-// Example route
-app.get('/', (req, res) => {
-  res.send('Server is working!');
-});
-
-// Set up the socket.io connection
-io.on('connection', (socket) => {
-  console.log('A user connected');
-  socket.on('disconnect', () => {
-    console.log('A user disconnected');
-  });
 });
 
 app.listen(PORT, () => {

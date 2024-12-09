@@ -1,4 +1,3 @@
-import React, { useState } from "react";
 import "./AboutUs.css";
 import "react-toastify/dist/ReactToastify.css";
 import Navigation from "../Navigation/Navigation";

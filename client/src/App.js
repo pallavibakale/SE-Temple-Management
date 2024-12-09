@@ -21,7 +21,9 @@ import PasswordReset from "./components/SignUpPage/PasswordReset.jsx";
 import AppointmentConfirmation from "./components/AppointmentPage/AppointmentConfirmation";
 import ContactUsCard from "./components/ContactUsPage/ContactUs";
 import AddEventSection from "./components/AddEventsPage/AddEvent.jsx";
+import ViewDonations from "./components/Donations/ViewDonations.jsx";
 import Livestreaming from "./components/Livestreaming/Livestreaming.jsx";
+
 
 function App() {
   const uriValue = "http://localhost:3001";
@@ -51,6 +53,7 @@ function App() {
             <Route path="/donate" element={<Donate />} />
             <Route path="/add-priest" element={<CreatePriest />} />
             <Route path="/forgot-password" element={<PasswordReset />} />
+            <Route path="/viewdonations" element={<ViewDonations />} />
             <Route path="/live-streaming" element={<Livestreaming />} />
           </Routes>
         </Router>

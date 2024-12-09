@@ -20,7 +20,9 @@ import CreatePriest from "./components/CreatePriest/CreatePriest.jsx";
 import PasswordReset from "./components/SignUpPage/PasswordReset.jsx";
 import AppointmentConfirmation from "./components/AppointmentPage/AppointmentConfirmation";
 import ContactUsCard from "./components/ContactUsPage/ContactUs";
-import AddEventSection from "./components/AddEventPage/AddEvent.jsx";
+
+import AddEventSection from "./components/AddEventsPage/AddEvent.jsx";
+import Livestreaming from "./components/Livestreaming/Livestreaming.jsx";
 
 function App() {
   const uriValue = "http://localhost:3001";
@@ -45,11 +47,13 @@ function App() {
             <Route path="/appointment-confirmation" element={<AppointmentConfirmation />} />
             <Route path="/appointments" element={<MyAppointment />} />
             <Route path="/priest" element={<PriestCard />} />
+            <Route path="/add-event" element={<AddEventSection />} />
             <Route path="/gallery" element={<Gallery />} />
             <Route path="/donations" element={<DonationsCard />} />
             <Route path="/donate" element={<Donate />} />
             <Route path="/add-priest" element={<CreatePriest />} />
             <Route path="/forgot-password" element={<PasswordReset />} />
+            <Route path="/live-streaming" element={<Livestreaming />} />
           </Routes>
         </Router>
       </UriContext.Provider>

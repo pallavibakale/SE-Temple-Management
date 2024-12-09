@@ -133,7 +133,7 @@ const Navigation = ({ onLogout }) => {
                 </Nav.Item>
               </Navbar.Collapse>
             )}
-            {((role === "Priest" || role === "Admin" || role === "Devotee") && token) && (
+            {( token) && (
               <Navbar.Collapse className="justify-content-end">
                 <Nav.Item className="nav-item">
                   <Button onClick={onLogout} style={{backgroundColor:'#FF7400',border:'none',outline:'none',borderRadius:'6px', color:'white'}}>

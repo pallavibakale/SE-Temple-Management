@@ -414,9 +414,9 @@ app.delete("/events/:id", async (req, res) => {
   res.status(204).send();
 });
 
-app.post("/donate", async (req, res) => {
+app.post("/add-donation", async (req, res) => {
   const { address, city, state, zip, cardName, email, fullName, amount } =
-    re.body;
+    req.body;
   try {
     const newDonation = new Donations({
       address,

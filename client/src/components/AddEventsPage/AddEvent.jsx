@@ -76,7 +76,7 @@ const AddEvent = () => {
         </label>
         <input
           type="file"
-          id="serviceImage"
+          id="serviceImage"a
           name="serviceImage"
           onChange={handleInputChange}
           className="file-input"

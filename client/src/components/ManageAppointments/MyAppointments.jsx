@@ -32,7 +32,7 @@ function MyAppointment() {
       navigate("/login");
     }
     fetchAppointments();
-  });
+  },[]);
 
   const fetchAppointments = async () => {
     try {

@@ -380,6 +380,15 @@ app.get("/services", async (req, res) => {
     res.status(500).send("Error retrieving services from the database");
   }
 });
+app.get("/get-donations", async (req, res) => {
+  try {
+    const donations = await Donations.find();
+    res.json(donations);
+  } catch (error) {
+    console.error("Failed to retrieve donations:", error);
+    res.status(500).send("Error retrieving donations from the database");
+  }
+});
 
 app.delete("/services/:id", async (req, res) => {
   try {

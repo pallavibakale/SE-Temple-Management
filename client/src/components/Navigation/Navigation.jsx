@@ -69,7 +69,7 @@ const Navigation = ({ onLogout }) => {
             {role === "Admin" && (
               <Nav.Item className="nav-item">
                 <NavLink
-                  to="/donations"
+                  to="/view-donations"
                   className="nav-link"
                   activeClassName="active"
                 >

@@ -14,6 +14,7 @@ const Donate = () => {
     fullName: "",
     email: "",
     address: "",
+    amount:"",
     city: "",
     state: "",
     zip: "",
@@ -183,6 +184,20 @@ const Donate = () => {
               <form onSubmit={handleSubmit} className="payment-form">
                 <div className="credit-card-form">
                   <div className="card-details">
+                  <div className="card-inputs">
+                      <div className="input-group">
+                        <label htmlFor="amount">Enter Amount</label>
+                        <input
+                          type="text"
+                          id="amount"
+                          name="amount"
+                          value={formData.amount}
+                          onChange={handleChange}
+                          placeholder="$"
+                          required
+                        />
+                      </div>
+                    </div>
                     <header className="card-header">
                       <div className="card-title">
                         <img
@@ -247,10 +262,10 @@ const Donate = () => {
                           required
                         />
                       </div>
-                      <div className="input-group">
-                        <label htmlFor="cvv">CVV2</label>
+                      <div className="input-group" style={{width:'90%'}}>
+                        <label htmlFor="cvv">CVV2</label><br/>
                         <input
-                          type="text"
+                          type="password"
                           id="cvv"
                           name="cvv"
                           value={formData.cvv}
@@ -258,6 +273,7 @@ const Donate = () => {
                           placeholder="123"
                           maxLength="3"
                           required
+                          style={{border:'1px solid #ccc'}}
                         />
                       </div>
                     </div>

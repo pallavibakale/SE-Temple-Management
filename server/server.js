@@ -5,6 +5,7 @@ const User = require("./models/User");
 const Service = require("./models/Service");
 const Announcement = require("./models/Announcement");
 const Appointment = require("./models/Appointments");
+const Donations = require("./models/Donations");
 const cors = require("cors");
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
@@ -13,15 +14,15 @@ const crypto = require("crypto");
 const session = require("express-session");
 const multer = require("multer");
 const dotenv = require("dotenv");
-const http = require('http');
-const socketIo = require('socket.io');
-
+const http = require("http");
+const socketIo = require("socket.io");
 
 dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 3001;
 
-const dbURI ="mongodb+srv://pallavib0996:HskKA5PlAYgA5U5h@templedb.c678m.mongodb.net/templedb?retryWrites=true&w=majority&appName=templedb"
+const dbURI =
+  "mongodb+srv://pallavib0996:HskKA5PlAYgA5U5h@templedb.c678m.mongodb.net/templedb?retryWrites=true&w=majority&appName=templedb";
 
 // Connect to MongoDB
 mongoose.connect(dbURI, {});
@@ -332,17 +333,13 @@ app.post("/add-service", upload.single("serviceImage"), async (req, res) => {
   const serviceImage = req.file
     ? `data:image/jpeg;base64,${req.file.buffer.toString("base64")}`
     : null;
-    console.log(title);
-    console.log(cost);
-    
-    console.log(description);
 
   try {
     const newService = new Service({
       title,
       serviceImage,
       description,
-      cost
+      cost,
     });
     await newService.save();
     res.status(201).send("Service added successfully");
@@ -417,12 +414,34 @@ app.delete("/events/:id", async (req, res) => {
   res.status(204).send();
 });
 
-const server = http.createServer(app);
-const io = require('socket.io')(server, {
-  cors: {
-    origin: "http://localhost:3000",  // Frontend's URL
-    methods: ['GET', 'POST'],
+app.post("/donate", async (req, res) => {
+  const { address, city, state, zip, cardName, email, fullName, amount } =
+    re.body;
+  try {
+    const newDonation = new Donations({
+      address,
+      city,
+      state,
+      zip,
+      cardName,
+      email,
+      fullName,
+      amount,
+    });
+    await newDonation.save();
+    res.status(201).send("Donation added successfully");
+  } catch (error) {
+    console.error("Failed to donate:", error);
+    res.status(500).send("Error adding donation to the database");
   }
+});
+
+const server = http.createServer(app);
+const io = require("socket.io")(server, {
+  cors: {
+    origin: "http://localhost:3000", // Frontend's URL
+    methods: ["GET", "POST"],
+  },
 });
 
 // io.on('connection', (socket) => {
@@ -434,7 +453,6 @@ const io = require('socket.io')(server, {
 
 //   });
 //   console.log('A user connected');
-
 
 //   socket.on('join', (roomId) => {
 //     socket.join(roomId);
@@ -453,15 +471,15 @@ const io = require('socket.io')(server, {
 // });
 
 // Example route
-app.get('/', (req, res) => {
-  res.send('Server is working!');
+app.get("/", (req, res) => {
+  res.send("Server is working!");
 });
 
 // Set up the socket.io connection
-io.on('connection', (socket) => {
-  console.log('A user connected');
-  socket.on('disconnect', () => {
-    console.log('A user disconnected');
+io.on("connection", (socket) => {
+  console.log("A user connected");
+  socket.on("disconnect", () => {
+    console.log("A user disconnected");
   });
 });
 

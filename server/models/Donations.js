@@ -8,7 +8,6 @@ const DonationsSchema = new mongoose.Schema({
   cardName: String,
   email: { type: String },
   fullName: String,
-  empId: { type: String },
   amount: String,
 });
 

@@ -34,7 +34,7 @@ const ViewDonations = () => {
       navigate("/login");
     }
     fetchDonations();
-  });
+  },[]);
 
 
   return (

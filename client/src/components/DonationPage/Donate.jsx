@@ -176,15 +176,6 @@ const Donate = () => {
                     />
                   </div>
                 </div>
-                <label>
-                  <input
-                    type="checkbox"
-                    name="sameadr"
-                    checked={formData.sameadr}
-                    onChange={handleChange}
-                  />{" "}
-                  Shipping address same as billing
-                </label>
               </form>
             </div>
             <div className="col-50">
@@ -275,15 +266,10 @@ const Donate = () => {
                 <div className="button-container">
                   <input
                     type="submit"
-                    value="Submit"
-                    className="btn bg-blue-500"
+                    value="Donate Now"
+                    className="submit-button"
+                    style={{backgroundColor:'#FF7400',border:'none',outline:'none',borderRadius:'6px',color:'white'}}
                   />
-                  <Link
-                    to="/Donations"
-                    className="btn bg-red-800 hover:bg-red-dark text-white py-2 px-4 rounded"
-                  >
-                    Cancel
-                  </Link>
                 </div>
               </form>
             </div>

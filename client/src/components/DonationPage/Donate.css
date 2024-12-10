@@ -106,9 +106,10 @@ input[type="checkbox"] {
 }
 
 .card-details {
-  border: 1px solid #ccc;
+  /* border: 1px solid #ccc; */
   border-radius: 8px;
   padding: 20px;
+  width: 400px;
 }
 
 .card-title {
@@ -168,3 +169,12 @@ input[type="checkbox"] {
 .cvv-input input {
   width: 80px;
 }
+
+.submit-button{
+  background-color:'#FF7400';
+  width: 150px;
+  border:'none';
+  outline:'none';
+  border-radius:6px;
+  padding: 4px 10px;
+  }

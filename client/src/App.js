@@ -22,6 +22,7 @@ import AppointmentConfirmation from "./components/AppointmentPage/AppointmentCon
 import ContactUsCard from "./components/ContactUsPage/ContactUs";
 import AddEventSection from "./components/AddEventsPage/AddEvent.jsx";
 import Livestreaming from "./components/Livestreaming/Livestreaming.jsx";
+import ViewDonations from "./components/Donations/ViewDonations.jsx";
 
 function App() {
   const uriValue = "http://localhost:3001";
@@ -47,7 +48,7 @@ function App() {
             <Route path="/priest" element={<PriestCard />} />
             <Route path="/add-event" element={<AddEventSection />} />
             <Route path="/gallery" element={<Gallery />} />
-            <Route path="/donations" element={<DonationsCard />} />
+            <Route path="/donations" element={<ViewDonations />} />
             <Route path="/donate" element={<Donate />} />
             <Route path="/add-priest" element={<CreatePriest />} />
             <Route path="/forgot-password" element={<PasswordReset />} />

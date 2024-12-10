@@ -1,70 +1,94 @@
-import React, { useState } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import Navbar from "../Navigation/Navigation";
 import Footer from "../Footer/Footer";
 import { Link } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
+import UriContext from "../ContextApi/UriContext";
 import "react-toastify/dist/ReactToastify.css";
 import "./Donate.css";
 
 import { useNavigate } from "react-router-dom";
 
 const Donate = () => {
+  const uri = useContext(UriContext);
   const navigate = useNavigate();
-  const [formData, setFormData] = useState({
+  const [formErrors, setFormErrors] = useState({});
+  const [formValues, setFormValues] = useState({
     fullName: "",
     email: "",
     address: "",
-    amount:"",
+    amount: "",
     city: "",
     state: "",
     zip: "",
     cardName: "",
     cardNumber: "",
-    expiry: "",
-    cvv: "",
     setDefault: false,
   });
 
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
     const newValue = type === "checkbox" ? checked : value;
-    setFormData({ ...formData, [name]: newValue });
+    setFormValues({ ...formValues, [name]: newValue });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    const errors = validateForm();
     if (!validateForm()) {
       toast.error("Please fill in all required fields correctly.");
       return;
     }
-    toast.success("Payment submitted successfully!");
-    // Add your payment submission logic here
-    console.log(formData);
+    if (Object.keys(errors).length === 0) {
+      try {
+        const response = await fetch(uri + "/add-donation", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(formValues),
+        });
+        if (response.ok) {
+          toast.success("Donation successful, thank you!");
+          navigate("/");
+        } else {
+          toast.error("Failed to donate. Please try again.");
+        }
+      } catch (error) {
+        toast.error("Error donating. Please try again later.", error);
+      }
+    } else {
+      setFormErrors(errors);
+      Object.values(errors).forEach((error) => {
+        toast.error(error);
+      });
+    }
   };
 
   const validateForm = () => {
-    // Validating each field based on specifications
-
-    // Validating Full Name
-    if (formData.fullName === "" || !/^[a-zA-Z ]+$/.test(formData.fullName)) {
+    if (
+      formValues.fullName === "" ||
+      !/^[a-zA-Z ]+$/.test(formValues.fullName)
+    ) {
       toast.error("Please enter a valid name.");
       return false;
     }
 
-    // Validating Card Number
-    if (formData.cardNumber === "" || !/^\d{16}$/.test(formData.cardNumber)) {
+    if (
+      formValues.cardNumber === "" ||
+      !/^\d{16}$/.test(formValues.cardNumber)
+    ) {
       toast.error("Please enter a 16-digit card number.");
       return false;
     }
 
-    // Validating Expiry Date
     const currentDate = new Date();
-    const currentMonth = currentDate.getMonth() + 1; // Adding 1 since getMonth() returns 0-indexed month
+    const currentMonth = currentDate.getMonth() + 1;
     const currentYear = currentDate.getFullYear();
-    const [expiryMonth, expiryYear] = formData.expiry.split("/");
+    const [expiryMonth, expiryYear] = formValues.expiry.split("/");
     if (
-      formData.expiry === "" ||
-      !/^\d{2}\/\d{4}$/.test(formData.expiry) ||
+      formValues.expiry === "" ||
+      !/^\d{2}\/\d{4}$/.test(formValues.expiry) ||
       parseInt(expiryMonth, 10) > 12 ||
       parseInt(expiryMonth, 10) === 0 ||
       parseInt(expiryYear, 10) < currentYear ||
@@ -75,8 +99,7 @@ const Donate = () => {
       return false;
     }
 
-    // Validating CVV
-    if (formData.cvv === "" || !/^\d{3}$/.test(formData.cvv)) {
+    if (formValues.cvv === "" || !/^\d{3}$/.test(formValues.cvv)) {
       toast.error("Please enter a 3-digit CVV.");
       return false;
     }
@@ -109,7 +132,7 @@ const Donate = () => {
                   type="text"
                   id="fullName"
                   name="fullName"
-                  value={formData.fullName}
+                  value={formValues.fullName}
                   onChange={handleChange}
                   placeholder="John M. Doe"
                   required
@@ -121,7 +144,7 @@ const Donate = () => {
                   type="email"
                   id="email"
                   name="email"
-                  value={formData.email}
+                  value={formValues.email}
                   onChange={handleChange}
                   placeholder="john@example.com"
                   required
@@ -133,7 +156,7 @@ const Donate = () => {
                   type="text"
                   id="address"
                   name="address"
-                  value={formData.address}
+                  value={formValues.address}
                   onChange={handleChange}
                   placeholder="542 W. 15th Street"
                   required
@@ -145,7 +168,7 @@ const Donate = () => {
                   type="text"
                   id="city"
                   name="city"
-                  value={formData.city}
+                  value={formValues.city}
                   onChange={handleChange}
                   placeholder="New York"
                   required
@@ -157,7 +180,7 @@ const Donate = () => {
                       type="text"
                       id="state"
                       name="state"
-                      value={formData.state}
+                      value={formValues.state}
                       onChange={handleChange}
                       placeholder="NY"
                       required
@@ -169,7 +192,7 @@ const Donate = () => {
                       type="text"
                       id="zip"
                       name="zip"
-                      value={formData.zip}
+                      value={formValues.zip}
                       onChange={handleChange}
                       placeholder="10001"
                       required
@@ -184,14 +207,14 @@ const Donate = () => {
               <form onSubmit={handleSubmit} className="payment-form">
                 <div className="credit-card-form">
                   <div className="card-details">
-                  <div className="card-inputs">
+                    <div className="card-inputs">
                       <div className="input-group">
                         <label htmlFor="amount">Enter Amount</label>
                         <input
                           type="text"
                           id="amount"
                           name="amount"
-                          value={formData.amount}
+                          value={formValues.amount}
                           onChange={handleChange}
                           placeholder="$"
                           required
@@ -231,7 +254,7 @@ const Donate = () => {
                           type="text"
                           id="cardNumber"
                           name="cardNumber"
-                          value={formData.cardNumber}
+                          value={formValues.cardNumber}
                           onChange={handleChange}
                           placeholder="1234 5678 9012 3456"
                           required
@@ -243,7 +266,7 @@ const Donate = () => {
                           type="text"
                           id="cardName"
                           name="cardName"
-                          value={formData.cardName}
+                          value={formValues.cardName}
                           onChange={handleChange}
                           placeholder="John Doe"
                           required
@@ -255,25 +278,26 @@ const Donate = () => {
                           type="text"
                           id="expiry"
                           name="expiry"
-                          value={formData.expiry}
+                          value={formValues.expiry}
                           onChange={handleChange}
                           placeholder="MM/YYYY"
                           maxLength="7"
                           required
                         />
                       </div>
-                      <div className="input-group" style={{width:'90%'}}>
-                        <label htmlFor="cvv">CVV2</label><br/>
+                      <div className="input-group" style={{ width: "90%" }}>
+                        <label htmlFor="cvv">CVV</label>
+                        <br />
                         <input
                           type="password"
                           id="cvv"
                           name="cvv"
-                          value={formData.cvv}
+                          value={formValues.cvv}
                           onChange={handleChange}
                           placeholder="123"
                           maxLength="3"
                           required
-                          style={{border:'1px solid #ccc'}}
+                          style={{ border: "1px solid #ccc" }}
                         />
                       </div>
                     </div>
@@ -284,7 +308,13 @@ const Donate = () => {
                     type="submit"
                     value="Donate Now"
                     className="submit-button"
-                    style={{backgroundColor:'#FF7400',border:'none',outline:'none',borderRadius:'6px',color:'white'}}
+                    style={{
+                      backgroundColor: "#FF7400",
+                      border: "none",
+                      outline: "none",
+                      borderRadius: "6px",
+                      color: "white",
+                    }}
                   />
                 </div>
               </form>

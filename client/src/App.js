@@ -8,7 +8,6 @@ import LiveStreamCard from "./components/LiveStreamPage/LiveStreamCard.jsx";
 import SignUp from "./components/SignUpPage/Signup.jsx";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import UriContext from "./components/ContextApi/UriContext.jsx";
-import AdminHome from "./components/AdminHomePage/AdminHome.jsx";
 import AdminServices from "./components/AddServicesPage/AddServices.jsx";
 import AppointmentForm from "./components/AppointmentPage/AppointmentForm.jsx";
 import MyAppointment from "./components/ManageAppointments/MyAppointments";
@@ -24,6 +23,7 @@ import AddEventSection from "./components/AddEventsPage/AddEvent.jsx";
 import Livestreaming from "./components/Livestreaming/Livestreaming.jsx";
 
 import ViewDonations from "./components/ViewDonations/ViewDonations.jsx";
+import ManageUsers from "./components/ManageUsers/ManageUsers.jsx";
 
 function App() {
   const uriValue = "http://localhost:3001";
@@ -41,7 +41,6 @@ function App() {
             <Route path="/aboutUs" element={<AboutUs />} />
             <Route path="/live" element={<LiveStreamCard />} />
             <Route path="/signup" element={<SignUp />} />
-            <Route path="/admin-home" element={<AdminHome />} />
             <Route path="/admin-service" element={<AdminServices />} />
             <Route path="/schedule-appointment" element={<AppointmentForm />} />
             <Route path="/appointment-confirmation" element={<AppointmentConfirmation />} />
@@ -54,6 +53,8 @@ function App() {
             <Route path="/forgot-password" element={<PasswordReset />} />
             <Route path="/live-streaming" element={<Livestreaming />} />
             <Route path="/view-donations" element={<ViewDonations />} />
+            <Route path="/manage-users" element={<ManageUsers />} />
+
           </Routes>
         </Router>
       </UriContext.Provider>

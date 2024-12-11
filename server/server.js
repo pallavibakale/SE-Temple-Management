@@ -140,35 +140,6 @@ app.post("/login", async (req, res) => {
     .json({ message: "Logged successfully", user: user, token: token });
 });
 
-app.post("/create-priest", async (req, res) => {
-  const { firstName, lastName, email, phone, password, address } = req.body;
-  const empId = Math.floor(10000 + Math.random() * 90000).toString();
-
-  try {
-    // Hash password
-    const hashedPassword = await bcrypt.hash(password, 10);
-
-    // Create new user with hashed password
-    const newUser = new User({
-      firstName,
-      lastName,
-      email,
-      phone,
-      password: hashedPassword,
-      address,
-      role: "Priest",
-      empId,
-    });
-
-    // Save user to database
-    const savedUser = await newUser.save();
-    res.status(201).json(savedUser);
-  } catch (err) {
-    console.error("Error adding user:", err);
-    res.status(500).send("Server Error");
-  }
-});
-
 app.post("/signup", async (req, res) => {
   const { firstName, lastName, email, phone, password, address } = req.body;
   const empId = Math.floor(10000 + Math.random() * 90000).toString();
@@ -198,6 +169,76 @@ app.post("/signup", async (req, res) => {
   }
 });
 
+app.get("/get-users", async (req, res) => {
+  try {
+    const users = await User.find();
+    res.json(users);
+  } catch (error) {
+    console.error("Failed to retrieve users:", error);
+    res.status(500).send("Error retrieving users from the database");
+  }
+});
+
+app.delete("/delete-user/:id", async (req, res) => {
+  try {
+    const { id } = req.params;
+    const user = await User.findByIdAndDelete(id);
+    if (!user) {
+      return res.status(404).send("User not found.");
+    }
+    res.status(200).send(`User with id ${id} deleted successfully.`);
+  } catch (error) {
+    console.error("Failed to delete the User:", error);
+    res.status(500).send("Error deleting user from the database");
+  }
+});
+
+
+
+
+// priest routes
+app.post("/create-priest", async (req, res) => {
+  const { firstName, lastName, email, phone, password, address } = req.body;
+  const empId = Math.floor(10000 + Math.random() * 90000).toString();
+
+  try {
+    // Hash password
+    const hashedPassword = await bcrypt.hash(password, 10);
+
+    // Create new user with hashed password
+    const newUser = new User({
+      firstName,
+      lastName,
+      email,
+      phone,
+      password: hashedPassword,
+      address,
+      role: "Priest",
+      empId,
+    });
+
+    // Save user to database
+    const savedUser = await newUser.save();
+    res.status(201).json(savedUser);
+  } catch (err) {
+    console.error("Error adding user:", err);
+    res.status(500).send("Server Error");
+  }
+});
+
+app.post("/get-priests", async (req, res) => {
+  const { role } = req.body;
+  try {
+    const users = await User.find({ role: role });
+    res.json(users);
+  } catch (error) {
+    console.error("Failed to fetch priests:", error);
+    res.status(500).send("Server error");
+  }
+});
+
+
+//  appointment routes
 app.post("/book-appointment", async (req, res) => {
   try {
     const newAppointment = new Appointment(req.body);
@@ -268,17 +309,9 @@ app.patch("/reset-password", async (req, res) => {
   }
 });
 
-app.post("/get-priests", async (req, res) => {
-  const { role } = req.body;
-  try {
-    const users = await User.find({ role: role });
-    res.json(users);
-  } catch (error) {
-    console.error("Failed to fetch users:", error);
-    res.status(500).send("Server error");
-  }
-});
 
+
+//  announcements routes
 app.get("/announcements", async (req, res) => {
   try {
     const announcements = await Announcement.find();
@@ -328,6 +361,8 @@ app.delete("/announcements/:id", async (req, res) => {
 
 app.use(express.urlencoded({ extended: true }));
 
+
+// services routes
 app.post("/add-service", upload.single("serviceImage"), async (req, res) => {
   const { title, cost, description } = req.body;
   const serviceImage = req.file
@@ -380,15 +415,6 @@ app.get("/services", async (req, res) => {
     res.status(500).send("Error retrieving services from the database");
   }
 });
-app.get("/get-donations", async (req, res) => {
-  try {
-    const donations = await Donations.find();
-    res.json(donations);
-  } catch (error) {
-    console.error("Failed to retrieve donations:", error);
-    res.status(500).send("Error retrieving donations from the database");
-  }
-});
 
 app.delete("/services/:id", async (req, res) => {
   try {
@@ -404,23 +430,15 @@ app.delete("/services/:id", async (req, res) => {
   }
 });
 
-// Example backend handling, already provided earlier.
-app.post("/events", async (req, res) => {
-  const event = new Event(req.body);
-  await event.save();
-  res.status(201).json(event);
-});
-
-app.put("/events/:id", async (req, res) => {
-  const event = await Event.findByIdAndUpdate(req.params.id, req.body, {
-    new: true,
-  });
-  res.json(event);
-});
-
-app.delete("/events/:id", async (req, res) => {
-  await Event.findByIdAndDelete(req.params.id);
-  res.status(204).send();
+// donations routes
+app.get("/get-donations", async (req, res) => {
+  try {
+    const donations = await Donations.find();
+    res.json(donations);
+  } catch (error) {
+    console.error("Failed to retrieve donations:", error);
+    res.status(500).send("Error retrieving donations from the database");
+  }
 });
 
 app.post("/add-donation", async (req, res) => {
@@ -444,6 +462,27 @@ app.post("/add-donation", async (req, res) => {
     res.status(500).send("Error adding donation to the database");
   }
 });
+
+// events routes
+app.post("/events", async (req, res) => {
+  const event = new Event(req.body);
+  await event.save();
+  res.status(201).json(event);
+});
+
+app.put("/events/:id", async (req, res) => {
+  const event = await Event.findByIdAndUpdate(req.params.id, req.body, {
+    new: true,
+  });
+  res.json(event);
+});
+
+app.delete("/events/:id", async (req, res) => {
+  await Event.findByIdAndDelete(req.params.id);
+  res.status(204).send();
+});
+
+
 
 const server = http.createServer(app);
 const io = require("socket.io")(server, {

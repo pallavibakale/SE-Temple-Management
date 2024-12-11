@@ -27,7 +27,7 @@ const Navigation = ({ onLogout }) => {
             {role === "Admin" && (
               <Nav.Item className="">
                 <NavLink
-                  to="/admin-home"
+                  to="/"
                   className="nav-link"
                   activeClassName="active"
                 >
@@ -115,7 +115,7 @@ const Navigation = ({ onLogout }) => {
             {role === "Admin" && (
               <Nav.Item className="">
                 <NavLink
-                  to="/users"
+                  to="/manage-users"
                   className="nav-link"
                   activeClassName="active"
                 >

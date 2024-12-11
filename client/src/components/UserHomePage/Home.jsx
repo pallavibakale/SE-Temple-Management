@@ -112,14 +112,14 @@ function HomePage() {
           ))}
         </div>
         <br/><br/>
-        {(role === "Priest") && (
+        {(role === "Priest" || role==="Admin") && (
           <>
             <Button href="/add-event" style={{backgroundColor:'#FF7400',border:'none',outline:'none',borderRadius:'6px', color:'white'}}>Add event to Annoucements</Button>
             <br/><br/>
             <Button href="/live-streaming" style={{backgroundColor:'#FF7400',border:'none',outline:'none',borderRadius:'6px', color:'white'}}>Start live streaming</Button>
           </>
         )}
-        {(role !== "Priest") && (
+        {(role !== "Priest" && role!=="Admin") && (
           <>
             <div className="rituals-section">
               <h2 className="section-title">Rituals and Pujas</h2>        

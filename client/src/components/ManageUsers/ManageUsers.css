@@ -1,0 +1,60 @@
+.table-container {
+    height: 100vh;
+    width: auto;
+    overflow-y: auto;
+  }
+  
+  .users-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    font-size: 14px;
+    font-family: Arial, sans-serif;
+  }
+  
+  .users-table thead {
+    background-color: #f8f9fa;
+    font-weight: bold;
+  }
+  
+  .users-table th, 
+  .users-table td {
+    padding: 10px 15px;
+    text-align: left;
+    border: 1px solid #ddd;
+  }
+  
+  .users-table th {
+    color: #6c757d;
+    text-transform: uppercase;
+    font-size: 12px;
+    cursor: pointer; /* Indicates the header is clickable */
+  }
+  
+  .users-table tbody tr:nth-child(odd) {
+    background-color: #f9f9f9;
+  }
+  
+  .users-table tbody tr:hover {
+    background-color: #f1f1f1;
+  }
+  
+  .name-cell {
+    font-weight: bold;
+  }
+  
+  .delete-button {
+    background-color: transparent;
+    border: none;
+    color: #FF7400FF;
+    cursor: pointer;
+  }
+  
+  .delete-button:hover {
+    color: #FF7400FF;
+    text-decoration: underline;
+  }
+  
+  .donations-table td {
+    vertical-align: middle;
+  }

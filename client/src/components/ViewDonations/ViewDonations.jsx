@@ -59,7 +59,7 @@ const ViewDonations = () => {
                     {donations.map((donation) => (
                       <tr key={donation._id}>
                         <td className="name-cell">{donation.fullName}</td>
-                        <td>{donation.amount}</td>
+                        <td>$ {donation.amount}</td>
                         <td>{donation.email}</td>
                         <td>{donation.address + " " + donation.city + ", " + donation.state}</td>
                       </tr>

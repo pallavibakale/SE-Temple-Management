@@ -3,7 +3,7 @@ import './Card.css'
 const Card = ({ title, description, image }) => {
   return (
     <div className='card' style={{display:'flex', flexDirection: 'row',paddingLeft:'0',paddingBottom:'0',height:'210px',borderTopRightRadius: '25px',border: '2px solid #FF7400'}}>
-        <div className='card-details' style={{border:'none'}}>
+        <div className='card-details' style={{border:'none', width:'200px',paddingRight:'10px'}}>
             <h5 className='card-heading' style={{fontSize:'16px', fontWeight:'700'}}>{title}</h5>
             <p style={{fontSize:'12px'}}>{description}</p>
         </div>

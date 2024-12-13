@@ -44,7 +44,9 @@ function Services() {
         <div className="service-container">
           {
             services.map((service,index)=>(
-              <ServiceCard key={index} title={service.title} description={service.description} cost={service.cost} image={service.serviceImage} />
+              <ServiceCard key={index} title={service.title} description={service.description} cost={service.cost} image={service.serviceImage}
+                style={{height:'250px'}}
+               />
             ))
           }
         </div>

@@ -21,6 +21,7 @@ const ServiceCard = ({ title, description, cost, image}) => {
       flexDirection: 'column', 
       padding: '20px', 
       width: '380px', 
+      // height:'350px',/
       borderRadius: '15px', 
       border: '2px solid #FF7400', 
       boxShadow: '0px 4px 6px rgba(0, 0, 0, 0.1)', 
@@ -39,9 +40,12 @@ const ServiceCard = ({ title, description, cost, image}) => {
         src={image} 
         alt="Card Visual" 
         style={{
-          width: '100%', 
-          height: '160px', 
-          objectFit: 'cover'
+          marginLeft:'17px',
+          marginRight:'17px',
+          width: '90%', 
+          height: '180px', 
+          objectFit: 'fill',
+          borderRadius:'0px 25px 0px 25px'
         }} 
       />
     </div>

@@ -11,6 +11,8 @@ import ServiceCard from "./ServiceCard";
 
 function Services() {
   const uri = useContext(UriContext);
+  const role = localStorage.getItem("role");
+
   const navigate = useNavigate();
   const [services, setServices] = useState([]);
 
@@ -49,8 +51,12 @@ function Services() {
                />
             ))
           }
-        </div>
-        <Button href="/admin-service" style={{textAlign:'center', background: 'rgb(255, 116, 0)', border: 'none'}}>Add Services</Button>
+        </div>{
+          (role=='Admin' || role=='Priest') && (
+            <Button href="/admin-service" style={{textAlign:'center', background: 'rgb(255, 116, 0)', border: 'none'}}>Add Services</Button>
+
+          )
+        }
       <Footer />
     </div>
   );

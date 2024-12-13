@@ -7,57 +7,14 @@ import { useNavigate } from "react-router-dom";
 import Card from "../Card/Card";
 import { Button } from "react-bootstrap";
 
-const AnnouncementItem = ({ title, description, expanded, onClick }) => {
-  const handleClick = () => {
-    onClick();
-  };
-
-  return (
-    <div className="announcement-item">
-      <div className="announcement-title">{title}</div>
-      {expanded && (
-        <div className="announcement-description">{description}</div>
-      )}
-      {!expanded && (
-        <div className="announcement-expand">
-          <button className="announcement-expand-text" onClick={handleClick}>
-            &#9660;
-          </button>
-        </div>
-      )}
-    </div>
-  );
-};
-
-
-
-const announcements = [
-  {
-      title: 'Diwali Night',
-      description: 'Join us for the grand Diwali celebration with rituals, food, and cultural events. Everyone is welcome! Celebrate the festival of lights with us.',
-      image: 'card-image.jpg',
-  },
-  {
-      title: 'Navratri Festival',
-      description: 'Celebrate the nine nights of Navratri with us. Enjoy traditional dance, music, and rituals in honor of Goddess Durga.',
-      image: 'card-image.jpg',
-  },
-  {
-      title: 'Ganesha Chaturthi',
-      description: 'Participate in the grand Ganesha Chaturthi celebrations. Join us for prayers, rituals, and the immersion ceremony.',
-      image: 'card-image.jpg',
-  }
-];
-
 
 function HomePage() {
   const uri = useContext(UriContext);
   const role = localStorage.getItem("role");
   const [services, setServices] = useState([]);
   const navigate = useNavigate();
-  // const [announcements, setAnnouncements] = useState([]);
+  const [announcements, setAnnouncements] = useState([]);
 
-  // setAnnouncements(data)
   const fetchServices = async () => {
     if (role != "Priest") {
       try {
@@ -72,10 +29,16 @@ function HomePage() {
     else setServices([]);
   };
 
+  const fetchAnnouncements = async () => {
+    const response = await fetch(uri + "/announcements");
+    const data = await response.json();
+    setAnnouncements(data);
+  };
+
   useEffect(() => {
-    // fetchAnnouncements();
+    fetchAnnouncements();
     fetchServices();
-  }, []);
+  }, [uri]);
 
   const handleLogout = async () => {
     localStorage.removeItem("token");
@@ -85,11 +48,7 @@ function HomePage() {
     navigate("/");
   };
 
-  // const fetchAnnouncements = async () => {
-  //   const response = await fetch(uri + "/announcements");
-  //   const data = await response.json();
-  //   setAnnouncements(data);
-  // };
+
 
   return (
     <div className="container">
@@ -108,7 +67,13 @@ function HomePage() {
         <br/>  
         <div className="announcements-list">
           {announcements.map((announcement, index) => (
-            <Card key={index} title={announcement.title} description={announcement.description} image={announcement.image} />
+            <Card 
+              key={index} 
+              title={announcement.title} 
+              description={announcement.description} 
+              image={announcement.announcementImage} 
+              style={{height:'170px'}}
+              />
           ))}
         </div>
         <br/><br/>

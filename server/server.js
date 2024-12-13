@@ -43,6 +43,7 @@ app.use(
   })
 );
 
+// cors setup
 const corsOptions = {
   origin: "http://localhost:3000", // or use true to allow all origins
   credentials: true, // to support credentials like cookies
@@ -52,6 +53,7 @@ const corsOptions = {
 
 app.use(cors(corsOptions));
 
+// creating transporter
 const transporter = nodemailer.createTransport({
   service: "gmail",
   auth: {
@@ -321,9 +323,22 @@ app.get("/announcements", async (req, res) => {
   }
 });
 
-app.post("/add-announcement", async (req, res) => {
-  try {
-    const newAnnouncement = new Announcement(req.body);
+app.post("/add-announcement",upload.single("announcementImage"), async (req, res) => {
+
+    const  { title, description } = req.body;
+    const announcementImage = req.file
+    ? `data:image/jpeg;base64,${req.file.buffer.toString("base64")}`
+    : null;
+
+    console.log(announcementImage)
+
+    try {
+      const newAnnouncement = new Announcement({
+        title,
+        announcementImage,
+        description
+      });
+
     await newAnnouncement.save();
     res.status(201).json(newAnnouncement);
   } catch (error) {

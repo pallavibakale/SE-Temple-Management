@@ -8,9 +8,9 @@ const ServiceCard = ({ title, description, cost, image}) => {
     const navigate = useNavigate();
     const handleSchedule = () => {    
         if (role === "" || role =="Devotee") {
-          navigate("/login");
-        } else {
           navigate("/schedule-appointment");
+        } else {
+          navigate("/login");
         }
     };
   return (

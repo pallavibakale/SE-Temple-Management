@@ -9,42 +9,23 @@ import { Button } from "react-bootstrap";
 
 const imgSrc=[
   {
-    src: 'card-image.jpg',
+    src: 'gall5.jpg',
   },
   {
-    src: 'card-image.jpg',
+    src: 'gall4.jpg',
   },
   {
-    src: 'card-image.jpg'
+    src: 'gall8.jpg'
   },
   {
-    src: 'card-image.jpg',
+    src: 'gall 7.jpg',
   },
   {
-    src: 'card-image.jpg',
+    src: 'gall6.jpg',
   },
   {
-    src: 'card-image.jpg'
+    src: 'gall1.jpg'
   },
-  {
-    src: 'card-image.jpg',
-  },
-  {
-    src: 'card-image.jpg',
-  },
-  {
-    src: 'card-image.jpg'
-  },
-  {
-    src: 'card-image.jpg',
-  },
-  {
-    src: 'card-image.jpg',
-  },
-  {
-    src: 'card-image.jpg'
-  },
-
 ]
 
 const AboutUsCard = () => {
@@ -74,7 +55,7 @@ const AboutUsCard = () => {
       <br/><br/>
       <div className="gallery-section">
         {imgSrc.map((img, index) => (
-              <img key={index} src={img.src} alt="missing"/>
+              <img key={index} src={img.src} alt="missing" style={{height:'300px'}}/>
           ))
         }
       </div>

@@ -89,7 +89,7 @@ function AddServices() {
     <div className="container">
       <Navigation onLogout={handleLogout} />
       <main className="main-content">
-      <Container className="add-service-form-container">
+      <Container className="add-service-form-container" style={{width:'600px'}}>
       <h2 className="form-heading">Add Pooja Services</h2>
       <Form className="form-layout" onSubmit={handleAddService}>
         <Form.Group className="form-group">

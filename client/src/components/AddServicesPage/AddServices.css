@@ -1,9 +1,10 @@
 .add-service-form-container {
-    max-width: 600px;
+    width: 400px;
     margin: 50px auto;
     padding: 30px;
     border: 2px solid #ffa500;
     border-radius: 10px;
+    background-color: #fff;
   
   .form-heading {
     font-size: 40px;
@@ -15,6 +16,7 @@
   .form-layout {
     display: flex;
     flex-direction: column;
+    background: #fff;
   }
   
   .form-group {

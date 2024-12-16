@@ -11,7 +11,7 @@ const Confirmation =()=>{
             <div className='confirmation-section'>
                 <h3> Your Booking Has Been Confirmed</h3>
                 <p>Confirmation receipt has been sent to your email</p>
-                <Button>Back to Homepage</Button>
+                <Button href='/'>Back to Homepage</Button>
             </div>
 
             <div className='support-section'>

@@ -64,7 +64,7 @@ const Appointment = () => {
           body: JSON.stringify(formValues),
         });
         if (response.ok) {
-          navigate("/appointments");
+          navigate("/appointment-confirmation");
           // Optionally, you can redirect or show a success message here
         } else {
           console.error("Failed to book:", response.statusText);

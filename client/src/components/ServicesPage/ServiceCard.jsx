@@ -1,18 +1,31 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Button } from 'react-bootstrap'
 import { useNavigate } from 'react-router-dom';
 
 
 const ServiceCard = ({ title, description, cost, image}) => {
     const role = localStorage.getItem("role");
+    const [appointmentScheduled, setAppointmentScheduled] = useState(false);
     const navigate = useNavigate();
     const handleSchedule = () => {    
         if (role === "" || role =="Devotee") {
-          navigate("/login");
-        } else {
           navigate("/schedule-appointment");
+        } else {
+          navigate("/login");
         }
     };
+
+    const handleAppointmentScheduled = () => {
+      // Logic for scheduling the appointment goes here...
+      // After successful scheduling, update the state
+      setAppointmentScheduled(true);
+    };
+  
+    // Redirect to root route '/' if appointment is successfully scheduled
+    if (appointmentScheduled) {
+      navigate('/');
+    }
+
   return (
     <div 
     className="card" 

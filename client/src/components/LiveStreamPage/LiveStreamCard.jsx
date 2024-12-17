@@ -62,10 +62,10 @@ const LiveStreamCard = () => {
           </p>
           <p>
             LiveStreamed events are for all to enjoy, free of any charge, so
-            please come and sit in with us at Omkaar Temple.
+            please come and sit in with us at the Temple.
           </p>
-          <p>Aum Shanthi, Shanthi, Shanthi.</p>
-          <p>- The Omkaar Tech Team</p>
+          <p>Om Shanti, Shanti, Shanti.</p>
+          <p>- The Temple Management Team</p>
           <p>
             <em>
               P.S. "Like", Share and Subscribe to our
@@ -81,7 +81,7 @@ const LiveStreamCard = () => {
               are absolutely ecstatic about our endeavors please consider
               donating to the Temple
               <a
-                href="https://yourdonationlink.com"
+                href="/donate"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="donation-link"

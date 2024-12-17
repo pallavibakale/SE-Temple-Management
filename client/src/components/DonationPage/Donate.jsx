@@ -11,6 +11,13 @@ import { useNavigate } from "react-router-dom";
 
 const Donate = () => {
   const uri = useContext(UriContext);
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    const role = localStorage.getItem("role");
+    if (!token || role !== "Devotee") {
+      navigate("/login");
+    }
+  }, []);
   const navigate = useNavigate();
   const [formErrors, setFormErrors] = useState({});
   const [formValues, setFormValues] = useState({
@@ -50,7 +57,9 @@ const Donate = () => {
         });
         if (response.ok) {
           toast.success("Donation successful, thank you!");
-          navigate("/");
+          setTimeout(() => {
+            navigate("/");
+          }, 2000);
         } else {
           toast.error("Failed to donate. Please try again.");
         }
@@ -204,7 +213,11 @@ const Donate = () => {
             </div>
             <div className="col-50">
               <h3>Payment</h3>
-              <form onSubmit={handleSubmit} className="payment-form">
+              <form
+                onSubmit={handleSubmit}
+                className="payment-form"
+                style={{ paddingTop: "0" }}
+              >
                 <div className="credit-card-form">
                   <div className="card-details">
                     <div className="card-inputs">

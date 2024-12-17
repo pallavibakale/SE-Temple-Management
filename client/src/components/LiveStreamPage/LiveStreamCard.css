@@ -1,58 +1,65 @@
-
 .live-stream-card {
-    background-color:  #FFF7F0FF;
-    position: relative; /* Semi-transparent white background */
-    padding: 40px; /* Provides padding around the content */
-    margin: 20px 40px; /* Centers the card and provides margin on the top and bottom */
-    max-width: 1500px; /* Limits the maximum width of the card */
-    width: 80%; /* Sets the width to 80% of its container, you can adjust this as needed */
-    border-radius: 8px;
-    align-content: center;
-    align-items: center;
-    align-self: center;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    color: #312f2f; /* Ensures text is readable on a lighter background */
+  background-color: #fff7f0ff;
+  position: relative; /* Semi-transparent white background */
+  padding: 40px; /* Provides padding around the content */
+  margin: 20px 40px; /* Centers the card and provides margin on the top and bottom */
+  max-width: 1500px; /* Limits the maximum width of the card */
+  width: 80%; /* Sets the width to 80% of its container, you can adjust this as needed */
+  border-radius: 8px;
+  align-content: center;
+  align-items: center;
+  align-self: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  color: #312f2f; /* Ensures text is readable on a lighter background */
 }
 
 .live-stream-section h1 {
-    margin-left: auto; /* Aligns header to the center of its container */
-    margin-right: auto; /* Keeps it centered */
-    max-width: 1500px; /* Same as the card to keep width consistent */
-    width: 80%; /* Matches the card's width */
-    padding-left: 10px; /* Matches the card's left padding */
-    padding-right: 40px; /* Ensures padding is consistent on both sides */
-    color: #333;
-    text-align: left; /* Aligns the text to the left within the styled <h1> area */
+  margin-left: auto; /* Aligns header to the center of its container */
+  margin-right: auto; /* Keeps it centered */
+  max-width: 1500px; /* Same as the card to keep width consistent */
+  width: 80%; /* Matches the card's width */
+  padding-left: 10px; /* Matches the card's left padding */
+  padding-right: 40px; /* Ensures padding is consistent on both sides */
+  color: #333;
+  text-align: left; /* Aligns the text to the left within the styled <h1> area */
 }
 
-.live-stream-card p, .live-stream-card li {
-    color: #666;
-    line-height: 1.6;
+.live-stream-card p,
+.live-stream-card li {
+  color: #666;
+  line-height: 1.6;
 }
 
-.stream-link, .channel-link, .donation-link {
-    color: blue;
-    text-decoration: underline;
-    padding: 0 5px; /* Padding for links */
+.stream-link,
+.channel-link,
+.donation-link {
+  padding: 0 5px; /* Padding for links */
+  color: inherit;
+  text-decoration: none;
 }
 
-.stream-link:hover, .channel-link:hover, .donation-link:hover {
-    text-decoration: none;
+.stream-link:hover,
+.channel-link:hover,
+.donation-link:hover {
+  text-decoration: none;
+  color: inherit;
 }
 
 ul {
-    padding-left: 20px;
+  padding-left: 20px;
 }
 
 li {
-    margin-bottom: 10px;
+  margin-bottom: 10px;
 }
 
-.channel-link, .donation-link {
-    padding: 0 5px;
-    text-decoration: underline;
+.channel-link,
+.donation-link {
+  padding: 0 5px;
+  text-decoration: underline;
 }
 
-.channel-link:hover, .donation-link:hover {
-    text-decoration: none;
+.channel-link:hover,
+.donation-link:hover {
+  text-decoration: none;
 }

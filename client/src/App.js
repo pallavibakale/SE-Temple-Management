@@ -13,7 +13,6 @@ import AppointmentForm from "./components/AppointmentPage/AppointmentForm.jsx";
 import MyAppointment from "./components/ManageAppointments/MyAppointments";
 import PriestCard from "./components/PriestsPage/Priest.jsx";
 import Gallery from "./components/GalleryPage/Gallery.jsx";
-import DonationsCard from "./components/DonationPage/DonationsCard";
 import Donate from "./components/DonationPage/Donate.jsx";
 import CreatePriest from "./components/CreatePriest/CreatePriest.jsx";
 import PasswordReset from "./components/SignUpPage/PasswordReset.jsx";
@@ -21,7 +20,6 @@ import AppointmentConfirmation from "./components/AppointmentPage/AppointmentCon
 import ContactUsCard from "./components/ContactUsPage/ContactUs";
 import AddEventSection from "./components/AddEventsPage/AddEvent.jsx";
 import Livestreaming from "./components/Livestreaming/Livestreaming.jsx";
-
 import ViewDonations from "./components/ViewDonations/ViewDonations.jsx";
 import ManageUsers from "./components/ManageUsers/ManageUsers.jsx";
 
@@ -43,7 +41,10 @@ function App() {
             <Route path="/signup" element={<SignUp />} />
             <Route path="/admin-service" element={<AdminServices />} />
             <Route path="/schedule-appointment" element={<AppointmentForm />} />
-            <Route path="/appointment-confirmation" element={<AppointmentConfirmation />} />
+            <Route
+              path="/appointment-confirmation"
+              element={<AppointmentConfirmation />}
+            />
             <Route path="/appointments" element={<MyAppointment />} />
             <Route path="/priest" element={<PriestCard />} />
             <Route path="/add-event" element={<AddEventSection />} />
@@ -54,7 +55,6 @@ function App() {
             <Route path="/live-streaming" element={<Livestreaming />} />
             <Route path="/view-donations" element={<ViewDonations />} />
             <Route path="/manage-users" element={<ManageUsers />} />
-
           </Routes>
         </Router>
       </UriContext.Provider>

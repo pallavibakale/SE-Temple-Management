@@ -16,7 +16,6 @@ const LoginForm = () => {
   const [formValues, setFormValues] = useState({
     email: "",
     password: "",
-    
   });
 
   const handleSubmit = async (e) => {
@@ -37,12 +36,7 @@ const LoginForm = () => {
           localStorage.setItem("token", data.token);
           localStorage.setItem("id", data.user.empId);
           localStorage.setItem("role", data.user.role);
-          
-          if (data.user.role === "Admin") {
-            navigate("/admin-home");
-          } else {
-            navigate("/");
-          }
+          navigate("/");
         } else {
           toast.error(data.message);
         }
@@ -76,37 +70,47 @@ const LoginForm = () => {
     <div className="login-section">
       <Form className="login-form" onSubmit={handleSubmit}>
         <h2 className="form-title">Sign in</h2>
-        <button style={{   
-            width: '520px',
-            height: '44px',
-            padding: '0 16px',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            fontFamily: 'Inter',
-            fontSize: '16px',
-            lineHeight: '26px',
-            fontWeight: '400',
-            color: '#FFFFFF',
-            background: '#4E85EB',
-            border: 'none',
-            borderRadius: '6px',
-            gap: '6px',
-            cursor: 'pointer',
-            opacity: '1',
-          }}> 
-          <FaGoogle style={{marginRight: '5px'}} />
+        <button
+          style={{
+            width: "520px",
+            height: "44px",
+            padding: "0 16px",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            fontFamily: "Inter",
+            fontSize: "16px",
+            lineHeight: "26px",
+            fontWeight: "400",
+            color: "#FFFFFF",
+            background: "#4E85EB",
+            border: "none",
+            borderRadius: "6px",
+            gap: "6px",
+            cursor: "pointer",
+            opacity: "1",
+          }}
+        >
+          <FaGoogle style={{ marginRight: "5px" }} />
           Sign in with Google
         </button>
 
-        <p style={{fontSize: '14px', lineHeight: '22px', fontWeight: '400', color: '#9095A1FF', marginTop:'5px'}}>
-            <span style={{textDecoration: 'line-through',color:'#9095A1FF'}}>
-              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;                    
-            </span> 
-            &nbsp;or &nbsp;  
-            <span style={{textDecoration: 'line-through',color:'#9095A1FF'}}>
-              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;                    
-            </span>
+        <p
+          style={{
+            fontSize: "14px",
+            lineHeight: "22px",
+            fontWeight: "400",
+            color: "#9095A1FF",
+            marginTop: "5px",
+          }}
+        >
+          <span style={{ textDecoration: "line-through", color: "#9095A1FF" }}>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          </span>
+          &nbsp;or &nbsp;
+          <span style={{ textDecoration: "line-through", color: "#9095A1FF" }}>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          </span>
         </p>
         <Form.Group controlId="email" className="input-group">
           <Form.Label className="form-label">Email:</Form.Label>
@@ -115,19 +119,19 @@ const LoginForm = () => {
             name="email"
             value={formValues.email}
             style={{
-              width: '520px',
-              height: '36px',
-              paddingLeft: '15px',
-              paddingRight: '12px',
-              fontFamily: 'Inter',
-              fontSize: '14px',
-              lineHeight: '22px',
-              fontWeight: '400',
-              background: '#F3F4F6',
-              borderRadius: '6px',
-              borderWidth: '0px',
-              outline: 'none',
-              color: '#BDC1CA'
+              width: "520px",
+              height: "36px",
+              paddingLeft: "15px",
+              paddingRight: "12px",
+              fontFamily: "Inter",
+              fontSize: "14px",
+              lineHeight: "22px",
+              fontWeight: "400",
+              background: "#F3F4F6",
+              borderRadius: "6px",
+              borderWidth: "0px",
+              outline: "none",
+              color: "#BDC1CA",
             }}
             onChange={handleInputChange}
             placeholder="&#9993;  Email"
@@ -140,57 +144,64 @@ const LoginForm = () => {
             type="password"
             name="password"
             style={{
-              width: '520px',
-              height: '36px',
-              paddingLeft: '15px',
-              paddingRight: '12px',
-              fontFamily: 'Inter',
-              fontSize: '14px',
-              lineHeight: '22px',
-              fontWeight: '400',
-              background: '#F3F4F6',
-              borderRadius: '6px',
-              borderWidth: '0px',
-              outline: 'none',
-              color: '#BDC1CA'
+              width: "520px",
+              height: "36px",
+              paddingLeft: "15px",
+              paddingRight: "12px",
+              fontFamily: "Inter",
+              fontSize: "14px",
+              lineHeight: "22px",
+              fontWeight: "400",
+              background: "#F3F4F6",
+              borderRadius: "6px",
+              borderWidth: "0px",
+              outline: "none",
+              color: "#BDC1CA",
             }}
             value={formValues.password}
             onChange={handleInputChange}
             placeholder="&#128274;  Password"
             required
           />
-          
         </Form.Group>
-        
-        <div style={{display:'flex',alignItems:'center',justifyContent:'space-between'}}>
-          <p href="/forgot-password" className="text-muted forgot-password">Forgot Password?</p>
+
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "space-between",
+          }}
+        >
+          <p href="/forgot-password" className="text-muted forgot-password">
+            Forgot Password?
+          </p>
           <p className="login-link">
             Don't have an account? <a href="/signup">Sign up</a>
           </p>
         </div>
-       
 
-        <Button 
-          type="submit" 
+        <Button
+          type="submit"
           className="btn-success"
           style={{
-            width: '520px',
-            height: '44px',
-            padding: '0 10px',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            fontFamily: 'Inter',
-            fontSize: '16px',
-            lineHeight: '26px',
-            fontWeight: '400',
-            color: '#FFFFFF',
-            background: '#FF7400',
+            width: "520px",
+            height: "44px",
+            padding: "0 10px",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            fontFamily: "Inter",
+            fontSize: "16px",
+            lineHeight: "26px",
+            fontWeight: "400",
+            color: "#FFFFFF",
+            background: "#FF7400",
             opacity: 1,
-            border: 'none',
-            borderRadius: '6px',
-            cursor: 'pointer',
-          }}>
+            border: "none",
+            borderRadius: "6px",
+            cursor: "pointer",
+          }}
+        >
           Sign in
         </Button>
       </Form>

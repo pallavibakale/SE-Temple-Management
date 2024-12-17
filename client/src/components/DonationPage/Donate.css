@@ -101,10 +101,6 @@ input[type="checkbox"] {
   color: black;
 }
 
-.credit-card-form {
-  margin-top: 20px;
-}
-
 .card-details {
   /* border: 1px solid #ccc; */
   border-radius: 8px;
@@ -130,10 +126,6 @@ input[type="checkbox"] {
 .card-logo {
   width: 40px;
   margin-left: 10px;
-}
-
-.card-inputs {
-  margin-top: 20px;
 }
 
 .input-group {
@@ -170,11 +162,11 @@ input[type="checkbox"] {
   width: 80px;
 }
 
-.submit-button{
-  background-color:'#FF7400';
+.submit-button {
+  background-color: "#FF7400";
   width: 150px;
-  border:'none';
-  outline:'none';
-  border-radius:6px;
+  border: "none";
+  outline: "none";
+  border-radius: 6px;
   padding: 4px 10px;
-  }
+}

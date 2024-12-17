@@ -211,7 +211,11 @@ const Donate = () => {
             </div>
             <div className="col-50">
               <h3>Payment</h3>
-              <form onSubmit={handleSubmit} className="payment-form">
+              <form
+                onSubmit={handleSubmit}
+                className="payment-form"
+                style={{ paddingTop: "0" }}
+              >
                 <div className="credit-card-form">
                   <div className="card-details">
                     <div className="card-inputs">

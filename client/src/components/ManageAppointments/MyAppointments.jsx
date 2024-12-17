@@ -32,7 +32,7 @@ function MyAppointment() {
       navigate("/login");
     }
     fetchAppointments();
-  },[]);
+  }, []);
 
   const fetchAppointments = async () => {
     try {
@@ -94,47 +94,52 @@ function MyAppointment() {
   };
 
   const role = localStorage.getItem("role");
-  console.log(appointments);
-  
 
   return (
     <div className="container">
       <Navigation onLogout={handleLogout} />
       <Container fluid>
-        <Card style={{width: "100%", border: "none", marginTop: "30px"}}>
-          <h2 style={{textAlign: "center", marginBottom: "35px"}}>Appointments</h2>
+        <Card style={{ width: "100%", border: "none", marginTop: "30px" }}>
+          <h2 style={{ textAlign: "center", marginBottom: "35px" }}>
+            Appointments
+          </h2>
           <CardBody>
             <div className="table-container">
               {sortedAppointments.length > 0 ? (
-                  <table className="appointments-table">
-                    <thead>
-                      <tr>
-                        <th>Devotee Name</th>
-                        <th>Pooja Name</th>
-                        <th>Email</th>
-                        <th>Devotee Contact</th>
-                        <th>Date</th>
-                        <th>Action</th>
+                <table className="appointments-table">
+                  <thead>
+                    <tr>
+                      <th>Devotee Name</th>
+                      <th>Pooja Name</th>
+                      <th>Email</th>
+                      <th>Devotee Contact</th>
+                      <th>Date</th>
+                      <th>Action</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {sortedAppointments.map((appointment) => (
+                      <tr key={appointment._id}>
+                        <td className="name-cell">{appointment.firstName}</td>
+                        <td>{appointment.title}</td>
+                        <td>{appointment.email}</td>
+                        <td>{appointment.phone}</td>
+                        <td>
+                          {new Date(appointment.date).toLocaleDateString(
+                            "en-GB"
+                          )}
+                        </td>
+                        <td
+                          variant="danger"
+                          className="delete-button"
+                          onClick={() => handleDelete(appointment._id)}
+                        >
+                          Remove
+                        </td>
                       </tr>
-                    </thead>
-                    <tbody>
-                      {sortedAppointments.map((appointment) => (
-                        <tr key={appointment._id}>
-                          <td className="name-cell">{appointment.firstName}</td>
-                          <td>{appointment.title}</td>
-                          <td>{appointment.email}</td>
-                          <td>{appointment.phone}</td>
-                          <td>{new Date(appointment.date).toLocaleDateString('en-GB')}</td>
-                          <td variant="danger"
-                              className="delete-button"
-                              onClick={() => handleDelete(appointment._id)}
-                            >
-                              Remove
-                          </td>
-                        </tr>
-                      ))}
-                    </tbody>
-                  </table>
+                    ))}
+                  </tbody>
+                </table>
               ) : (
                 <p>No appointments found.</p>
               )}

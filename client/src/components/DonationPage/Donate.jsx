@@ -57,7 +57,9 @@ const Donate = () => {
         });
         if (response.ok) {
           toast.success("Donation successful, thank you!");
-          navigate("/");
+          setTimeout(() => {
+            navigate("/");
+          }, 2000);
         } else {
           toast.error("Failed to donate. Please try again.");
         }

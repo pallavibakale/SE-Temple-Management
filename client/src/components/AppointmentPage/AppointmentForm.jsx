@@ -43,11 +43,11 @@ const Appointment = () => {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ role: "Priest" }), // Ensure this matches server expectations
+        body: JSON.stringify({ role: "Priest" }),
       });
       if (response.ok) {
-        const data = await response.json(); // Corrected await
-        setPriests(data); // Assume data is an array of priest objects
+        const data = await response.json();
+        setPriests(data);
       } else {
         alert("Failed to fetch priests");
       }
